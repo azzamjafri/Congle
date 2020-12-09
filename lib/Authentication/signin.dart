@@ -1,3 +1,4 @@
+import 'package:congle/Authentication/verification_page.dart';
 import 'package:congle/colors.dart';
 import 'package:flutter/material.dart';
 
@@ -98,15 +99,15 @@ class _SignInState extends State<SignIn> {
           child: Stack(
             children: [
               Positioned(
-                top: MediaQuery.of(context).size.height / 3.4,
-                left: 70.0,
+                top: MediaQuery.of(context).size.height / 5.5,
+                left: 60.0,
                               child: Text("Log In",
                   style: TextStyle(
-                      color: Colors.white, fontFamily: 'ttnorms', fontSize: 26.0, fontWeight: FontWeight.bold, letterSpacing: 1.2),
+                      color: Colors.white, fontFamily: 'ttnorms', fontSize: 36.0, fontWeight: FontWeight.bold, letterSpacing: 1.2),
                 ),
               ),
               Positioned(
-                top: MediaQuery.of(context).size.height / 2.7,
+                top: MediaQuery.of(context).size.height / 3.6,
                 child: Container(
                   alignment: Alignment.bottomCenter,
                   height: 500.0,
@@ -122,7 +123,7 @@ class _SignInState extends State<SignIn> {
                   child: Form(
                     key: formkey,
                     child: Padding(
-                      padding: const EdgeInsets.only(left: 25.0),
+                      padding: const EdgeInsets.only(left: 30.0, top: 18.0),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -136,7 +137,7 @@ class _SignInState extends State<SignIn> {
                           color: Colors.black,
                           fontWeight: FontWeight.bold,
                           fontFamily: 'ttnorms',
-                          fontSize: 18.5, letterSpacing: 1.3),
+                          fontSize: 20, letterSpacing: 0.5),
                           ),
                           padding(2.0),
                           Text(
@@ -153,13 +154,14 @@ class _SignInState extends State<SignIn> {
 
 
                           Padding(
-                            padding: const EdgeInsets.only(bottom: 15.0),
+                            padding: const EdgeInsets.only(bottom: 15.0, top: 10.0),
                             child: Container(
                               width: MediaQuery.of(context).size.width * .8,
                               
                               
                               child: TextFormField(
                                 // key: __passwordkey,
+                                
                                 controller: emailController,
 
                                 enableInteractiveSelection: true,
@@ -265,6 +267,7 @@ class _SignInState extends State<SignIn> {
                               child: FlatButton(
                                   onPressed: () {
                                     // trysubmit(context);
+                                    Navigator.push(context, new MaterialPageRoute(builder: (context) => VerificationPage()));
                                   },
                                   child: (loading)
                                       ? CircularProgressIndicator()
@@ -304,33 +307,26 @@ class _SignInState extends State<SignIn> {
                               ],
                             ),
                           ),
-                          Container(
-                            height: 70,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Container(
-                                  width: 150,
-                                  height: 80,
-                                  decoration: BoxDecoration(
-                                    image: DecorationImage(
-                                        image: AssetImage('assets/logo.png'),
-                                        fit: BoxFit.fitHeight),
-                                  ),
-                                  child: Align(
-                                      alignment: Alignment(0.3, -.15),
-                                      child: Text(
-                                        "Signin",
-                                        style: TextStyle(
-                                            color: Colors.white, fontSize: 15),
-                                      )),
-                                ),
-                              ],
-                            ),
+                          padding(2.0),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+
+                              ClipRRect(
+                                  borderRadius: BorderRadius.circular(100.0),
+                                  child: Image.asset('assets/logo.jpg', height: 50.0, width: 50.0,),
+                              ),
+
+                              padding(10.0),
+                              ClipRRect(
+                                  borderRadius: BorderRadius.circular(100.0),
+                                  child: Image.asset('assets/logo.jpg', height: 50.0, width: 50.0,),
+                              )
+
+                            ],
                           ),
                           Padding(
-                            padding: const EdgeInsets.fromLTRB(0, 15, 0, 20),
+                            padding: const EdgeInsets.fromLTRB(0, 3, 0, 5),
                             child: GestureDetector(
                               onTap: () {},
                               child: Container(
@@ -347,10 +343,12 @@ class _SignInState extends State<SignIn> {
                                             TextSpan(
                                                 text: "Sign Up",
                                                 style: TextStyle(
-                                                    color: Colors.blueAccent))
-                                          ])))),
+                                                    color: pinkColor))
+                                          ]))
+                                          )),
                             ),
                           ),
+                          SizedBox(height: 15.0,),
                         ],
                       ),
                     ),
