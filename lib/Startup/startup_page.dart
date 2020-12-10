@@ -40,9 +40,9 @@ class _StartUpPageState extends State<StartUpPage> {
                     // color: Colors.grey[200],
                     fontWeight: FontWeight.bold,
                     letterSpacing: 1.5)),
-            Padding(padding: EdgeInsets.all(50.0)),
+            Padding(padding: EdgeInsets.all(37.0)),
             Container(
-              height: 35.0,
+              height: 42.0,
               width: 250.0,
               decoration: BoxDecoration(
                 color: Colors.pink[50],
@@ -73,9 +73,9 @@ class _StartUpPageState extends State<StartUpPage> {
                 )),
               ),
             ),
-            Padding(padding: EdgeInsets.all(5.0)),
+            Padding(padding: EdgeInsets.all(8.0)),
             Container(
-              height: 35.0,
+              height: 42.0,
               width: 250.0,
               decoration: BoxDecoration(
                 color: Colors.red,
@@ -98,9 +98,9 @@ class _StartUpPageState extends State<StartUpPage> {
                 ],
               )),
             ),
-            Padding(padding: EdgeInsets.all(5.0)),
+            Padding(padding: EdgeInsets.all(8.0)),
             Container(
-              height: 35.0,
+              height: 42.0,
               width: 250.0,
               decoration: BoxDecoration(
                 color: Colors.blueAccent[700],
@@ -123,7 +123,7 @@ class _StartUpPageState extends State<StartUpPage> {
                 ],
               )),
             ),
-            Padding(padding: EdgeInsets.all(2.0)),
+            Padding(padding: EdgeInsets.all(4.0)),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -136,7 +136,7 @@ class _StartUpPageState extends State<StartUpPage> {
               ],
             ),
             Padding(
-              padding: EdgeInsets.only(top: 42.0, bottom: 43.0),
+              padding: EdgeInsets.only(top: 40.0, bottom: 35.0),
             ),
             Align(
               alignment: Alignment.bottomCenter,

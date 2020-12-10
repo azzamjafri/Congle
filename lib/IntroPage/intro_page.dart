@@ -1,101 +1,131 @@
 import 'dart:async';
 
+import 'package:congle/IntroPage/user_info_about.dart';
 import 'package:congle/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:page_indicator/page_indicator.dart';
 
-
 class IntroPage extends StatefulWidget {
-  
   @override
   _IntroPageState createState() => _IntroPageState();
 }
 
 class _IntroPageState extends State<IntroPage> {
   Timer _timer;
-  int _currentPage=0;
-  final pageView= PageController(
-    initialPage: 0
-  );
-  final pageViewMain= PageController(
-      initialPage: 0
-  );
+  int _currentPage = 0;
+  final pageView = PageController(initialPage: 0);
+  final pageViewMain = PageController(initialPage: 0);
 
- @override
+  @override
   void initState() {
-    _timer=Timer.periodic(Duration(seconds: 5),(Timer timer){
-      if(_currentPage<3){
+    _timer = Timer.periodic(Duration(seconds: 40), (Timer timer) {
+      if (_currentPage < 3) {
         _currentPage++;
+      } else {
+        _currentPage = 0;
       }
-      else{
-        _currentPage=0;
-      }
-      pageView.animateToPage(_currentPage, duration: Duration(milliseconds: 350), curve: Curves.easeIn);
-
+      pageView.animateToPage(_currentPage,
+          duration: Duration(milliseconds: 450), curve: Curves.easeIn);
     });
     super.initState();
   }
+
   @override
   void dispose() {
     _timer.cancel();
     super.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-        actions: [
-          FlatButton(
-            child: Text("Skip",style:TextStyle(color: Colors.white)),
-            onPressed: (){
-              _timer.cancel();
-              pageView.animateToPage(3, duration: Duration(milliseconds: 350), curve: Curves.easeIn);
-            },
-          )
-        ],
-      ),
-        body: getBody(),
+      body: getBody(),
     );
   }
 
   getBody() {
-//    return PageView(
-//      controller: pageViewMain,
-//      children: [
-//        getPage1(),
-//
-//      ],
-//    );
-  return  PageIndicatorContainer(
-    child: PageView(
-      controller: pageView,
-      children: [
-        getPage1(),
-        getPage2(),
-        // getPage3(),
-        
-        getPage7()
-      ],
-    ),
-    length: 3,
-    align: IndicatorAlign.bottom,
-    indicatorColor: greyColor,
-    indicatorSelectorColor: pinkColor,
-  );
+    return PageIndicatorContainer(
+      child: PageView(
+        controller: pageView,
+        children: [
+
+          getPage1(),
+          getPage2(),
+          getPage3(),
+          
+          
+
+          
+          
+        ],
+      ),
+      length: 3,
+      shape: IndicatorShape.circle(size: 18.0),
+      align: IndicatorAlign.bottom,
+      padding: EdgeInsets.only(bottom: 50.0),
+      indicatorColor: Colors.grey[200],
+      indicatorSelectorColor: pinkColor,
+      
+    );
   }
 
-  getPage1() {
+  getPage3() {
+    
     return Stack(
       children: [
-        Container(
-          height: MediaQuery.of(context).size.height,
-          width: MediaQuery.of(context).size.width,
-          child: Image.asset("assets/intro1.jpg",fit: BoxFit.cover,),
+        Positioned(
+            top: 30.0,
+            left: 30.0,
+            child: IconButton(icon: Icon(Icons.arrow_back), onPressed: () {
+              Navigator.pop(context);
+            })),
+        Align(
+          alignment: Alignment(0.0, -0.35),
+                  child: Container(
+            height: MediaQuery.of(context).size.height / 2.0,
+            width: MediaQuery.of(context).size.width / 2.0,
+            child: Image.asset(
+              "assets/intro3.jpg",
+              fit: BoxFit.cover,
+            ),
+          ),
         ),
         Align(
-          alignment: Alignment(0,-.45),
-          child: Image.asset("assets/telepegif.gif",height: 125,width: 125,),
+          alignment: Alignment(0, .55),
+          child: Text(
+            "Book your table",
+            style: style(27.5),
+          ),
+        ),
+
+        Align(
+          alignment: Alignment(0, .62),
+          child: Text(
+            "Book a table @ your nearby cafes and restaurants",
+            style: TextStyle(
+              color: Colors.grey,
+              fontSize: 14.5,
+              fontFamily: 'ttnorms',
+            ),
+          ),
+        ),
+
+
+        GestureDetector(
+          onTap: (){
+            Navigator.push(context, new MaterialPageRoute(builder: (context) => UserInfoAbout()));
+          },
+                  child: Align(
+            alignment: Alignment(.65, .90),
+            child: Text(
+              "Get Started",
+              style: TextStyle(
+                color: Colors.grey,
+                fontSize: 15.5,
+                fontFamily: 'ttnorms',
+              ),
+            ),
+          ),
         ),
       ],
     );
@@ -104,72 +134,140 @@ class _IntroPageState extends State<IntroPage> {
   getPage2() {
     return Stack(
       children: [
-        Container(
-          height: MediaQuery.of(context).size.height,
-          width: MediaQuery.of(context).size.width,
-          child: Image.asset("assets/intro2.jpg",fit: BoxFit.cover,),
-        ),
+        Positioned(
+            top: 30.0,
+            left: 30.0,
+            child: IconButton(icon: Icon(Icons.arrow_back), onPressed: () {Navigator.pop(context);})),
         Align(
-          alignment: Alignment(0,0.5),
-          child: Text(
-            "100% Loan Guarantee as per profile",style: TextStyle(color: pinkColor,fontSize: 15,fontWeight: FontWeight.bold),
-          ),
-        )
-      ],
-    );
-  }
-  getPage3() {
-    return Stack(
-      children: [
-        Container(
-          height: MediaQuery.of(context).size.height,
-          width: MediaQuery.of(context).size.width,
-          child: Image.asset("assets/intro3.jpg",fit: BoxFit.cover,),
-        ),
-        Align(
-          alignment: Alignment(0,0.5),
-          child: Text(
-            "Telepe will not check Credit/CIBIL Score",style: TextStyle(color: pinkColor,fontSize: 15,fontWeight: FontWeight.bold),
-          ),
-        )
-      ],
-    );
-  }
-  
-  getPage7() {
-    return Stack(
-      children: [
-        Container(
-          height: MediaQuery.of(context).size.height,
-          width: MediaQuery.of(context).size.width,
-          child: Image.asset("assets/Intro/7.png",fit: BoxFit.cover,),
-        ),
-        Align(
-          alignment: Alignment(0,0.5),
-          child: Text(
-            "Quick & Convenient Application",style: TextStyle(color: pinkColor,fontSize: 15,fontWeight: FontWeight.bold),
-          ),
-        ),
-        Align(
-          alignment: Alignment(0,.6),
-          child:Text("100% Paperless")
-        ),
-        Align(
-          alignment: Alignment(0,.65),
-          child:  MaterialButton(
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10)
+          alignment: Alignment(0.0, -0.35),
+                  child: Container(
+            height: MediaQuery.of(context).size.height / 2.0,
+            width: MediaQuery.of(context).size.width / 2.0,
+            child: Image.asset(
+              "assets/intro2.jpg",
+              fit: BoxFit.cover,
             ),
-            color: pinkColor,
-            minWidth: MediaQuery.of(context).size.width/1.5,
-            child: Text("Register",style: TextStyle(color: Colors.white),),
-            onPressed: (){
-              
-            },
           ),
-        )
+        ),
+        Align(
+          alignment: Alignment(0, .55),
+          child: Text(
+            "Request Them For Date",
+            style: style(27.5),
+          ),
+        ),
+
+        
+        Align(
+          alignment: Alignment(0, .62),
+          child: Text(
+            "Find online singles near your location",
+            style: TextStyle(
+              color: Colors.grey,
+              fontSize: 14.5,
+              fontFamily: 'ttnorms',
+            ),
+          ),
+        ),
+
+        Align(
+          alignment: Alignment(0, .67),
+          child: Text(
+            " in just a single click",
+            style: TextStyle(
+              color: Colors.grey,
+              fontSize: 14.5,
+              fontFamily: 'ttnorms',
+            ),
+          ),
+        ),
+
+
+
+        Align(
+          alignment: Alignment(.6, .90),
+          child: Text(
+            "skip",
+            style: TextStyle(
+              color: Colors.grey,
+              fontSize: 15.5,
+              fontFamily: 'ttnorms',
+            ),
+          ),
+        ),
       ],
     );
+  }
 
+  getPage1() {
+    return Stack(
+      children: [
+        Positioned(
+            top: 30.0,
+            left: 30.0,
+            child: IconButton(icon: Icon(Icons.arrow_back), onPressed: () => Navigator.pop(context))),
+        Align(
+          alignment: Alignment(0.0, -0.35),
+                  child: Container(
+            height: MediaQuery.of(context).size.height / 2.0,
+            width: MediaQuery.of(context).size.width / 2.0,
+            child: Image.asset(
+              "assets/intro1.jpg",
+              fit: BoxFit.cover,
+            ),
+          ),
+        ),
+        Align(
+          alignment: Alignment(0, .55),
+          child: Text(
+            "Find Your Special Someone",
+            style: style(25.5),
+          ),
+        ),
+        Align(
+          alignment: Alignment(0, .62),
+          child: Text(
+            "Find online singles near your location",
+            style: TextStyle(
+              color: Colors.grey,
+              fontSize: 14.5,
+              fontFamily: 'ttnorms',
+            ),
+          ),
+        ),
+        Align(
+          alignment: Alignment(0, .67),
+          child: Text(
+            " in just a single click",
+            style: TextStyle(
+              color: Colors.grey,
+              fontSize: 14.5,
+              fontFamily: 'ttnorms',
+            ),
+          ),
+        ),
+        
+        Align(
+          alignment: Alignment(.6, .90),
+          child: Text(
+            "skip",
+            style: TextStyle(
+              color: Colors.grey,
+              fontSize: 15.5,
+              fontFamily: 'ttnorms',
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  style(size, [color = Colors.black]) {
+    return TextStyle(
+      color: color,
+      fontSize: size,
+      fontWeight: FontWeight.bold,
+      fontFamily: 'ttnorms',
+    );
   }
 }

@@ -62,11 +62,13 @@ class _VerifyOTPState extends State<VerifyOTP> {
                     children: [
                   TextSpan(
                       text: "mobile number +91 xxxxxxxxxx",
-                      style: TextStyle(
+                      style:
+                       TextStyle(
                         color: Colors.grey,
                         fontSize: 14.5,
                         fontFamily: 'ttnorms',
-                      )),
+                      )
+                      ),
                 ])),
             padding(12.0, 12.0),
 
