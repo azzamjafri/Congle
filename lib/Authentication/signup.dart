@@ -1,92 +1,25 @@
-import 'package:congle/Authentication/signup.dart';
+import 'package:congle/Authentication/signin.dart';
 import 'package:congle/Authentication/verification_page.dart';
 import 'package:congle/colors.dart';
 import 'package:flutter/material.dart';
 
-class SignIn extends StatefulWidget {
+class SignUp extends StatefulWidget {
   @override
-  _SignInState createState() => _SignInState();
+  _SignUpState createState() => _SignUpState();
 }
 
-class _SignInState extends State<SignIn> {
+class _SignUpState extends State<SignUp> {
   String currentText;
 
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  TextEditingController confirmPasswordController = TextEditingController();
   final key = new GlobalKey<ScaffoldState>();
   final formkey = GlobalKey<FormState>();
 
   // AuthResult authresult;
   bool loading = false;
 
-  // final auth = FirebaseAuth.instance;
-  // bool valid;
-
-  // void submit(String email, String password, BuildContext ctx) async {
-  //   try {
-  //     setState(() {
-  //       loading = true;
-  //     });
-
-  //     authresult = await auth.signInWithEmailAndPassword(
-  //         email: email, password: password);
-  //     setState(() {
-  //       loading = false;
-  //     });
-  //     user = authresult.user;
-  //     // Navigator.of(context).push(MaterialPageRoute(builder: (context) => HomePage()));
-  //     Navigator.pushAndRemoveUntil(
-  //         context,
-  //         MaterialPageRoute(builder: (context) => HomePage()),
-  //         (route) => false);
-  //   } on PlatformException catch (error) {
-  //     var message = ' An error occured, please check credentials';
-  //     if (error.message != null) {
-  //       message = error.message;
-  //     }
-
-  //     Alert(
-  //       context: context,
-  //       type: AlertType.error,
-  //       title: "Error",
-  //       buttons: [
-  //         DialogButton(
-  //           child: Text(
-  //             message,
-  //             style: TextStyle(color: Colors.black, fontSize: 10),
-  //           ),
-  //           color: Colors.white,
-  //           onPressed: () async {
-  //             Navigator.pop(context);
-  //           },
-  //         )
-  //       ],
-  //     ).show();
-  //     setState(() {
-  //       loading = false;
-  //     });
-  //   } catch (err) {
-  //     print(err);
-  //     setState(() {
-  //       loading = false;
-  //     });
-  //   }
-  // }
-
-  // void reset() async {
-  //   auth.sendPasswordResetEmail(email: emailController.text.trim());
-  // }
-
-  // void trysubmit(BuildContext context) async {
-  //   valid = formkey.currentState.validate();
-  //   FocusScope.of(context).unfocus();
-
-  //   if (valid) {
-  //     formkey.currentState.save();
-  //     submit(
-  //         emailController.text.trim(), passwordController.text.trim(), context);
-  //   }
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -100,18 +33,18 @@ class _SignInState extends State<SignIn> {
           child: Stack(
             children: [
               Positioned(
-                top: MediaQuery.of(context).size.height / 5.5,
+                top: MediaQuery.of(context).size.height / 6.3,
                 left: 60.0,
-                              child: Text("Log In",
+                              child: Text("Sign Up",
                   style: TextStyle(
                       color: Colors.white, fontFamily: 'ttnorms', fontSize: 36.0, fontWeight: FontWeight.bold, letterSpacing: 1.2),
                 ),
               ),
               Positioned(
-                top: MediaQuery.of(context).size.height / 3.6,
+                top: MediaQuery.of(context).size.height / 4.2,
                 child: Container(
                   alignment: Alignment.bottomCenter,
-                  height: 500.0,
+                  height: 550.0,
                   width: MediaQuery.of(context).size.width,
                   decoration: BoxDecoration(
                       color: Colors.white,
@@ -130,10 +63,10 @@ class _SignInState extends State<SignIn> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisSize: MainAxisSize.max,
                         children: [
-                          padding(8.0),
+                          padding(1.0),
 
                           Text(
-                            "Welcome Back",
+                            "Create Account",
                             style: TextStyle(
                           color: Colors.black,
                           fontWeight: FontWeight.bold,
@@ -142,7 +75,7 @@ class _SignInState extends State<SignIn> {
                           ),
                           padding(2.0),
                           Text(
-                            "Please login to your account",
+                            "Sign Up to get started!",
                             style: TextStyle(
                           color: Colors.grey,
                           
@@ -242,21 +175,53 @@ class _SignInState extends State<SignIn> {
                             ),
                           ),
 
-                          Container(
-                            width: MediaQuery.of(context).size.width * .8,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                GestureDetector(
-                                    onTap: () {
-                                      showDialog(context);
-                                    },
-                                    child: Text("Forget Password ?", style: TextStyle(color: pinkColor))),
-                              ],
+
+
+
+                          Padding(
+                            padding: const EdgeInsets.only(bottom: 6.0),
+                            child: Container(
+                              width: MediaQuery.of(context).size.width * .8,
+                              
+                              
+                              child: TextFormField(
+                                // key: __passwordkey,
+                                controller: confirmPasswordController,
+
+                                enableInteractiveSelection: true,
+                                decoration: InputDecoration(
+                                  fillColor: Colors.grey[200],
+                                  hoverColor: Colors.white,
+                                  filled: true,
+                                   enabledBorder: UnderlineInputBorder(
+                                        borderSide: BorderSide(color: Colors.white),
+                                        borderRadius: BorderRadius.circular(25.7),
+                                      ),
+                                    border: OutlineInputBorder(
+                                        // borderSide: BorderSide(width: 4),
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(30))),
+                                    prefixIcon: Padding(
+                                      padding: const EdgeInsets.fromLTRB(
+                                          10, 0, 10, 0),
+                                      child: Icon(
+                                        Icons.lock,
+                                        size: 35,
+                                        color: Colors.pink.withOpacity(.75),
+                                      ),
+                                    ),
+                                    hintText: "Confirm Password", 
+                                    hintStyle: TextStyle(fontSize: 12.0, color: pinkColor)
+                                    ),
+
+                                validator: (value) => value.compareTo(passwordController.text) == 0
+                                    ? 'Password must be 8 characters long'
+                                    : null,
+                              ),
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsets.all(10.0),
+                            padding: EdgeInsets.all(6.0),
                           ),
                           Container(
                               decoration: BoxDecoration(
@@ -264,7 +229,7 @@ class _SignInState extends State<SignIn> {
                                   borderRadius:
                                       BorderRadius.all(Radius.circular(30))),
                               height: 40.0,
-                              width: MediaQuery.of(context).size.width * .8,
+                              width: MediaQuery.of(context).size.width * .78,
                               child: FlatButton(
                                   onPressed: () {
                                     // trysubmit(context);
@@ -272,18 +237,18 @@ class _SignInState extends State<SignIn> {
                                   },
                                   child: (loading)
                                       ? CircularProgressIndicator()
-                                      : Text("Log in",
+                                      : Text("Sign Up",
                                           style: new TextStyle(
                                             color: Colors.white,
                                             fontSize: 20.0,
                                             letterSpacing: 2.0,
                                           )))),
+
                           Padding(
-                            padding: EdgeInsets.all(12.0),
+                            padding: EdgeInsets.all(8.0),
                           ),
                           Padding(
                             padding:
-                                
                                 const EdgeInsets.only(left: 30.0, right: 80.0),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -321,7 +286,7 @@ class _SignInState extends State<SignIn> {
                                     child: Image.asset('assets/logo.jpg', height: 50.0, width: 50.0,),
                                 ),
 
-                                padding(10.0),
+                                padding(8.0),
                                 ClipRRect(
                                     borderRadius: BorderRadius.circular(100.0),
                                     child: Image.asset('assets/logo.jpg', height: 50.0, width: 50.0,),
@@ -333,23 +298,26 @@ class _SignInState extends State<SignIn> {
                           Padding(
                             padding: const EdgeInsets.only(left: 30.0, right: 80.0),
                             child: GestureDetector(
-                              onTap: () => Navigator.pushReplacement(context, new MaterialPageRoute(builder: (context) => SignUp())),
+                              onTap: () {},
                               child: Container(
                                   height: 27,
                                   child: Align(
                                       alignment: Alignment.bottomCenter,
-                                      child: RichText(
-                                          text: TextSpan(
-                                              style: TextStyle(
-                                                  color: Colors.black87,
-                                                  fontSize: 13.0),
-                                              children: [
-                                            TextSpan(text: "New User ?  "),
-                                            TextSpan(
-                                                text: "Sign Up",
+                                      child: GestureDetector(
+                                        onTap: () => Navigator.pushReplacement(context, new MaterialPageRoute(builder: (context) => SignIn())),
+                                                                              child: RichText(
+                                            text: TextSpan(
                                                 style: TextStyle(
-                                                    color: pinkColor))
-                                          ]))
+                                                    color: Colors.black87,
+                                                    fontSize: 13.0),
+                                                children: [
+                                              TextSpan(text: "Already have an account ?  "),
+                                              TextSpan(
+                                                  text: "Sign In",
+                                                  style: TextStyle(
+                                                      color: pinkColor))
+                                            ])),
+                                      )
                                           )),
                             ),
                           ),

@@ -1,4 +1,5 @@
 import 'package:congle/Authentication/signin.dart';
+import 'package:congle/Authentication/signup.dart';
 import 'package:congle/colors.dart';
 import 'package:flutter/material.dart';
 
@@ -124,16 +125,19 @@ class _StartUpPageState extends State<StartUpPage> {
               )),
             ),
             Padding(padding: EdgeInsets.all(4.0)),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text("New to congle ?  ",
-                    style: TextStyle(color: Colors.white, fontSize: 11.0)),
-                Text(
-                  "Create an account",
-                  style: TextStyle(color: Colors.pink, fontSize: 13.0),
-                )
-              ],
+            GestureDetector(
+              onTap: () => Navigator.push(context, new MaterialPageRoute(builder: (context) => SignUp())),
+                          child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text("New to congle ?  ",
+                      style: TextStyle(color: Colors.white, fontSize: 11.0)),
+                  Text(
+                    "Create an account",
+                    style: TextStyle(color: Colors.pink, fontSize: 13.0),
+                  )
+                ],
+              ),
             ),
             Padding(
               padding: EdgeInsets.only(top: 40.0, bottom: 35.0),
