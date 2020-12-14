@@ -48,15 +48,9 @@ class _IntroPageState extends State<IntroPage> {
       child: PageView(
         controller: pageView,
         children: [
-
           getPage1(),
           getPage2(),
           getPage3(),
-          
-          
-
-          
-          
         ],
       ),
       length: 3,
@@ -65,23 +59,23 @@ class _IntroPageState extends State<IntroPage> {
       padding: EdgeInsets.only(bottom: 50.0),
       indicatorColor: Colors.grey[200],
       indicatorSelectorColor: pinkColor,
-      
     );
   }
 
   getPage3() {
-    
     return Stack(
       children: [
         Positioned(
             top: 30.0,
             left: 30.0,
-            child: IconButton(icon: Icon(Icons.arrow_back), onPressed: () {
-              Navigator.pop(context);
-            })),
+            child: IconButton(
+                icon: Icon(Icons.arrow_back),
+                onPressed: () {
+                  Navigator.pop(context);
+                })),
         Align(
           alignment: Alignment(0.0, -0.35),
-                  child: Container(
+          child: Container(
             height: MediaQuery.of(context).size.height / 2.0,
             width: MediaQuery.of(context).size.width / 2.0,
             child: Image.asset(
@@ -97,7 +91,6 @@ class _IntroPageState extends State<IntroPage> {
             style: style(27.5),
           ),
         ),
-
         Align(
           alignment: Alignment(0, .62),
           child: Text(
@@ -109,13 +102,12 @@ class _IntroPageState extends State<IntroPage> {
             ),
           ),
         ),
-
-
         GestureDetector(
-          onTap: (){
-            Navigator.push(context, new MaterialPageRoute(builder: (context) => UserInfoAbout()));
+          onTap: () {
+            Navigator.push(context,
+                new MaterialPageRoute(builder: (context) => UserInfoAbout()));
           },
-                  child: Align(
+          child: Align(
             alignment: Alignment(.65, .90),
             child: Text(
               "Get Started",
@@ -137,10 +129,14 @@ class _IntroPageState extends State<IntroPage> {
         Positioned(
             top: 30.0,
             left: 30.0,
-            child: IconButton(icon: Icon(Icons.arrow_back), onPressed: () {Navigator.pop(context);})),
+            child: IconButton(
+                icon: Icon(Icons.arrow_back),
+                onPressed: () {
+                  Navigator.pop(context);
+                })),
         Align(
           alignment: Alignment(0.0, -0.35),
-                  child: Container(
+          child: Container(
             height: MediaQuery.of(context).size.height / 2.0,
             width: MediaQuery.of(context).size.width / 2.0,
             child: Image.asset(
@@ -156,8 +152,6 @@ class _IntroPageState extends State<IntroPage> {
             style: style(27.5),
           ),
         ),
-
-        
         Align(
           alignment: Alignment(0, .62),
           child: Text(
@@ -169,7 +163,6 @@ class _IntroPageState extends State<IntroPage> {
             ),
           ),
         ),
-
         Align(
           alignment: Alignment(0, .67),
           child: Text(
@@ -181,17 +174,20 @@ class _IntroPageState extends State<IntroPage> {
             ),
           ),
         ),
-
-
-
         Align(
           alignment: Alignment(.6, .90),
-          child: Text(
-            "skip",
-            style: TextStyle(
-              color: Colors.grey,
-              fontSize: 15.5,
-              fontFamily: 'ttnorms',
+          child: GestureDetector(
+            onTap: () {
+              Navigator.push(context,
+                  new MaterialPageRoute(builder: (context) => UserInfoAbout()));
+            },
+            child: Text(
+              "skip",
+              style: TextStyle(
+                color: Colors.grey,
+                fontSize: 15.5,
+                fontFamily: 'ttnorms',
+              ),
             ),
           ),
         ),
@@ -205,10 +201,12 @@ class _IntroPageState extends State<IntroPage> {
         Positioned(
             top: 30.0,
             left: 30.0,
-            child: IconButton(icon: Icon(Icons.arrow_back), onPressed: () => Navigator.pop(context))),
+            child: IconButton(
+                icon: Icon(Icons.arrow_back),
+                onPressed: () => Navigator.pop(context))),
         Align(
           alignment: Alignment(0.0, -0.35),
-                  child: Container(
+          child: Container(
             height: MediaQuery.of(context).size.height / 2.0,
             width: MediaQuery.of(context).size.width / 2.0,
             child: Image.asset(
@@ -246,15 +244,20 @@ class _IntroPageState extends State<IntroPage> {
             ),
           ),
         ),
-        
         Align(
           alignment: Alignment(.6, .90),
-          child: Text(
-            "skip",
-            style: TextStyle(
-              color: Colors.grey,
-              fontSize: 15.5,
-              fontFamily: 'ttnorms',
+          child: GestureDetector(
+            onTap: () {
+              Navigator.push(context,
+                  new MaterialPageRoute(builder: (context) => UserInfoAbout()));
+            },
+            child: Text(
+              "skip",
+              style: TextStyle(
+                color: Colors.grey,
+                fontSize: 15.5,
+                fontFamily: 'ttnorms',
+              ),
             ),
           ),
         ),
