@@ -1,5 +1,7 @@
-import 'package:congle/Authentication/verify_otp.dart';
-import 'package:congle/colors.dart';
+
+import 'package:congle/Auxiliary/colors.dart';
+import 'package:congle/Auxiliary/custom_size.dart';
+
 import 'package:flutter/material.dart';
 
 
@@ -12,8 +14,15 @@ class AddPhoto extends StatefulWidget {
 class _AddPhotoState extends State<AddPhoto> {
   TextEditingController phoneController = new TextEditingController();
 
+
+
+
   @override
   Widget build(BuildContext context) {
+
+    double height = displayHeight(context);
+    double width = displayWidth(context);
+    
     return new Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
@@ -34,12 +43,13 @@ class _AddPhotoState extends State<AddPhoto> {
             // padding(32.0, 32.0),
             Center(
               child: Container(
-                height: 220.0,
+                height: height * 0.365,
                 child: Image.asset('assets/add_photo.jpg'),
               ),
             ),
+            padding(height / 23, 0.0),
             Padding(
-                padding: EdgeInsets.only(top: 10.0, bottom: 5.0),
+                padding: EdgeInsets.only(top: 5.0, bottom: 5.0),
                 child: Text(
                   "Add Your Photos",
                   style: TextStyle(
@@ -59,8 +69,8 @@ class _AddPhotoState extends State<AddPhoto> {
                 Padding(
                   padding: const EdgeInsets.fromLTRB(8.0, 0.0, 8.0, 8.0),
                   child: Container(
-                    height: 85.0,
-                    width: 70.0,
+                    height: 80.0,
+                    width: 65.0,
                     decoration: BoxDecoration(
                       color: Colors.grey[200],
                       borderRadius: BorderRadius.all(Radius.circular(9.0))),
@@ -76,8 +86,8 @@ class _AddPhotoState extends State<AddPhoto> {
                 Padding(
                   padding: const EdgeInsets.fromLTRB(8.0, 0.0, 8.0, 8.0),
                   child: Container(
-                    height: 85.0,
-                    width: 70.0,
+                    height: 80.0,
+                    width: 65.0,
                     decoration: BoxDecoration(
                       color: Colors.grey[200],
                       borderRadius: BorderRadius.all(Radius.circular(9.0))),
@@ -86,22 +96,28 @@ class _AddPhotoState extends State<AddPhoto> {
                 ),
               ],
             ),
-            padding(30.0, 30.0),
-            Container(
-                decoration: BoxDecoration(
-                    color: pinkColor,
-                    borderRadius: BorderRadius.all(Radius.circular(15.0))),
-                height: 43.0,
-                width: MediaQuery.of(context).size.width * .6,
-                child: FlatButton(
-                    onPressed: (){},
-                    child: Text("Continue",
-                        style: new TextStyle(
-                          color: Colors.white,
-                          fontSize: 20.0,
-                          letterSpacing: 2.0,
+            // padding(30.0, 30.0),
+            Align(
+              alignment: AlignmentDirectional.centerEnd,
+              child: Transform.translate(
+                offset: Offset(-width / 5, 25),
+                            child: Container(
+                    decoration: BoxDecoration(
+                        color: pinkColor,
+                        borderRadius: BorderRadius.all(Radius.circular(15.0))),
+                    height: 44.0,
+                    width: MediaQuery.of(context).size.width * .6,
+                    child: FlatButton(
+                        onPressed: (){},
+                        child: Text("Continue",
+                            style: new TextStyle(
+                              color: Colors.white,
+                              fontSize: 20.0,
+                              letterSpacing: 2.0,
 
-                        )))),
+                            )))),
+              ),
+            ),
                     padding(1.0, 25.0),
             
           ],

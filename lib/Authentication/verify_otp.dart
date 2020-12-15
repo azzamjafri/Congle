@@ -1,6 +1,9 @@
+import 'package:congle/Auxiliary/colors.dart';
+import 'package:congle/Auxiliary/custom_size.dart';
 import 'package:congle/IntroPage/intro_page.dart';
-import 'package:congle/colors.dart';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class VerifyOTP extends StatefulWidget {
   @override
@@ -15,7 +18,37 @@ class _VerifyOTPState extends State<VerifyOTP> {
 
   @override
   Widget build(BuildContext context) {
+    double height = displayHeight(context);
+    double width = displayWidth(context);
     return new Scaffold(
+      bottomNavigationBar: BottomAppBar(
+        
+    color: Colors.transparent,
+    child: Padding(
+      padding: const EdgeInsets.only(left: 50.0, bottom: 8.0),
+      child: RichText(
+                text: TextSpan(
+                    style: TextStyle(color: Colors.black87, fontSize: 13.0),
+                    children: [
+                      TextSpan(
+                          text: "By continuing you agree to our ",
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 10.5,
+                            fontFamily: 'ttnorms',
+                          )),
+                      TextSpan(
+                          text: "Terms and Privacy Policy ",
+                          style: TextStyle(
+                            color: pinkColor,
+                            fontSize: 11.0,
+                            fontFamily: 'ttnorms',
+                          )),
+                    ]),
+              ),
+    ),
+    elevation: 0,
+  ),
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: new Column(
@@ -25,7 +58,7 @@ class _VerifyOTPState extends State<VerifyOTP> {
             padding(30.0, 30.0),
             Center(
               child: Container(
-                height: 220.0,
+                height: height * .4,
                 child: Image.asset('assets/otp_verification.jpg'),
               ),
             ),
@@ -62,16 +95,13 @@ class _VerifyOTPState extends State<VerifyOTP> {
                     children: [
                   TextSpan(
                       text: "mobile number +91 xxxxxxxxxx",
-                      style:
-                       TextStyle(
+                      style: TextStyle(
                         color: Colors.grey,
                         fontSize: 14.5,
                         fontFamily: 'ttnorms',
-                      )
-                      ),
+                      )),
                 ])),
             padding(12.0, 12.0),
-
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -79,6 +109,11 @@ class _VerifyOTPState extends State<VerifyOTP> {
                   width: 50.0,
                   height: 50.0,
                   child: TextFormField(
+                    inputFormatters: [
+                      LengthLimitingTextInputFormatter(1),
+                    ],
+                    onEditingComplete: () => FocusScope.of(context).nextFocus(),
+                    // textInputAction: TextInputAction.next,
                     controller: digit1,
                     enableInteractiveSelection: true,
                     keyboardType: TextInputType.number,
@@ -98,6 +133,9 @@ class _VerifyOTPState extends State<VerifyOTP> {
                   width: 50.0,
                   height: 50.0,
                   child: TextFormField(
+                    inputFormatters: [
+                      LengthLimitingTextInputFormatter(1),
+                    ],
                     controller: digit2,
                     enableInteractiveSelection: true,
                     keyboardType: TextInputType.number,
@@ -117,6 +155,9 @@ class _VerifyOTPState extends State<VerifyOTP> {
                   width: 50.0,
                   height: 50.0,
                   child: TextFormField(
+                    inputFormatters: [
+                      LengthLimitingTextInputFormatter(1),
+                    ],
                     controller: digit3,
                     enableInteractiveSelection: true,
                     keyboardType: TextInputType.number,
@@ -136,6 +177,10 @@ class _VerifyOTPState extends State<VerifyOTP> {
                   width: 50.0,
                   height: 50.0,
                   child: TextFormField(
+                    inputFormatters: [
+                      LengthLimitingTextInputFormatter(1),
+                    ],
+                    // maxLength: 1,
                     controller: digit4,
                     enableInteractiveSelection: true,
                     keyboardType: TextInputType.number,
@@ -163,6 +208,7 @@ class _VerifyOTPState extends State<VerifyOTP> {
                 fontFamily: 'ttnorms',
               ),
             ),
+            
             FlatButton(
                 onPressed: () {},
                 splashColor: Colors.pink[200],
@@ -185,52 +231,50 @@ class _VerifyOTPState extends State<VerifyOTP> {
                 width: MediaQuery.of(context).size.width * .8,
                 child: FlatButton(
                     onPressed: () {
-                      Navigator.push(context, new MaterialPageRoute(builder: (context) => IntroPage()));
+                      Navigator.push(
+                          context,
+                          new MaterialPageRoute(
+                              builder: (context) => IntroPage()));
                     },
                     child: Text("Verify",
                         style: new TextStyle(
                           color: Colors.white,
-                          fontSize: 22.0,
+                          fontSize: 24.0,
                           fontWeight: FontWeight.bold,
                           letterSpacing: 0.6,
                           fontFamily: 'ttnorms',
-                        
-                        )
-                        )
-                        )),
-
-                        padding(12.0),
-            Text("Change Mobile Number", style: new TextStyle(
-                          color: Colors.black,
-                          fontSize: 13.5,
-                          
-                          fontFamily: 'ttnorms',
-                        
-                        )),
-            padding(70.0),
-            RichText(
-              text: TextSpan(
-                  style: TextStyle(color: Colors.black87, fontSize: 13.0),
-                  children: [
-                    TextSpan(
-                        text: "By continuing you agree to our ",
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 10.5,
-                          fontFamily: 'ttnorms',
-                        )),
-                    TextSpan(
-                        text: "Terms and Privacy Policy ",
-                        style: TextStyle(
-                          color: pinkColor,
-                          fontSize: 11.0,
-                          fontFamily: 'ttnorms',
-                        )),
-                  ]),
-            ),
-            SizedBox(
-              height: 50.0,
-            ),
+                        )))),
+            padding(12.0),
+            Text("Change Mobile Number",
+                style: new TextStyle(
+                  color: Colors.black,
+                  fontSize: 13.5,
+                  fontFamily: 'ttnorms',
+                )),
+            // padding(70.0),
+            // Align(
+            //   alignment: FractionalOffset.bottomCenter,
+            //   child: RichText(
+            //     text: TextSpan(
+            //         style: TextStyle(color: Colors.black87, fontSize: 13.0),
+            //         children: [
+            //           TextSpan(
+            //               text: "By continuing you agree to our ",
+            //               style: TextStyle(
+            //                 color: Colors.black,
+            //                 fontSize: 10.5,
+            //                 fontFamily: 'ttnorms',
+            //               )),
+            //           TextSpan(
+            //               text: "Terms and Privacy Policy ",
+            //               style: TextStyle(
+            //                 color: pinkColor,
+            //                 fontSize: 11.0,
+            //                 fontFamily: 'ttnorms',
+            //               )),
+            //         ]),
+            //   ),
+            // ),
           ],
         ),
       ),

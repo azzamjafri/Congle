@@ -1,7 +1,8 @@
 import 'dart:async';
 
+import 'package:congle/Auxiliary/colors.dart';
 import 'package:congle/IntroPage/user_info_about.dart';
-import 'package:congle/colors.dart';
+
 import 'package:flutter/material.dart';
 import 'package:page_indicator/page_indicator.dart';
 

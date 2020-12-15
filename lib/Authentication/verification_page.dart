@@ -1,5 +1,6 @@
 import 'package:congle/Authentication/verify_otp.dart';
-import 'package:congle/colors.dart';
+import 'package:congle/Auxiliary/colors.dart';
+
 import 'package:flutter/material.dart';
 
 class VerificationPage extends StatefulWidget {
@@ -9,9 +10,15 @@ class VerificationPage extends StatefulWidget {
 
 class _VerificationPageState extends State<VerificationPage> {
   TextEditingController phoneController = new TextEditingController();
+  @override
+  void initState() {
 
+    
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
+    print("${MediaQuery.of(context).size.height}");
     return new Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(

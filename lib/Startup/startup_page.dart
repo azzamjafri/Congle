@@ -1,6 +1,7 @@
 import 'package:congle/Authentication/signin.dart';
 import 'package:congle/Authentication/signup.dart';
-import 'package:congle/colors.dart';
+import 'package:congle/Auxiliary/colors.dart';
+
 import 'package:flutter/material.dart';
 
 class StartUpPage extends StatefulWidget {
@@ -41,19 +42,20 @@ class _StartUpPageState extends State<StartUpPage> {
                     // color: Colors.grey[200],
                     fontWeight: FontWeight.bold,
                     letterSpacing: 1.5)),
-            Padding(padding: EdgeInsets.all(37.0)),
+            Padding(padding: EdgeInsets.all(45.0)),
             Container(
-              height: 42.0,
-              width: 250.0,
+              height: 45.0,
+              width: 270.0,
               decoration: BoxDecoration(
                 color: Colors.pink[50],
                 border: Border.all(
                   color: Colors.transparent,
                 ),
-                borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                borderRadius: BorderRadius.all(Radius.circular(25.0)),
               ),
               child: GestureDetector(
-                onTap: () => Navigator.push(context, new MaterialPageRoute(builder: (context) => SignIn())),
+                onTap: () => Navigator.push(context,
+                    new MaterialPageRoute(builder: (context) => SignIn())),
                 child: Center(
                     child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -74,21 +76,40 @@ class _StartUpPageState extends State<StartUpPage> {
                 )),
               ),
             ),
-            Padding(padding: EdgeInsets.all(8.0)),
+            Padding(padding: EdgeInsets.all(6.0)),
             Container(
-              height: 42.0,
-              width: 250.0,
+              height: 45.0,
+              width: 270.0,
               decoration: BoxDecoration(
                 color: Colors.red,
                 border: Border.all(
                   color: Colors.transparent,
                 ),
-                borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                borderRadius: BorderRadius.all(Radius.circular(25.0)),
               ),
               child: Center(
                   child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
+                   Padding(padding: EdgeInsets.only(left: 5.0)),
+                  Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.all(Radius.circular(100.0)),
+                        border: Border.all(color: Colors.white, width: 1.2)),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(100.0),
+                      
+                      child: Image.asset(
+                        'assets/google.png',
+                        height: 30.0,
+                        width: 30.0,
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(left: 30.0, right: 0.0),
+                  ),
                   Text(
                     "Sign Up With Google",
                     style: TextStyle(
@@ -99,21 +120,40 @@ class _StartUpPageState extends State<StartUpPage> {
                 ],
               )),
             ),
-            Padding(padding: EdgeInsets.all(8.0)),
+            Padding(padding: EdgeInsets.all(6.0)),
             Container(
-              height: 42.0,
-              width: 250.0,
+              height: 45.0,
+              width: 270.0,
               decoration: BoxDecoration(
                 color: Colors.blueAccent[700],
                 border: Border.all(
                   color: Colors.transparent,
                 ),
-                borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                borderRadius: BorderRadius.all(Radius.circular(25.0)),
               ),
               child: Center(
                   child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
+                  Padding(padding: EdgeInsets.only(left: 5.0)),
+                  Container(
+                    decoration: BoxDecoration(
+                      // color: Colors.white,
+                      borderRadius: BorderRadius.all(Radius.circular(100.0)),
+                        border: Border.all(color: Colors.white, width: 1.2)),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(100.0),
+                      
+                      child: Image.asset(
+                        'assets/facebook_icon.png',
+                        height: 30.0,
+                        width: 30.0,
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(left: 30.0, right: 0.0),
+                  ),
                   Text(
                     "Sign Up With Facebook",
                     style: TextStyle(
@@ -126,8 +166,9 @@ class _StartUpPageState extends State<StartUpPage> {
             ),
             Padding(padding: EdgeInsets.all(4.0)),
             GestureDetector(
-              onTap: () => Navigator.push(context, new MaterialPageRoute(builder: (context) => SignUp())),
-                          child: Row(
+              onTap: () => Navigator.push(context,
+                  new MaterialPageRoute(builder: (context) => SignUp())),
+              child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text("New to congle ?  ",
@@ -140,7 +181,7 @@ class _StartUpPageState extends State<StartUpPage> {
               ),
             ),
             Padding(
-              padding: EdgeInsets.only(top: 40.0, bottom: 35.0),
+              padding: EdgeInsets.only(top: 20.0, bottom: 25.0),
             ),
             Align(
               alignment: Alignment.bottomCenter,

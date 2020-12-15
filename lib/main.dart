@@ -1,5 +1,6 @@
 
-import 'package:congle/colors.dart';
+
+import 'package:congle/Auxiliary/colors.dart';
 import 'package:flutter/material.dart';
 
 import 'Startup/startup_page.dart';

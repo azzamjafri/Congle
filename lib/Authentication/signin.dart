@@ -1,6 +1,8 @@
 import 'package:congle/Authentication/signup.dart';
 import 'package:congle/Authentication/verification_page.dart';
-import 'package:congle/colors.dart';
+import 'package:congle/Auxiliary/colors.dart';
+import 'package:congle/Auxiliary/custom_size.dart';
+
 import 'package:flutter/material.dart';
 
 class SignIn extends StatefulWidget {
@@ -90,6 +92,10 @@ class _SignInState extends State<SignIn> {
 
   @override
   Widget build(BuildContext context) {
+
+    double height = displayHeight(context);
+    double width = displayWidth(context);
+
     return Scaffold(
       backgroundColor: pinkColor,
       key: key,
@@ -111,7 +117,7 @@ class _SignInState extends State<SignIn> {
                 top: MediaQuery.of(context).size.height / 3.6,
                 child: Container(
                   alignment: Alignment.bottomCenter,
-                  height: 500.0,
+                  height: height * .80,
                   width: MediaQuery.of(context).size.width,
                   decoration: BoxDecoration(
                       color: Colors.white,
@@ -124,13 +130,13 @@ class _SignInState extends State<SignIn> {
                   child: Form(
                     key: formkey,
                     child: Padding(
-                      padding: const EdgeInsets.only(left: 30.0, top: 18.0),
+                      padding: const EdgeInsets.only(left: 30.0, top: 0.0),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisSize: MainAxisSize.max,
                         children: [
-                          padding(8.0),
+                          
 
                           Text(
                             "Welcome Back",
@@ -150,7 +156,7 @@ class _SignInState extends State<SignIn> {
                           fontSize: 14.5, letterSpacing: 0.5),
                           ),
 
-                          padding(3.0),
+                          padding(12.0),
 
 
 
@@ -200,7 +206,7 @@ class _SignInState extends State<SignIn> {
 
 
                           Padding(
-                            padding: const EdgeInsets.only(bottom: 15.0),
+                            padding: const EdgeInsets.only(bottom: 18.0),
                             child: Container(
                               width: MediaQuery.of(context).size.width * .8,
                               
@@ -256,14 +262,14 @@ class _SignInState extends State<SignIn> {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsets.all(10.0),
+                            padding: EdgeInsets.all(9.0),
                           ),
                           Container(
                               decoration: BoxDecoration(
                                   color: pinkColor,
                                   borderRadius:
                                       BorderRadius.all(Radius.circular(30))),
-                              height: 40.0,
+                              height: 43.0,
                               width: MediaQuery.of(context).size.width * .8,
                               child: FlatButton(
                                   onPressed: () {
@@ -284,7 +290,7 @@ class _SignInState extends State<SignIn> {
                           Padding(
                             padding:
                                 
-                                const EdgeInsets.only(left: 30.0, right: 80.0),
+                                const EdgeInsets.only(left: 45.0, right: 80.0),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
@@ -309,29 +315,29 @@ class _SignInState extends State<SignIn> {
                               ],
                             ),
                           ),
-                          padding(2.0),
+                          padding(8.0),
                           Padding(
-                            padding: const EdgeInsets.only(left: 30.0, right: 80.0),
+                            padding: const EdgeInsets.only(left: 45.0, right: 80.0),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
 
                                 ClipRRect(
                                     borderRadius: BorderRadius.circular(100.0),
-                                    child: Image.asset('assets/logo.jpg', height: 50.0, width: 50.0,),
+                                    child: Image.asset('assets/facebook_icon.png', height: 50.0, width: 50.0,),
                                 ),
 
-                                padding(10.0),
+                                padding(15.0),
                                 ClipRRect(
                                     borderRadius: BorderRadius.circular(100.0),
-                                    child: Image.asset('assets/logo.jpg', height: 50.0, width: 50.0,),
+                                    child: Image.asset('assets/google.png', height: 50.0, width: 50.0,),
                                 )
 
                               ],
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsets.only(left: 30.0, right: 80.0),
+                            padding: const EdgeInsets.only(left: 45.0, right: 80.0),
                             child: GestureDetector(
                               onTap: () => Navigator.pushReplacement(context, new MaterialPageRoute(builder: (context) => SignUp())),
                               child: Container(
@@ -353,7 +359,7 @@ class _SignInState extends State<SignIn> {
                                           )),
                             ),
                           ),
-                          SizedBox(height: 15.0,),
+                          SizedBox(height: 20.0,),
                         ],
                       ),
                     ),

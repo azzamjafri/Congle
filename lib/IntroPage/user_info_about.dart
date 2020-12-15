@@ -1,5 +1,7 @@
+import 'package:congle/Auxiliary/colors.dart';
+import 'package:congle/Auxiliary/custom_size.dart';
 import 'package:congle/IntroPage/add_photo.dart';
-import 'package:congle/colors.dart';
+
 import 'package:flutter/cupertino.dart';
 
 import 'package:flutter/material.dart';
@@ -32,6 +34,7 @@ class _UserInfoAboutState extends State<UserInfoAbout> {
 
   @override
   Widget build(BuildContext context) {
+    double height = displayHeight(context);
     return Scaffold(
       backgroundColor: pinkColor,
       key: key,
@@ -44,7 +47,8 @@ class _UserInfoAboutState extends State<UserInfoAbout> {
               Align(
                 alignment: Alignment.topCenter,
                               child: Container(
-                  height: 240.0,
+                  // height: 240.0,
+                  height: MediaQuery.of(context).size.height * (3 / 8) ,
                   width: MediaQuery.of(context).size.width,
                   child: Image.asset('assets/user_info_about.jpg', fit: BoxFit.fill,)
                 ),
@@ -71,7 +75,7 @@ class _UserInfoAboutState extends State<UserInfoAbout> {
                 top: MediaQuery.of(context).size.height / 3.1,
                 child: Container(
                   alignment: Alignment.bottomCenter,
-                  height: 500.0,
+                  height: height * 25 / 32,
                   width: MediaQuery.of(context).size.width,
                   decoration: BoxDecoration(
                       color: Colors.white,
@@ -139,7 +143,7 @@ class _UserInfoAboutState extends State<UserInfoAbout> {
                                       fontSize: 12.0, color: pinkColor)),
 
                               validator: (value) => value.isEmpty
-                                  ? 'Enter a valid email address'
+                                  ? 'Name cannot be empty'
                                   : null,
                             ),
                           ),
@@ -180,9 +184,19 @@ class _UserInfoAboutState extends State<UserInfoAbout> {
                                   hintStyle: TextStyle(
                                       fontSize: 12.0, color: pinkColor)),
 
-                              validator: (value) => value.length < 8
-                                  ? 'Password must be 8 characters long'
-                                  : null,
+                                      onTap: () async{
+                                        DateTime date = DateTime(1900);
+                                        FocusScope.of(context).requestFocus(new FocusNode());
+
+                                        date = await showDatePicker(
+                                                      context: context, 
+                                                      initialDate:DateTime.now(),
+                                                      firstDate:DateTime(1900),
+                                                      lastDate: DateTime(2100));
+
+                                        dobController.text = date.toIso8601String();}
+
+                              
                             ),
                           ),
                         ),
