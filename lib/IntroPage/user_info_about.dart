@@ -194,7 +194,7 @@ class _UserInfoAboutState extends State<UserInfoAbout> {
                                                       firstDate:DateTime(1900),
                                                       lastDate: DateTime(2100));
 
-                                        dobController.text = date.toIso8601String();}
+                                        dobController.text = date.toString().substring(0, 11);}
 
                               
                             ),

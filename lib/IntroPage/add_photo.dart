@@ -1,6 +1,7 @@
 
 import 'package:congle/Auxiliary/colors.dart';
 import 'package:congle/Auxiliary/custom_size.dart';
+import 'package:congle/IntroPage/user_about_me.dart';
 
 import 'package:flutter/material.dart';
 
@@ -27,7 +28,7 @@ class _AddPhotoState extends State<AddPhoto> {
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: new Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
 
@@ -43,11 +44,11 @@ class _AddPhotoState extends State<AddPhoto> {
             // padding(32.0, 32.0),
             Center(
               child: Container(
-                height: height * 0.365,
+                height: height * 0.38,
                 child: Image.asset('assets/add_photo.jpg'),
               ),
             ),
-            padding(height / 23, 0.0),
+            padding(height / 26, 0.0),
             Padding(
                 padding: EdgeInsets.only(top: 5.0, bottom: 5.0),
                 child: Text(
@@ -69,8 +70,8 @@ class _AddPhotoState extends State<AddPhoto> {
                 Padding(
                   padding: const EdgeInsets.fromLTRB(8.0, 0.0, 8.0, 8.0),
                   child: Container(
-                    height: 80.0,
-                    width: 65.0,
+                    height: height * .15,
+                    width: 80.0,
                     decoration: BoxDecoration(
                       color: Colors.grey[200],
                       borderRadius: BorderRadius.all(Radius.circular(9.0))),
@@ -86,8 +87,8 @@ class _AddPhotoState extends State<AddPhoto> {
                 Padding(
                   padding: const EdgeInsets.fromLTRB(8.0, 0.0, 8.0, 8.0),
                   child: Container(
-                    height: 80.0,
-                    width: 65.0,
+                    height: height * .15,
+                    width: 80.0,
                     decoration: BoxDecoration(
                       color: Colors.grey[200],
                       borderRadius: BorderRadius.all(Radius.circular(9.0))),
@@ -108,7 +109,7 @@ class _AddPhotoState extends State<AddPhoto> {
                     height: 44.0,
                     width: MediaQuery.of(context).size.width * .6,
                     child: FlatButton(
-                        onPressed: (){},
+                        onPressed: () => Navigator.push(context, new MaterialPageRoute(builder: (context) => UserAboutMe())),
                         child: Text("Continue",
                             style: new TextStyle(
                               color: Colors.white,
@@ -118,7 +119,9 @@ class _AddPhotoState extends State<AddPhoto> {
                             )))),
               ),
             ),
-                    padding(1.0, 25.0),
+            
+            padding(15.0, 25.0),
+                    // padding(10.0, 25.0),
             
           ],
         ),

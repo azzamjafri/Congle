@@ -269,7 +269,7 @@ class _SignInState extends State<SignIn> {
                                   color: pinkColor,
                                   borderRadius:
                                       BorderRadius.all(Radius.circular(30))),
-                              height: 43.0,
+                              // height: 43.0,
                               width: MediaQuery.of(context).size.width * .8,
                               child: FlatButton(
                                   onPressed: () {

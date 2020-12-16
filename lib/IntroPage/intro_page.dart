@@ -40,6 +40,7 @@ class _IntroPageState extends State<IntroPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // appBar: AppBar(),
       body: getBody(),
     );
   }
@@ -66,14 +67,14 @@ class _IntroPageState extends State<IntroPage> {
   getPage3() {
     return Stack(
       children: [
-        Positioned(
-            top: 30.0,
-            left: 30.0,
-            child: IconButton(
-                icon: Icon(Icons.arrow_back),
-                onPressed: () {
-                  Navigator.pop(context);
-                })),
+        // Positioned(
+        //     top: 30.0,
+        //     left: 30.0,
+        //     child: IconButton(
+        //         icon: Icon(Icons.arrow_back),
+        //         onPressed: () {
+        //           Navigator.pop(context);
+        //         })),
         Align(
           alignment: Alignment(0.0, -0.35),
           child: Container(
@@ -127,14 +128,14 @@ class _IntroPageState extends State<IntroPage> {
   getPage2() {
     return Stack(
       children: [
-        Positioned(
-            top: 30.0,
-            left: 30.0,
-            child: IconButton(
-                icon: Icon(Icons.arrow_back),
-                onPressed: () {
-                  Navigator.pop(context);
-                })),
+        // Positioned(
+        //     top: 30.0,
+        //     left: 30.0,
+        //     child: IconButton(
+        //         icon: Icon(Icons.arrow_back),
+        //         onPressed: () {
+        //           Navigator.pop(context);
+        //         })),
         Align(
           alignment: Alignment(0.0, -0.35),
           child: Container(
@@ -199,12 +200,12 @@ class _IntroPageState extends State<IntroPage> {
   getPage1() {
     return Stack(
       children: [
-        Positioned(
-            top: 30.0,
-            left: 30.0,
-            child: IconButton(
-                icon: Icon(Icons.arrow_back),
-                onPressed: () => Navigator.pop(context))),
+        // Positioned(
+        //     top: 30.0,
+        //     left: 30.0,
+        //     child: IconButton(
+        //         icon: Icon(Icons.arrow_back),
+        //         onPressed: () => Navigator.pop(context))),
         Align(
           alignment: Alignment(0.0, -0.35),
           child: Container(
