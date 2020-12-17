@@ -11,23 +11,35 @@ class MyAppBar extends StatelessWidget {
       backgroundColor: pinkColor,
       automaticallyImplyLeading: false,
       shape: RoundedRectangleBorder(
-          borderRadius:
-              BorderRadius.vertical(bottom: Radius.circular(30.0))),
-      centerTitle: false,
+          borderRadius: BorderRadius.vertical(bottom: Radius.circular(30.0))),
+      // centerTitle: false,
       title: Row(
+        
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
-          Container(
-            child: IconButton(
-                onPressed: () {}, icon: Icon(Icons.person_outline)),
+          Card(
+            
+            elevation: 12.0,
+            color: pinkColor,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(100.0),
+            ),
+            child: Container(
+              height: height / 16,
+              width: height / 16,
+                  decoration: BoxDecoration(
+                      // color: Colors.white,
+                      borderRadius: BorderRadius.all(Radius.circular(100.0)),
+                        border: Border.all(color: Colors.white, width: 1.2)),
+                  child: IconButton(onPressed: () {}, icon: Icon(Icons.person_outline, size: height / 32))),
           ),
           new Column(
-            children: [Icon(Icons.calendar_today), Text("Dates")],
+            children: [Icon(Icons.calendar_today, size: height / 32,), Text("Dates", style: style(),)],
           ),
           Container(
-              height: 60.0,
-              width: 60.0,
+              height: height / 12,
+              width: height / 12,
               decoration: BoxDecoration(
                 boxShadow: [
                   BoxShadow(
@@ -45,13 +57,17 @@ class MyAppBar extends StatelessWidget {
               ),
               child: Image.asset('assets/logo.png')),
           new Column(
-            children: [Icon(Icons.chat), Text("Chat")],
+            children: [Icon(Icons.chat, size: height / 32,), Text("Chat", style: style(), )],
           ),
           new Column(
-            children: [Icon(Icons.menu), Text("Settings")],
+            children: [Icon(Icons.menu, size: height / 32,), Text("Settings", style: style(),)],
           ),
         ],
       ),
     );
+  }
+
+  style() {
+    return TextStyle(fontSize: 14.0,);
   }
 }
