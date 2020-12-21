@@ -8,6 +8,7 @@ class MyAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     double height = displayHeight(context);
     return AppBar(
+      toolbarHeight: height * .140,
       backgroundColor: pinkColor,
       automaticallyImplyLeading: false,
       shape: RoundedRectangleBorder(
@@ -26,8 +27,8 @@ class MyAppBar extends StatelessWidget {
               borderRadius: BorderRadius.circular(100.0),
             ),
             child: Container(
-              height: height / 16,
-              width: height / 16,
+              height: height / 16 + 3,
+              width: height / 16 +  3,
                   decoration: BoxDecoration(
                       // color: Colors.white,
                       borderRadius: BorderRadius.all(Radius.circular(100.0)),
@@ -35,32 +36,32 @@ class MyAppBar extends StatelessWidget {
                   child: IconButton(onPressed: () {}, icon: Icon(Icons.person_outline, size: height / 32))),
           ),
           new Column(
-            children: [Icon(Icons.calendar_today, size: height / 32,), Text("Dates", style: style(),)],
+            children: [Icon(Icons.calendar_today, size: height / 32 + 6,), Text("Dates", style: style(),)],
           ),
           Container(
-              height: height / 12,
-              width: height / 12,
+              height: height / 12 + 6,
+              width: height / 12 + 6,
               decoration: BoxDecoration(
                 boxShadow: [
                   BoxShadow(
                     color: Colors.grey.withOpacity(0.5),
-                    spreadRadius: 5,
-                    blurRadius: 7,
-                    offset: Offset(0, 5), // changes position of shadow
+                    spreadRadius: 1,
+                    blurRadius: 0,
+                    offset: Offset(1, 3), // changes position of shadow
                   ),
                 ],
                 color: pinkColor,
                 border: Border.all(
                   color: Colors.transparent,
                 ),
-                borderRadius: BorderRadius.all(Radius.circular(12.0)),
+                borderRadius: BorderRadius.all(Radius.circular(80.0)),
               ),
               child: Image.asset('assets/logo.png')),
           new Column(
-            children: [Icon(Icons.chat, size: height / 32,), Text("Chat", style: style(), )],
+            children: [Icon(Icons.chat, size: height / 32 + 6,), Text("Chat", style: style(), )],
           ),
           new Column(
-            children: [Icon(Icons.menu, size: height / 32,), Text("Settings", style: style(),)],
+            children: [Icon(Icons.menu, size: height / 32 + 6,), Text("Settings", style: style(),)],
           ),
         ],
       ),

@@ -42,6 +42,7 @@ class _IntroPageState extends State<IntroPage> {
     return Scaffold(
       // appBar: AppBar(),
       body: getBody(),
+      backgroundColor: Colors.pink[50],
     );
   }
 
@@ -59,7 +60,7 @@ class _IntroPageState extends State<IntroPage> {
       shape: IndicatorShape.circle(size: 18.0),
       align: IndicatorAlign.bottom,
       padding: EdgeInsets.only(bottom: 50.0),
-      indicatorColor: Colors.grey[200],
+      indicatorColor: Colors.white,
       indicatorSelectorColor: pinkColor,
     );
   }
@@ -76,13 +77,14 @@ class _IntroPageState extends State<IntroPage> {
         //           Navigator.pop(context);
         //         })),
         Align(
-          alignment: Alignment(0.0, -0.35),
+          alignment: Alignment(0.0, -0.6),
           child: Container(
-            height: MediaQuery.of(context).size.height / 2.0,
-            width: MediaQuery.of(context).size.width / 2.0,
+            height: MediaQuery.of(context).size.height / 1.5,
+            width: MediaQuery.of(context).size.width / 1.0,
             child: Image.asset(
-              "assets/intro3.jpg",
-              fit: BoxFit.cover,
+              // "assets/intro3.jpg",
+              "assets/tab3.png",
+              fit: BoxFit.fill,
             ),
           ),
         ),
@@ -137,12 +139,13 @@ class _IntroPageState extends State<IntroPage> {
         //           Navigator.pop(context);
         //         })),
         Align(
-          alignment: Alignment(0.0, -0.35),
+          alignment: Alignment(0.0, -0.5),
           child: Container(
-            height: MediaQuery.of(context).size.height / 2.0,
-            width: MediaQuery.of(context).size.width / 2.0,
+            height: MediaQuery.of(context).size.height / 1.5,
+            width: MediaQuery.of(context).size.width / 1.0,
             child: Image.asset(
-              "assets/intro2.jpg",
+              // "assets/intro2.jpg",
+              "assets/tab2.png",
               fit: BoxFit.cover,
             ),
           ),
@@ -184,7 +187,7 @@ class _IntroPageState extends State<IntroPage> {
                   new MaterialPageRoute(builder: (context) => UserInfoAbout()));
             },
             child: Text(
-              "skip",
+              "Skip",
               style: TextStyle(
                 color: Colors.grey,
                 fontSize: 15.5,
@@ -207,13 +210,17 @@ class _IntroPageState extends State<IntroPage> {
         //         icon: Icon(Icons.arrow_back),
         //         onPressed: () => Navigator.pop(context))),
         Align(
-          alignment: Alignment(0.0, -0.35),
+          alignment: Alignment(0.0, -0.6),
           child: Container(
-            height: MediaQuery.of(context).size.height / 2.0,
-            width: MediaQuery.of(context).size.width / 2.0,
+            // color: pinkColor,
+            height: MediaQuery.of(context).size.height / 1.5,
+            width: MediaQuery.of(context).size.width / 1.0,
             child: Image.asset(
-              "assets/intro1.jpg",
-              fit: BoxFit.cover,
+              // "assets/intro1.jpg",
+              "assets/tab1.png",
+              
+              scale: 0.8,
+              fit: BoxFit.fill,
             ),
           ),
         ),
@@ -254,9 +261,9 @@ class _IntroPageState extends State<IntroPage> {
                   new MaterialPageRoute(builder: (context) => UserInfoAbout()));
             },
             child: Text(
-              "skip",
+              "Skip",
               style: TextStyle(
-                color: Colors.grey,
+                color: Colors.grey[500],
                 fontSize: 15.5,
                 fontFamily: 'ttnorms',
               ),
