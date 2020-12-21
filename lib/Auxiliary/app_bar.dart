@@ -56,7 +56,7 @@ class MyAppBar extends StatelessWidget {
                 ),
                 borderRadius: BorderRadius.all(Radius.circular(80.0)),
               ),
-              child: Image.asset('assets/logo.png')),
+              child: Image.asset('assets/icons/logo.png')),
           new Column(
             children: [Icon(Icons.chat, size: height / 32 + 6,), Text("Chat", style: style(), )],
           ),

@@ -289,13 +289,13 @@ class _SignUpState extends State<SignUp> {
 
                                 ClipRRect(
                                     borderRadius: BorderRadius.circular(100.0),
-                                    child: Image.asset('assets/facebook_icon.png', height: 50.0, width: 50.0,),
+                                    child: Image.asset('assets/icons/facebook_icon.png', height: 50.0, width: 50.0,),
                                 ),
 
                                 padding(10.0),
                                 ClipRRect(
                                     borderRadius: BorderRadius.circular(100.0),
-                                    child: Image.asset('assets/google.png', height: 50.0, width: 50.0,),
+                                    child: Image.asset('assets/icons/google.png', height: 50.0, width: 50.0,),
                                 )
 
                               ],

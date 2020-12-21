@@ -32,7 +32,7 @@ class _StartUpPageState extends State<StartUpPage> {
                     ),
                     borderRadius: BorderRadius.all(Radius.circular(25.0)),
                   ),
-                  child: Image.asset('assets/logo.png')),
+                  child: Image.asset('assets/icons/logo.png')),
             ),
             Text("CONGLE",
                 style: TextStyle(
@@ -101,7 +101,7 @@ class _StartUpPageState extends State<StartUpPage> {
                       borderRadius: BorderRadius.circular(100.0),
                       
                       child: Image.asset(
-                        'assets/google.png',
+                        'assets/icons/google.png',
                         height: 30.0,
                         width: 30.0,
                       ),
@@ -145,7 +145,7 @@ class _StartUpPageState extends State<StartUpPage> {
                       borderRadius: BorderRadius.circular(100.0),
                       
                       child: Image.asset(
-                        'assets/facebook_icon.png',
+                        'assets/icons/facebook_icon.png',
                         height: 30.0,
                         width: 30.0,
                       ),

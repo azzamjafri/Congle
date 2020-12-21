@@ -1,6 +1,7 @@
 import 'package:congle/Auxiliary/app_bar.dart';
 import 'package:congle/Auxiliary/colors.dart';
 import 'package:congle/Auxiliary/custom_size.dart';
+import 'package:congle/HomePage/home_page.dart';
 import 'package:flutter/material.dart';
 
 bool choose = false;
@@ -170,7 +171,9 @@ class _UserAboutMeState extends State<UserAboutMe> {
                           height: 45.0,
                           width: MediaQuery.of(context).size.width * .8,
                           child: FlatButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.push(context, new MaterialPageRoute(builder: (context) => HomePage()));
+                              },
                               child: Text("Continue",
                                   style: new TextStyle(
                                     color: Colors.white,
@@ -286,8 +289,8 @@ class _UserAboutMeState extends State<UserAboutMe> {
                 // color: pinkColor,
                 borderRadius: BorderRadius.all(Radius.circular(100))),
             child: ClipRRect(
-                borderRadius: BorderRadius.circular(100.0),
-                child: Image.asset('assets/logo.png'))),
+                borderRadius: BorderRadius.circular(120.0),
+                child: Image.asset('assets/icons/facebook_icon.png'))),
         Positioned(
           top: 85.0,
           left: 85.0,
@@ -320,7 +323,9 @@ class _UserAboutMeState extends State<UserAboutMe> {
         height: 45.0,
         width: MediaQuery.of(context).size.width * .8,
         child: FlatButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(context, new MaterialPageRoute(builder: (context) => HomePage()));
+            },
             child: Text("Save",
                 style: new TextStyle(
                   color: Colors.white,
