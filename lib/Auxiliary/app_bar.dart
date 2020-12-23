@@ -46,8 +46,8 @@ class MyAppBar extends StatelessWidget {
                   BoxShadow(
                     color: Colors.grey.withOpacity(0.5),
                     spreadRadius: 1,
-                    blurRadius: 0,
-                    offset: Offset(1, 3), // changes position of shadow
+                    blurRadius: 2,
+                    offset: Offset(0, 0), // changes position of shadow
                   ),
                 ],
                 color: pinkColor,

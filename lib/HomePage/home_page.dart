@@ -1,6 +1,8 @@
 import 'package:congle/Auxiliary/app_bar.dart';
-import 'package:congle/Auxiliary/colors.dart';
+import 'package:congle/Auxiliary/bottom_nav_bar.dart';
+
 import 'package:congle/Auxiliary/custom_size.dart';
+import 'package:congle/HomePage/home_page_detailed.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -31,7 +33,7 @@ class _HomePageState extends State<HomePage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              padding(5.0, 3.0),
+              padding(5.0, 5.0),
               Container(
                 width: width / 1.2,
                 child: Card(
@@ -50,7 +52,7 @@ class _HomePageState extends State<HomePage> {
                             children: [
                               Text(
                                 'search online',
-                                style: myStyle(15.0),
+                                style: myStyle(16.0),
                               ),
                               
                               ToggleButtons(
@@ -60,20 +62,20 @@ class _HomePageState extends State<HomePage> {
                                 borderRadius: BorderRadius.circular(12.0),
                                 children: <Widget>[
                                   Container(
-                                    height: 20.0,
+                                    height: 18.0,
                                     width: 15.0,
                                     decoration: BoxDecoration(
                                         color: isSelected[0]
-                                            ? Colors.green
+                                            ? Colors.grey
                                             : Colors.transparent,
                                         shape: BoxShape.circle),
                                   ),
                                   Container(
-                                    height: 20.0,
+                                    height: 18.0,
                                     width: 15.0,
                                     decoration: BoxDecoration(
                                         color: isSelected[1]
-                                            ? Colors.green
+                                            ? Colors.greenAccent
                                             : Colors.transparent,
                                         shape: BoxShape.circle),
                                   ),
@@ -90,11 +92,12 @@ class _HomePageState extends State<HomePage> {
                             ],
                           ),
                         ),
-                        padding(5.0, 5.0),
+                        padding(6.0, 6.0),
                         Text(
                           "Emma, 22",
                           style: myStyle(30.0, Colors.black, true),
                         ),
+                        padding(2.0, 2.0),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -103,7 +106,7 @@ class _HomePageState extends State<HomePage> {
                             Text("1.2 km away", style: myStyle(16.6, Colors.black))
                           ],
                         ),
-                        padding(5.0, 5.0),
+                        padding(8.0, 5.0),
                         getPhoto(),
                         padding(15.0, 5.0),
                         Align(
@@ -128,7 +131,7 @@ class _HomePageState extends State<HomePage> {
                             ),
                           ),
                         ),
-                        padding(5.0, 5.0),
+                        padding(10.0, 10.0),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
@@ -144,11 +147,13 @@ class _HomePageState extends State<HomePage> {
                             tags("Laundry", 11.0),
                           ],
                         ),
+                        SizedBox(height: 20.0,),
                       ],
                     ),
                   ),
                 ),
               ),
+              
               
               Align(
                 alignment: AlignmentDirectional.centerEnd,
@@ -160,6 +165,8 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
               ),
+
+              
               // Padding(padding: EdgeInsets.only(bottom: 20.0), child: getButtons()),
             ],
           ),
@@ -231,49 +238,26 @@ class _HomePageState extends State<HomePage> {
                 borderRadius: BorderRadius.all(Radius.circular(100.0)),
                 // border: Border.all(color: Colors.white, width: 1.2)
               ),
-              child: Center(
-                  child: IconButton(
-                      onPressed: () {},
-                      icon: Icon(
-                        Icons.arrow_downward,
-                        size: 20.0,
-                        color: Colors.white,
-                      )))),
+              child: Hero(
+                tag: 'homepage',
+                child: Center(
+                    child: IconButton(
+                        onPressed: () {
+                          Navigator.push(context, new MaterialPageRoute(builder: (context) => HomePageDetailed()));
+                        },
+                        icon: Icon(
+                          Icons.arrow_downward,
+                          size: 20.0,
+                          color: Colors.white,
+                        ))),
+              )),
         ),
       ],
     );
   }
 
   getButtons() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Column(
-          children: [
-            IconButton(
-                icon: Image.asset('assets/icons/remove.jpg'), onPressed: () {}),
-            Center(child: Text('Remove', style: myStyle())),
-          ],
-        ),
-        Padding(padding: EdgeInsets.only(left: 3.0, right: 3.0)),
-        Column(
-          children: [
-            IconButton(
-                icon: Image.asset('assets/icons/date.jpg'), onPressed: () {}),
-            Center(child: Text('Date', style: myStyle())),
-          ],
-        ),
-        Padding(padding: EdgeInsets.only(left: 3.0, right: 3.0)),
-        Column(
-          children: [
-            IconButton(
-                icon: Image.asset('assets/icons/superdate.jpg'),
-                onPressed: () {}),
-            Center(child: Text('Super Date', style: myStyle())),
-          ],
-        ),
-      ],
-    );
+    return BottomNavBar();
   }
 
   myStyle([size = 15.0, color = Colors.grey, bold = false]) {
@@ -285,3 +269,5 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
+
+
