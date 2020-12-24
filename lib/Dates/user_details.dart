@@ -1,9 +1,11 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:congle/Auxiliary/app_bar.dart';
-import 'package:congle/Auxiliary/bottom_nav_bar.dart';
+import 'package:congle/AppBar/app_bar.dart';
+
+
 import 'package:congle/Auxiliary/colors.dart';
 
 import 'package:congle/Auxiliary/custom_size.dart';
+import 'package:congle/Bookings/congratulations_screen.dart';
 import 'package:flutter/material.dart';
 
 class UserDetails extends StatefulWidget {
@@ -31,92 +33,93 @@ class _UserDetailsState extends State<UserDetails> {
     return new Scaffold(
       appBar: PreferredSize(
           preferredSize: Size.fromHeight(height * .150), child: MyAppBar()),
-      body: SingleChildScrollView(
-        child: Container(
-          // width: width / 1.2,
-          child: Padding(
-            padding: const EdgeInsets.fromLTRB(15.0, 15.0, 10.0, 15.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                padding(6.0, 6.0),
-                Center(
-                  child: profilePic(),
+      body: Container(
+        // width: width / 1.2,
+        height: height,
+        width: width,
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(15.0, 15.0, 10.0, 15.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              padding(6.0, 6.0),
+              Center(
+                child: profilePic(),
+              ),
+              padding(1.0, 5.0),
+              Center(
+                child: Text(
+                  "Samanta, 22",
+                  style: myStyle(25.0, Colors.black, true),
                 ),
-                padding(1.0, 5.0),
-                Center(
-                  child: Text(
-                    "Samanta, 22",
-                    style: myStyle(25.0, Colors.black, true),
-                  ),
-                ),
-                padding(0.0, 2.0),
-                Center(
-                  child: Text("2 km away, writer",
-                      style: myStyle(16.0, Colors.grey)),
-                ),
-                padding(5.0, 5.0),
-                Text(
-                  "About me",
-                  style: TextStyle(
-                      fontSize: 18.0,
-                      color: pinkColor,
-                      fontWeight: FontWeight.bold,
-                      fontFamily: 'ttnorms',
-                      letterSpacing: 0.6),
-                ),
-                padding(2.0, 1.5),
-                Text(
-                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-                  style: TextStyle(
-                    fontSize: 14.2,
-                    color: Colors.black,
-                    height: 1.4,
+              ),
+              padding(0.0, 2.0),
+              Center(
+                child: Text("2 km away, writer",
+                    style: myStyle(16.0, Colors.grey)),
+              ),
+              padding(5.0, 5.0),
+              Text(
+                "About me",
+                style: TextStyle(
+                    fontSize: 18.0,
+                    color: pinkColor,
+                    fontWeight: FontWeight.bold,
                     fontFamily: 'ttnorms',
-                  ),
+                    letterSpacing: 0.6),
+              ),
+              padding(2.0, 1.5),
+              Text(
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                style: TextStyle(
+                  fontSize: 14.2,
+                  color: Colors.black,
+                  height: 1.4,
+                  fontFamily: 'ttnorms',
                 ),
-                padding(5.0, 5.0),
-                Text(
-                  "Interests",
-                  style: TextStyle(
-                      fontSize: 16.5,
-                      color: pinkColor,
-                      fontWeight: FontWeight.bold,
-                      fontFamily: 'ttnorms',
-                      letterSpacing: 0.6),
-                ),
-                padding(3.0, 3.0),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    tags("Fitness", 11.0),
-                    tags("Beauty", 11.0),
-                    tags("Dogs", 11.0),
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    tags("Cats", 11.0),
-                    tags("Laundry", 11.0),
-                  ],
-                ),
-                padding(5.0, 5.0),
-                
-                Align(
-                  alignment: AlignmentDirectional.centerEnd,
+              ),
+              padding(5.0, 5.0),
+              Text(
+                "Interests",
+                style: TextStyle(
+                    fontSize: 16.5,
+                    color: pinkColor,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'ttnorms',
+                    letterSpacing: 0.6),
+              ),
+              padding(3.0, 3.0),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  tags("Fitness", 11.0),
+                  tags("Beauty", 11.0),
+                  tags("Dogs", 11.0),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  tags("Cats", 11.0),
+                  tags("Laundry", 11.0),
+                ],
+              ),
+              padding(5.0, 5.0),
+              Spacer(),
+              accept(),
+              // Align(
+              //   alignment: AlignmentDirectional.centerEnd,
 
-                  child: Transform.translate(
-                    offset: Offset(-3, 30),
-                    child: accept(),
+              //   child: Transform.translate(
+              //     offset: Offset(-3, 30),
+              //     child: accept(),
 
-                  ),
-                ),
-                SizedBox(
-                  height: 15.0,
-                ),
-              ],
-            ),
+              //   ),
+              // ),
+              SizedBox(
+                height: 10.0,
+              ),
+            ],
           ),
         ),
       ),
@@ -131,7 +134,9 @@ class _UserDetailsState extends State<UserDetails> {
         height: 44.0,
         width: MediaQuery.of(context).size.width * 0.9,
         child: FlatButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(context, new MaterialPageRoute(builder: (context) => Congratulations()));
+            },
             child: Text("Accept",
                 style: new TextStyle(
                   color: Colors.white,

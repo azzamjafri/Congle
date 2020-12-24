@@ -14,30 +14,42 @@ class _BottomNavBarState extends State<BottomNavBar> {
       children: [
         Column(
           children: [
-            IconButton(
-              icon: Icon(Icons.close, size: 35.0, ),
-                // icon: Image.asset('assets/icons/remove.jpg'), 
-                onPressed: () {}),
-            Center(child: Text('Remove', style: myStyle())),
+            Container(
+              height: MediaQuery.of(context).size.height / 10 ,
+              width: 65.0,
+              child: IconButton(
+                icon: Icon(Icons.close, size: MediaQuery.of(context).size.height / 10 , ),
+                  // icon: Image.asset('assets/icons/remove.jpg'), 
+                  onPressed: () {}),
+            ),
+            Center(child: Text(' Remove', style: myStyle(16.0))),
           ],
         ),
         Padding(padding: EdgeInsets.only(left: 5.0, right: 3.5)),
         Column(
           children: [
-            IconButton(
-                icon: Image.asset('assets/icons/heart.png'), onPressed: () {
-                  Navigator.push(context, new MaterialPageRoute(builder: (context) => Dates()));
-                }),
-            Center(child: Text(' Date ', style: myStyle())),
+            Container(
+              height: MediaQuery.of(context).size.height / 10 ,
+              width: 65.0,
+              child: IconButton(
+                  icon: Image.asset('assets/icons/heart.png'), onPressed: () {
+                    Navigator.push(context, new MaterialPageRoute(builder: (context) => Dates()));
+                  }),
+            ),
+            Center(child: Text(' Date ', style: myStyle(16.0))),
           ],
         ),
         Padding(padding: EdgeInsets.only(left: 3.0, right: 3.0)),
         Column(
           children: [
-            IconButton(
-                icon: Image.asset('assets/icons/superdate.png'),
-                onPressed: () {}),
-            Center(child: Text('Super Date', style: myStyle())),
+            Container(
+              height: MediaQuery.of(context).size.height / 10 ,
+              width: 65.0,
+              child: IconButton(
+                  icon: Image.asset('assets/icons/superdate.png',),
+                  onPressed: () {}),
+            ),
+            Center(child: Text('Super Date', style: myStyle(16.0))),
           ],
         ),
       ],

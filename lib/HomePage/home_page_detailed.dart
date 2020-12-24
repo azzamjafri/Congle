@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:congle/Auxiliary/app_bar.dart';
+import 'package:congle/AppBar/app_bar.dart';
+
 import 'package:congle/Auxiliary/bottom_nav_bar.dart';
 import 'package:congle/Auxiliary/colors.dart';
 
