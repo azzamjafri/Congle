@@ -1,6 +1,10 @@
 import 'package:congle/Auxiliary/colors.dart';
 import 'package:congle/Auxiliary/custom_size.dart';
+
+
 import 'package:flutter/material.dart';
+
+import 'on_board_screen.dart';
 
 class Congratulations extends StatefulWidget {
   @override
@@ -56,7 +60,7 @@ class _CongratulationsState extends State<Congratulations> {
         width: MediaQuery.of(context).size.width * 0.73,
         child: FlatButton(
             onPressed: () {
-              // Navigator.push(context, new MaterialPageRoute(builder: (context) => Congratulations()));
+              Navigator.push(context, new MaterialPageRoute(builder: (context) => CafeBookingOnboard()));
             },
             child: Text("Book your cafe",
                 style: new TextStyle(

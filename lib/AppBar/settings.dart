@@ -9,8 +9,9 @@ class Settings extends StatefulWidget {
   _SettingsState createState() => _SettingsState();
 }
 
-int height = 120;
-
+int distance = 120;
+int age = 120;
+int showProfile = 1;
 class _SettingsState extends State<Settings> {
   @override
   Widget build(BuildContext context) {
@@ -34,7 +35,7 @@ class _SettingsState extends State<Settings> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // padding(10.0, 5.0),
+          padding(5.0, 5.0),
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
@@ -43,50 +44,132 @@ class _SettingsState extends State<Settings> {
               Text('Jaipur, Rajasthan', style: myStyle(16.0, pinkColor)),
             ],
           ),
+          padding(15.0, 5.0),
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Text('Distance', style: myStyle(16.5, Colors.black, true)),
-              padding(0.0, 0.0, 20.0, 20.0),
-              Slider(
-                value: height.toDouble(),
-                min: 20,
-                max: 300,
-                activeColor: Colors.pink,
-                onChanged: (double value) {
-                  setState(() {
-                    height = value.round();
-                    // print(height.toString());
-                  });
-                },
+              // padding(0.0, 0.0, 20.0, 20.0),
+              Spacer(),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Text("${(distance - 20).toString()} km", style: myStyle(15.0, pinkColor)),
+                  Slider(
+                    value: distance.toDouble(),
+                    inactiveColor: Colors.grey[300],
+                    min: 20,
+                    max: 300,
+                    activeColor: Colors.pink,
+                    onChanged: (double value) {
+                      setState(() {
+                        distance = value.round();
+                        // print(height.toString());
+                      });
+                    },
+                  ),
+                ],
               ),
             ],
           ),
 
+          padding(5.0, 5.0),
 
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Text('Age Range', style: myStyle(16.5, Colors.black, true)),
-              padding(0.0, 0.0, 15.0, 10.0),
+              // padding(0.0, 0.0, 15.0, 10.0),
+              Spacer(),
               Slider(
-                value: height.toDouble(),
+               
+                inactiveColor: Colors.grey[300],
+                value: age.toDouble(),
                 min: 20,
                 max: 300,
                 activeColor: Colors.pink,
                 onChanged: (double value) {
                   setState(() {
-                    height = value.round();
-                    // print(height.toString());
+                    age = value.round();
                   });
                 },
               ),
             ],
           ),
 
+          padding(5.0, 5.0),
 
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Text('Show my profile', style: myStyle(16.5, Colors.black)),
+              // padding(0.0, 0.0, 15.0, 10.0),
+              Spacer(),
+              Container(
+                width: 90.0,
+                child: Slider(
+                  value: showProfile.toDouble(),
+                  min: 0,
+                  max: 1,
+                  activeColor: Colors.pink,
+                  onChanged: (double value) {
+                    setState(() {
+                      showProfile = value.round();
+                      
+                    });
+                  },
+                ),
+              ),
+            ],
+          ),
+          padding(5.0, 5.0),
+
+           Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Text('Privacy policy', style: myStyle(16.5, Colors.black)),
+              // padding(0.0, 0.0, 15.0, 10.0),
+              Spacer(),
+              IconButton(icon: Icon(Icons.arrow_drop_down  ), onPressed: () {}),
+            ],
+          ),
+
+          padding(5.0, 5.0),
+
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Text('Terms and Condition', style: myStyle(16.5, Colors.black)),
+              // padding(0.0, 0.0, 15.0, 10.0),
+              Spacer(),
+              IconButton(icon: Icon(Icons.arrow_drop_down  ), onPressed: () {}),
+            ],
+          ),
+          Spacer(),
+          getBottom(),
         ],
       ),
     );
+  }
+
+  getBottom() {
+
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Center(
+        child: Column(
+          // crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Text("LogOut", style: myStyle(18.0, Colors.grey)),
+            padding(5.0, 5.0),
+            Text("Delete My Account", style: myStyle(17.0, Colors.grey),),
+            padding(10.0, 5.0),
+            Text("App version 1.0", style: myStyle(10.5, Colors.grey ),)
+          ],
+        ),
+      ),
+    );
+
   }
 }
