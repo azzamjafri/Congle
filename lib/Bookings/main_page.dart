@@ -1,3 +1,4 @@
+import 'package:congle/Auxiliary/colors.dart';
 import 'package:congle/Auxiliary/custom_size.dart';
 
 import 'package:flutter/material.dart';
@@ -28,29 +29,58 @@ class _CafeMainPageState extends State<CafeMainPage> {
     return ListView(
       scrollDirection: Axis.vertical,
       children: [
+        
         searchBar(),
         Align(
           alignment: Alignment.centerLeft,
-          child: Text(
-            'Categories',
-            style: myStyle(17.5, Colors.black, true),
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(20.0, 22.0, 8.0, 10.0),
+            child: Text(
+              'Categories',
+              style: myStyle(17.5, Colors.black, true),
+            ),
           ),
         ),
         getCategories(),
-        Align(
-          alignment: Alignment.centerLeft,
-          child: Text(
-            'Recomended',
-            style: myStyle(17.5, Colors.black, true),
-          ),
+        Row(
+          children: [
+
+            Padding(
+              padding: const EdgeInsets.fromLTRB(20.0, 10.0, 8.0, 10.0),
+              child: Text(
+                'Recomended',
+                style: myStyle(17.5, Colors.black, true),
+              ),
+            ),
+            Spacer(),
+            Padding(
+              padding: const EdgeInsets.only(right: 15.0),
+              child: Text(
+                'View all',
+                style: myStyle(13.0, pinkColor, false),
+              ),
+            ),
+          ],
         ),
         getRecomendations(),
-        Align(
-          alignment: Alignment.centerLeft,
-          child: Text(
-            'Nearby',
-            style: myStyle(17.5, Colors.black, true),
-          ),
+        Row(
+          children: [
+            Padding(
+              padding: const EdgeInsets.fromLTRB(20.0, 22.0, 8.0, 10.0),
+              child: Text(
+                'Nearby',
+                style: myStyle(17.5, Colors.black, true),
+              ),
+            ),
+            Spacer(),
+            Padding(
+              padding: const EdgeInsets.only(right: 15.0),
+              child: Text(
+                'View all',
+                style: myStyle(13.0, pinkColor, false),
+              ),
+            ),
+          ],
         ),
         getNearby(),
         SizedBox(height: 30.0),
@@ -106,19 +136,18 @@ class _CafeMainPageState extends State<CafeMainPage> {
                           height: 35.0,
                           width: 35.0,
                           decoration: BoxDecoration(
-
                             border: Border.all(
-                                color: Colors.white,
-                                style: BorderStyle.solid,
-                                width: 1.0,
-                              ),
+                              color: Colors.white,
+                              style: BorderStyle.solid,
+                              width: 1.0,
+                            ),
                             color: Colors.black,
-                            borderRadius: BorderRadius.all(Radius.circular(100.0)),
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(100.0)),
                           ),
                           child: Image.asset('assets/icons/heart.png'),
                         ),
                       ),
-                      
                     ],
                   ),
                   Padding(
@@ -157,9 +186,8 @@ class _CafeMainPageState extends State<CafeMainPage> {
             ),
           ),
 
-
           // 2nd card
-                    Card(
+          Card(
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.all(Radius.circular(17.5))),
             elevation: 8.0,
@@ -194,19 +222,18 @@ class _CafeMainPageState extends State<CafeMainPage> {
                           height: 35.0,
                           width: 35.0,
                           decoration: BoxDecoration(
-
                             border: Border.all(
-                                color: Colors.white,
-                                style: BorderStyle.solid,
-                                width: 1.0,
-                              ),
+                              color: Colors.white,
+                              style: BorderStyle.solid,
+                              width: 1.0,
+                            ),
                             color: Colors.black,
-                            borderRadius: BorderRadius.all(Radius.circular(100.0)),
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(100.0)),
                           ),
                           child: Image.asset('assets/icons/heart.png'),
                         ),
                       ),
-                      
                     ],
                   ),
                   Padding(
@@ -245,9 +272,8 @@ class _CafeMainPageState extends State<CafeMainPage> {
             ),
           ),
 
-
-          //3rd 
-                    Card(
+          //3rd
+          Card(
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.all(Radius.circular(17.5))),
             elevation: 8.0,
@@ -282,19 +308,18 @@ class _CafeMainPageState extends State<CafeMainPage> {
                           height: 35.0,
                           width: 35.0,
                           decoration: BoxDecoration(
-
                             border: Border.all(
-                                color: Colors.white,
-                                style: BorderStyle.solid,
-                                width: 1.0,
-                              ),
+                              color: Colors.white,
+                              style: BorderStyle.solid,
+                              width: 1.0,
+                            ),
                             color: Colors.black,
-                            borderRadius: BorderRadius.all(Radius.circular(100.0)),
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(100.0)),
                           ),
                           child: Image.asset('assets/icons/heart.png'),
                         ),
                       ),
-                      
                     ],
                   ),
                   Padding(
@@ -332,12 +357,6 @@ class _CafeMainPageState extends State<CafeMainPage> {
               ),
             ),
           ),
-
-
-
-
-
-
         ],
       ),
     );
@@ -435,8 +454,8 @@ class _CafeMainPageState extends State<CafeMainPage> {
   searchBar() {
     return Container(
       height: 55.0,
-      width: MediaQuery.of(context).size.width - 50.0,
-      // width: 300.0,
+      width: MediaQuery.of(context).size.width * .8,
+      margin: EdgeInsets.only(left: 18.0, right: 18.0),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10.0),
         color: Colors.white,
@@ -500,7 +519,7 @@ class _CafeMainPageState extends State<CafeMainPage> {
             children: [
               Text('Hi, Samaraya!',
                   style: TextStyle(
-                      fontWeight: FontWeight.bold, color: Colors.black)),
+                      fontWeight: FontWeight.bold, color: Colors.black, fontSize: 17.3 )),
               Padding(padding: EdgeInsets.only(top: 2.0)),
             ],
           ),

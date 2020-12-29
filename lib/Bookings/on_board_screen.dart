@@ -52,9 +52,13 @@ class _CafeBookingOnboardState extends State<CafeBookingOnboard> {
       child: PageView(
         controller: pageView,
         children: [
-          getPage1(),
           getPage2(),
+
           getPage3(),
+
+          getPage1(),
+          
+          
         ],
       ),
       length: 3,
@@ -84,19 +88,29 @@ class _CafeBookingOnboardState extends State<CafeBookingOnboard> {
             width: MediaQuery.of(context).size.width / 1.0,
             child: Image.asset(
               // "assets/intro3.jpg",
-              "assets/bookings/onboard1.jpg",
+              "assets/bookings/onboarding2.png",
               fit: BoxFit.fill,
             ),
           ),
         ),
-        Align(
-          alignment: Alignment(0, .68),
+                Align(
+          alignment: Alignment(0, .55),
           child: Text(
-            "Reserve your table",
+            "Enjoy your date",
             style: style(27.5),
           ),
         ),
-        
+        Align(
+          alignment: Alignment(0, .62),
+          child: Text(
+            "After successful booking, visit the restraunt and enjoy your date",
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 16.0,
+              fontFamily: 'ttnorms',
+            ),
+          ),
+        ),
         GestureDetector(
           onTap: () {
             Navigator.push(context,
@@ -105,7 +119,7 @@ class _CafeBookingOnboardState extends State<CafeBookingOnboard> {
           child: Align(
             alignment: Alignment(.65, .90),
             child: Text(
-              "Skip",
+              "Get Started",
               style: TextStyle(
                 color: Colors.grey,
                 fontSize: 15.5,
@@ -128,20 +142,31 @@ class _CafeBookingOnboardState extends State<CafeBookingOnboard> {
             height: MediaQuery.of(context).size.height / 1.5,
             width: MediaQuery.of(context).size.width / 1.0,
             child: Image.asset(
-              "assets/bookings/onboard2.jpg",
-              fit: BoxFit.cover,
+              "assets/bookings/onboarding1.png",
+              fit: BoxFit.fill,
               
             ),
           ),
         ),
+        
         Align(
-          alignment: Alignment(0, .68),
+          alignment: Alignment(0, .55),
           child: Text(
             "Find restaurants near you",
             style: style(27.5),
           ),
         ),
-        
+        Align(
+          alignment: Alignment(0, .62),
+          child: Text(
+            "Find best restraunts near your location",
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 16.0,
+              fontFamily: 'ttnorms',
+            ),
+          ),
+        ),
         
         Align(
           alignment: Alignment(.6, .90),
@@ -180,21 +205,31 @@ class _CafeBookingOnboardState extends State<CafeBookingOnboard> {
             height: MediaQuery.of(context).size.height / 1.5,
             width: MediaQuery.of(context).size.width / 1.0,
             child: Image.asset(
-              "assets/bookings/onboard3.jpg",
+              "assets/bookings/onboarding3.png",
               
               scale: 0.8,
               fit: BoxFit.fill,
             ),
           ),
         ),
-        Align(
-          alignment: Alignment(0, .68),
+                Align(
+          alignment: Alignment(0, .55),
           child: Text(
-            "Discover special offers",
-            style: style(25.5),
+            "Book the time to meet",
+            style: style(27.5),
           ),
         ),
-        
+        Align(
+          alignment: Alignment(0, .62),
+          child: Text(
+            "Book the time when you want to meet",
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 16.0,
+              fontFamily: 'ttnorms',
+            ),
+          ),
+        ),
         Align(
           alignment: Alignment(.6, .90),
           child: GestureDetector(
@@ -203,7 +238,7 @@ class _CafeBookingOnboardState extends State<CafeBookingOnboard> {
                   new MaterialPageRoute(builder: (context) => CafeHomePage()));
             },
             child: Text(
-              "Get Started",
+              "skip",
               style: TextStyle(
                 color: Colors.grey[500],
                 fontSize: 15.5,

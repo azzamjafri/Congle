@@ -1,4 +1,3 @@
-
 import 'package:congle/AppBar/app_bar.dart';
 import 'package:congle/Auxiliary/bottom_nav_bar.dart';
 
@@ -29,149 +28,133 @@ class _HomePageState extends State<HomePage> {
     return new Scaffold(
       appBar: PreferredSize(
           preferredSize: Size.fromHeight(height * .150), child: MyAppBar()),
-      body: SingleChildScrollView(
-              child: Container(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              padding(5.0, 5.0),
-              Container(
-                width: width / 1.2,
-                child: Card(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(45.0),
-                  ),
-                  elevation: 5.0,
-                  child: Padding(
-                    padding: const EdgeInsets.all(12.0),
-                    child: Column(
-                      children: [
-                        Container(
-                          height: 20.0,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                'search online',
-                                style: myStyle(16.0),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          // padding(5.0, 5.0),
+          Container(
+            width: width / 1.2,
+            child: Card(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(45.0),
+              ),
+              elevation: 5.0,
+              child: Padding(
+                padding: const EdgeInsets.all(4.0),
+                child: Column(
+                  children: [
+                    Container(
+                      height: 18.0,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            'search online',
+                            style: myStyle(16.0),
+                          ),
+                          ToggleButtons(
+                            fillColor: Colors.transparent,
+                            selectedColor: Colors.grey,
+                            borderRadius: BorderRadius.circular(12.0),
+                            children: <Widget>[
+                              Container(
+                                height: 18.0,
+                                width: 15.0,
+                                decoration: BoxDecoration(
+                                    color: isSelected[0]
+                                        ? Colors.grey
+                                        : Colors.transparent,
+                                    shape: BoxShape.circle),
                               ),
-                              
-                              ToggleButtons(
-                                fillColor: Colors.transparent,
-                                
-                                selectedColor: Colors.grey,
-                                borderRadius: BorderRadius.circular(12.0),
-                                children: <Widget>[
-                                  Container(
-                                    height: 18.0,
-                                    width: 15.0,
-                                    decoration: BoxDecoration(
-                                        color: isSelected[0]
-                                            ? Colors.grey
-                                            : Colors.transparent,
-                                        shape: BoxShape.circle),
-                                  ),
-                                  Container(
-                                    height: 18.0,
-                                    width: 15.0,
-                                    decoration: BoxDecoration(
-                                        color: isSelected[1]
-                                            ? Colors.greenAccent
-                                            : Colors.transparent,
-                                        shape: BoxShape.circle),
-                                  ),
-                                ],
-                                onPressed: (int index) {
-                                  setState(() {
-                                    for (int i = 0; i < isSelected.length; i++) {
-                                      isSelected[i] = i == index;
-                                    }
-                                  });
-                                },
-                                isSelected: isSelected,
+                              Container(
+                                height: 18.0,
+                                width: 15.0,
+                                decoration: BoxDecoration(
+                                    color: isSelected[1]
+                                        ? Colors.greenAccent
+                                        : Colors.transparent,
+                                    shape: BoxShape.circle),
                               ),
                             ],
+                            onPressed: (int index) {
+                              setState(() {
+                                for (int i = 0; i < isSelected.length; i++) {
+                                  isSelected[i] = i == index;
+                                }
+                              });
+                            },
+                            isSelected: isSelected,
                           ),
-                        ),
-                        padding(6.0, 6.0),
-                        Text(
-                          "Emma, 22",
-                          style: myStyle(30.0, Colors.black, true),
-                        ),
-                        padding(2.0, 2.0),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(Icons.pin_drop),
-                            padding(0.0, 0.0, 4.0, 4.0),
-                            Text("1.2 km away", style: myStyle(16.6, Colors.black))
-                          ],
-                        ),
-                        padding(8.0, 5.0),
-                        getPhoto(),
-                        padding(15.0, 5.0),
-                        Align(
-                          alignment: Alignment.centerLeft,
-                          
-                          child: Padding(
-                            padding: const EdgeInsets.only(left: 15.0),
-                            child: Text(
-                              "Designer @grafix studios",
-                              style: myStyle(14.5, Colors.black),
-                            ),
-                          ),
-                        ),
-                        padding(2.5, 2.5),
-                        Align(
-                          alignment: Alignment.centerLeft,
-                          child: Padding(
-                            padding: const EdgeInsets.only(left: 15.0),
-                            child: Text(
-                              "Usually I'm so late, but now I-so-late",
-                              style: myStyle(13.7, Colors.orangeAccent.shade100),
-                            ),
-                          ),
-                        ),
-                        padding(10.0, 10.0),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            tags("Fitness", 11.0),
-                            tags("Beauty", 11.0),
-                            tags("Dogs", 11.0),
-                          ],
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            tags("Cats", 11.0),
-                            tags("Laundry", 11.0),
-                          ],
-                        ),
-                        SizedBox(height: 20.0,),
+                        ],
+                      ),
+                    ),
+                    padding(2.0, 2.0),
+                    Text(
+                      "Emma, 22",
+                      style: myStyle(30.0, Colors.black, true),
+                    ),
+                    padding(2.0, 1.0),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(Icons.pin_drop),
+                        padding(0.0, 0.0, 4.0, 4.0),
+                        Text("1.2 km away", style: myStyle(16.6, Colors.black))
                       ],
                     ),
-                  ),
+                    padding(2.0, 2.0),
+                    getPhoto(),
+                    padding(4.0, 3.0),
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 15.0),
+                        child: Text(
+                          "Designer @grafix studios",
+                          style: myStyle(14.5, Colors.black),
+                        ),
+                      ),
+                    ),
+                    padding(2.0, 1.0),
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 15.0),
+                        child: Text(
+                          "Usually I'm so late, but now I-so-late",
+                          style: myStyle(13.7, Colors.orangeAccent.shade100),
+                        ),
+                      ),
+                    ),
+                    padding(3.0, 3.0),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        tags("Fitness", 11.0),
+                        tags("Beauty", 11.0),
+                        tags("Dogs", 11.0),
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        tags("Cats", 11.0),
+                        tags("Laundry", 11.0),
+                      ],
+                    ),
+                    // SizedBox(
+                    //   height: 20.0,
+                    // ),
+                  ],
                 ),
               ),
-              
-              
-              Align(
-                alignment: AlignmentDirectional.centerEnd,
-                child: Transform.translate(
-                  offset: Offset(0, 0),
-                  child: Padding(
-                    padding: EdgeInsets.only(top: 15.0, bottom: 10.0),
-                    child: getButtons(),
-                  ),
-                ),
-              ),
-
-              
-              // Padding(padding: EdgeInsets.only(bottom: 20.0), child: getButtons()),
-            ],
+            ),
           ),
-        ),
+
+          getButtons(),
+
+          // Padding(padding: EdgeInsets.only(bottom: 20.0), child: getButtons()),
+        ],
       ),
     );
   }
@@ -200,7 +183,7 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  padding(top, bottom, [right=0.0, left = 0.0]) {
+  padding(top, bottom, [right = 0.0, left = 0.0]) {
     return Padding(
       padding: EdgeInsets.fromLTRB(left, top, right, bottom),
     );
@@ -213,15 +196,15 @@ class _HomePageState extends State<HomePage> {
             height: MediaQuery.of(context).size.height / 3.0,
             width: MediaQuery.of(context).size.width / 1.4,
             decoration: BoxDecoration(
-            //   boxShadow: [
-            //   BoxShadow(
-            //     color: Colors.grey.withOpacity(0.4),
-            //     spreadRadius: 2,
-            //     blurRadius: 5,
-            //     offset: Offset(1, 10), // changes position of shadow
-            //   ),
-            // ], 
-            borderRadius: BorderRadius.all(Radius.circular(20.0))),
+                //   boxShadow: [
+                //   BoxShadow(
+                //     color: Colors.grey.withOpacity(0.4),
+                //     spreadRadius: 2,
+                //     blurRadius: 5,
+                //     offset: Offset(1, 10), // changes position of shadow
+                //   ),
+                // ],
+                borderRadius: BorderRadius.all(Radius.circular(20.0))),
             child: ClipRRect(
                 borderRadius: BorderRadius.circular(20.0),
                 child: Image.asset(
@@ -244,7 +227,10 @@ class _HomePageState extends State<HomePage> {
                 child: Center(
                     child: IconButton(
                         onPressed: () {
-                          Navigator.push(context, new MaterialPageRoute(builder: (context) => HomePageDetailed()));
+                          Navigator.push(
+                              context,
+                              new MaterialPageRoute(
+                                  builder: (context) => HomePageDetailed()));
                         },
                         icon: Icon(
                           Icons.arrow_downward,
@@ -270,5 +256,3 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
-
-

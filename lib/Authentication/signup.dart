@@ -100,7 +100,7 @@ class _SignUpState extends State<SignUp> {
                               
                               
                               child: TextFormField(
-                                // key: __passwordkey,
+                                
                                 
                                 controller: emailController,
 
@@ -248,7 +248,8 @@ class _SignUpState extends State<SignUp> {
                                             color: Colors.white,
                                             fontSize: 20.0,
                                             letterSpacing: 2.0,
-                                          )))),
+                                          )))
+                                          ),
 
                           Padding(
                             padding: EdgeInsets.all(8.0),

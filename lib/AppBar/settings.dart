@@ -81,18 +81,24 @@ class _SettingsState extends State<Settings> {
               Text('Age Range', style: myStyle(16.5, Colors.black, true)),
               // padding(0.0, 0.0, 15.0, 10.0),
               Spacer(),
-              Slider(
-               
-                inactiveColor: Colors.grey[300],
-                value: age.toDouble(),
-                min: 20,
-                max: 300,
-                activeColor: Colors.pink,
-                onChanged: (double value) {
-                  setState(() {
-                    age = value.round();
-                  });
-                },
+              Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Text("${(age).toString()}", style: myStyle(15.0, pinkColor)),
+                  Slider(
+                   
+                    inactiveColor: Colors.grey[300],
+                    value: age.toDouble(),
+                    min: 18,
+                    max: 85,
+                    activeColor: Colors.pink,
+                    onChanged: (double value) {
+                      setState(() {
+                        age = value.round();
+                      });
+                    },
+                  ),
+                ],
               ),
             ],
           ),

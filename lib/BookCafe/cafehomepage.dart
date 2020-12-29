@@ -2,6 +2,7 @@
 import 'package:congle/Auxiliary/custom_size.dart';
 import 'package:congle/Bookings/main_page.dart';
 import 'package:congle/BottomAppBar/bottom_app_bar.dart';
+import 'package:congle/BottomAppBar/simple_bottom_app_bar.dart';
 import 'package:flutter/material.dart';
 
 
@@ -22,19 +23,20 @@ PageController _myPage = PageController(initialPage: 0);
     
     return new Scaffold(
       // appBar: PreferredSize(child: getAppBar(), preferredSize: Size.fromHeight(80.0)),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: Container(
-        height: height / 12 + 6,
-            width: height / 12 + 6,
+      // floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      // floatingActionButton: Container(
+      //   height: height / 12 + 6,
+      //       width: height / 12 + 6,
             
-        child: FittedBox(
-          child: FloatingActionButton(
-            onPressed: () {},
-            child: Image.asset('assets/icons/logo.png'),
-          ),
-        ),
-      ),
-      bottomNavigationBar: MyBottomAppBar(),
+      //   child: FittedBox(
+      //     child: FloatingActionButton(
+      //       onPressed: () {},
+      //       child: Image.asset('assets/icons/logo.png'),
+      //     ),
+      //   ),
+      // ),
+      // bottomNavigationBar: MyBottomAppBar(),
+      bottomNavigationBar: SimpleBottomAppBar(),
 
       body: getBody(),
     );
