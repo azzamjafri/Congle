@@ -23,20 +23,20 @@ PageController _myPage = PageController(initialPage: 0);
     
     return new Scaffold(
       // appBar: PreferredSize(child: getAppBar(), preferredSize: Size.fromHeight(80.0)),
-      // floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      // floatingActionButton: Container(
-      //   height: height / 12 + 6,
-      //       width: height / 12 + 6,
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: Container(
+        height: height / 12 + 6,
+            width: height / 12 + 6,
             
-      //   child: FittedBox(
-      //     child: FloatingActionButton(
-      //       onPressed: () {},
-      //       child: Image.asset('assets/icons/logo.png'),
-      //     ),
-      //   ),
-      // ),
-      // bottomNavigationBar: MyBottomAppBar(),
-      bottomNavigationBar: SimpleBottomAppBar(),
+        child: FittedBox(
+          child: FloatingActionButton(
+            onPressed: () {},
+            child: Image.asset('assets/icons/logo.png'),
+          ),
+        ),
+      ),
+      bottomNavigationBar: MyBottomAppBar(),
+      // bottomNavigationBar: SimpleBottomAppBar(),
 
       body: getBody(),
     );

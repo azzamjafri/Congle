@@ -53,6 +53,7 @@ class MyBottomAppBar extends StatelessWidget {
                 )
               ],
             ),
+            padding(0.0, 0.0, 5.0, 5.0),
             
             new Column(
               mainAxisAlignment: MainAxisAlignment.center,

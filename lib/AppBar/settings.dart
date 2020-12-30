@@ -9,10 +9,14 @@ class Settings extends StatefulWidget {
   _SettingsState createState() => _SettingsState();
 }
 
-int distance = 120;
-int age = 120;
-int showProfile = 1;
+
+
 class _SettingsState extends State<Settings> {
+
+  int distance = 120;
+  int age = 18;
+  int showProfile = 1;
+  
   @override
   Widget build(BuildContext context) {
     double height = displayHeight(context);

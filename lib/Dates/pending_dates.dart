@@ -1,6 +1,6 @@
 import 'dart:ui';
-import 'package:congle/Auxiliary/colors.dart';
 import 'package:congle/Auxiliary/custom_size.dart';
+import 'package:congle/Dates/chat_box.dart';
 import 'package:congle/Dates/user_details.dart';
 import 'package:flutter/material.dart';
 
@@ -14,15 +14,12 @@ class _PendingDatesState extends State<PendingDates> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.transparent,
-      bottomSheet: getBottom(),
       body: ListView(
-        children: [
-          // for (int i = 0; i < 5; i++) getChatCard(),
-          listOfPosts()
-        ],
+        children: [listOfPosts()],
       ),
     );
   }
+
 
   divider(c, w, t) {
     return Container(
@@ -41,7 +38,7 @@ class _PendingDatesState extends State<PendingDates> {
     return ListView.builder(
       physics: ClampingScrollPhysics(),
       shrinkWrap: true,
-      itemCount: 6,
+      itemCount: 3,
       scrollDirection: Axis.vertical,
       padding: const EdgeInsets.all(20.0),
       itemBuilder: (BuildContext context, int position) {
@@ -49,7 +46,7 @@ class _PendingDatesState extends State<PendingDates> {
           children: [
             GestureDetector(
               onTap: () {
-                // Navigator.push(context, new MaterialPageRoute(builder: (context) => ChatBox('1', 'Azzam')));
+                // Navigator.push(context,new MaterialPageRoute(builder: (context) => ChatBox('1', 'Azzam')));
                 Navigator.push(context,
                     new MaterialPageRoute(builder: (context) => UserDetails()));
               },
@@ -98,186 +95,18 @@ class _PendingDatesState extends State<PendingDates> {
     );
   }
 
-  getBottom() {
-    return Container(
-      height: 120.0,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Divider(),
-          Padding(
-            padding: const EdgeInsets.only(bottom: 25.0),
-            child: Container(
-              height: 60.0,
-              width: MediaQuery.of(context).size.width * .8,
-              decoration: BoxDecoration(
-                  color: pinkColor,
-                  borderRadius: BorderRadius.all(Radius.circular(15))),
-              child: FlatButton(
-                  onPressed: () {
-                    showDialog(context);
-                  },
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Icon(
-                        Icons.timer,
-                        color: Colors.white,
-                      ),
-                      Text("When are you free today ?",
-                          style: new TextStyle(
-                            color: Colors.white,
-                            fontSize: 18.0,
-                            // letterSpacing: 2.0,
-                          )),
-                    ],
-                  )),
-            ),
-          ),
-        ],
-      ),
+  void _showOnTapMessage(BuildContext context, String message) {
+    var alert = new AlertDialog(
+      title: new Text("App"),
+      content: new Text(message),
+      actions: <Widget>[
+        new FlatButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            child: new Text("OK"))
+      ],
     );
-  }
-
-  void showDialog(BuildContext context) {
-    showGeneralDialog(
-      barrierLabel: "Barrier",
-      barrierDismissible: true,
-      barrierColor: Colors.black.withOpacity(0.5),
-      transitionDuration: Duration(milliseconds: 700),
-      context: context,
-      pageBuilder: (_, __, ___) {
-        return Align(
-          alignment: Alignment.bottomCenter,
-          child: Container(
-            height: 250,
-            decoration: BoxDecoration(
-              color: Colors.white,
-            ),
-            child: SizedBox.expand(
-                child: Material(
-                    type: MaterialType.transparency,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Align(
-                          alignment: Alignment.centerLeft,
-                          child: Padding(
-                            padding: const EdgeInsets.only(left: 20.0),
-                            child: Text("Select your time of booking",
-                                style: myStyle(13.0, Colors.grey)),
-                          ),
-                        ),
-                        padding(5.0, 5.0),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                slots('03:00'),
-                                slots('08:00'),
-                                slots('09:30'),
-                              ],
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                slots('10:00'),
-                                slots('11:00'),
-                                slots('11:30'),
-                              ],
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                slots('03:00'),
-                                slots('08:00'),
-                                slots('09:30'),
-                              ],
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                slots('10:00'),
-                                slots('11:00'),
-                                slots('11:30'),
-                              ],
-                            ),
-                          ],
-                        ),
-                        padding(8.0, 8.0),
-                        Container(
-                            decoration: BoxDecoration(
-                                color: pinkColor,
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(12.0))),
-                            height: 40,
-                            width: 150,
-                            child: FlatButton(
-                                onPressed: () {
-                                  Future.delayed(
-                                      const Duration(seconds: 12), () {
-                                        Navigator.pop(context);
-                                      });
-                                },
-                                child: Text("Done",
-                                    style: new TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 20.0,
-                                      letterSpacing: 1.2,
-                                    )))),
-                      ],
-                    ))),
-
-
-          ),
-        );
-      },
-      transitionBuilder: (_, anim, __, child) {
-        return SlideTransition(
-          position: Tween(begin: Offset(0, 1), end: Offset(0, 0)).animate(anim),
-          child: child,
-        );
-      },
-    );
-  }
-
-  slots(String tag, [double size = 12.0]) {
-    bool temp = false;
-    return Padding(
-      padding: EdgeInsets.fromLTRB(2.0, 4.0, 4.0, 1.0),
-      child: GestureDetector(
-        onTap: () {
-          setState(() {
-            // temp = !temp;
-            if (temp)
-              temp = false;
-            else
-              temp = true;
-            print(temp.toString());
-          });
-        },
-        child: Container(
-          width: displayWidth(context) / 4.0,
-          height: 34.0,
-          decoration: BoxDecoration(
-              color: temp ? pinkColor : Colors.transparent,
-              // color: Colors.transparent,
-              border: Border.all(color: pinkColor),
-              borderRadius: BorderRadius.all(Radius.circular(30.0))),
-          child: Center(
-            child: Text(
-              "$tag AM",
-              style: TextStyle(
-                  fontWeight: FontWeight.w500,
-                  color: temp ? Colors.white : pinkColor,
-                  // color: pinkColor,
-                  fontSize: size),
-            ),
-          ),
-        ),
-      ),
-    );
+    showDialog(context: context, builder: (context) => alert);
   }
 }
