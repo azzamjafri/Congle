@@ -6,12 +6,12 @@ import 'package:congle/BottomAppBar/bottom_app_bar.dart';
 
 import 'package:flutter/material.dart';
 
-class BookCafe extends StatefulWidget {
+class ConfirmBooking extends StatefulWidget {
   @override
-  _BookCafeState createState() => _BookCafeState();
+  _ConfirmBookingState createState() => _ConfirmBookingState();
 }
 
-class _BookCafeState extends State<BookCafe> {
+class _ConfirmBookingState extends State<ConfirmBooking> {
   bool isFavourite = false;
 
   int steps;
@@ -34,7 +34,6 @@ class _BookCafeState extends State<BookCafe> {
   @override
   Widget build(BuildContext context) {
     double height = displayHeight(context);
-    
 
     return new Scaffold(
       key: key,
@@ -100,93 +99,100 @@ class _BookCafeState extends State<BookCafe> {
 
   columnContents() {
     double h = displayHeight(context);
-    
+    double w = displayWidth(context);
     return SingleChildScrollView(
       child: new Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          new Text(
-            '6/10 table available',
-            style: new TextStyle(
-              fontSize: 12.0,
-              fontWeight: FontWeight.bold,
-              color: Colors.grey,
-            ),
-          ),
-
-          padding(h*.008, h*.008),
           Container(
-            height: 6.0,
-            width: 70.0,
+            height: 7.0,
+            width: 60.0,
             decoration: BoxDecoration(
-              color: Colors.pink[50],
+              color: Colors.grey[300],
               borderRadius: BorderRadius.all(Radius.circular(30.0)),
             ),
           ),
 
-          padding(h*.008, h*.008),
+          padding(h * .008, h * .008),
 
-          Text("The Brunch", style: myStyle(25.0, Colors.black, true)),
-          padding(h*.002, 0.0),
+          Text("The Brunch", style: myStyle(23.0, Colors.black, true)),
+          padding(h * .002, 0.0),
           Text("18 Chiltern St, London",
               style: myStyle(17.0, Colors.black, false)),
 
-              padding(h*.003, h*.003),
+          padding(h * .004, h * .004),
 
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Icon(
-                Icons.star,
-                color: Colors.orange,
-              ),
-              Icon(
-                Icons.star,
-                color: Colors.orange,
-              ),
-              Icon(
-                Icons.star,
-                color: Colors.orange,
-              ),
-              Icon(
-                Icons.star,
-                color: Colors.orange,
-              ),
-              Icon(
-                Icons.star,
-                color: Colors.grey,
-              ),
-            ],
-          ),
-
-          padding(h*.005, h*.003),
-
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 6.0, right: 6.0),
-                child: Icon(
-                  Icons.local_drink,
+          Container(
+            width: w,
+            height: 85.0,
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                Positioned(
+                  left: w/2  - 90.0,
+                  
+                  child: Container(
+                    width: 80.0,
+                    height: 80.0,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                          image: AssetImage('assets/girl.jpg'),
+                          fit: BoxFit.fill),
+                      shape: BoxShape.circle,
+                    ),
+                  ),
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 6.0, right: 6.0),
-                child: Icon(Icons.wifi),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 6.0, right: 6.0),
-                child: Icon(Icons.cake),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 6.0, right: 6.0),
-                child: Icon(Icons.attach_money),
-              ),
-            ],
+                Positioned(
+                  left: w / 2 - 27.0,
+                  child: Container(
+                    width: 80.0,
+                    height: 80.0,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                          image: AssetImage('assets/profilepic.jpg'), fit: BoxFit.fill),
+                      shape: BoxShape.circle,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          padding(h * .0056, h * .0056),
+          Text("You +1 guest are going !",
+              style: myStyle(25.0, Colors.black, true)),
+              padding(h * .015, h * .015),
+
+          Padding(
+            padding: const EdgeInsets.only(left: 12.0, right: 12.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
+                  children: [
+                    Icon(Icons.calendar_today),
+                    padding(0.0, 0.0, 10.0, 10.0),
+                    Text(
+                      '01/02/2020',
+                      style: myStyle(14.8),
+                    )
+                  ],
+                ),
+                Row(
+                  children: [
+                    Icon(Icons.timer),
+                    padding(0.0, 0.0, 8.0, 8.0),
+                    Text(
+                      '11:00 AM',
+                      style: myStyle(14.8),
+                    )
+                  ],
+                )
+              ],
+            ),
           ),
 
-          padding(h*.005, h*.005),
+          padding(h * .015, h * .015),
 
           // BUTTONS
 
@@ -221,7 +227,8 @@ class _BookCafeState extends State<BookCafe> {
                 child: FlatButton(
                     onPressed: () {},
                     color: Colors.white,
-                    shape: StadiumBorder(side: BorderSide(color: pinkColor, width: 2.0)),
+                    shape: StadiumBorder(
+                        side: BorderSide(color: pinkColor, width: 2.0)),
                     child: Center(
                       child: Row(
                         children: [
@@ -241,59 +248,7 @@ class _BookCafeState extends State<BookCafe> {
             ],
           ),
 
-
-          padding(h*.007, h*.007),
-
-          Table(
-            defaultVerticalAlignment: TableCellVerticalAlignment.middle,
-            textDirection: TextDirection.ltr,
-            children: [
-              TableRow(children: [
-                Center(
-                    child: Text("Open Hour",
-                        style: myStyle(17.5, Colors.black, true))),
-                Center(
-                    child: Text("Cuisine",
-                        style: myStyle(17.5, Colors.black, true))),
-              ]),
-              
-              TableRow(children: [
-                Center(
-                    child: Text("09:00 - 00:00",
-                        style: myStyle(
-                          14.5,
-                          Colors.black,
-                        ))),
-                Center(
-                    child: Text("Pizza",
-                        style: myStyle(
-                          14.5,
-                          Colors.black,
-                        )))
-              ]),
-            ],
-          ),
-          padding(h*.005, h*.005),
-
-          Row(
-            children: [
-              Text("Price", style: myStyle(16.5, Colors.black, true)),
-              Spacer(),
-              Text("Rs. 500-600 for two people",
-                  style: myStyle(15.0, Colors.grey, false)),
-            ],
-          ),
-          padding(h*.002, h*.002),
-
-          Row(
-            children: [
-              Text("Payment", style: myStyle(16.5, Colors.black, true)),
-              Spacer(),
-              Text("Card, Cash, Online",
-                  style: myStyle(15.0, Colors.grey, false)),
-            ],
-          ),
-          padding(h*.003, h*.0035),
+          padding(h * .012, h * .012),
 
           Hero(
             tag: 'reserve table',
@@ -302,30 +257,28 @@ class _BookCafeState extends State<BookCafe> {
               width: displayWidth(context) / 2.0,
               child: FlatButton(
                   onPressed: () {
-                    Navigator.push(context, new MaterialPageRoute(builder: (context) => SelectTime()));
+                    Navigator.push(
+                        context,
+                        new MaterialPageRoute(
+                            builder: (context) => SelectTime()));
                   },
                   color: Colors.white,
-                  shape: StadiumBorder(side: BorderSide(color: pinkColor, style: BorderStyle.solid, width: 2.0  )),
-                  child: Center(
-                    child: Row(
-                      children: [
-                        Icon(
-                          Icons.event_seat  ,
+                  shape: StadiumBorder(
+                      side: BorderSide(
                           color: pinkColor,
-                        ),
-                        padding(0.0, 0.0, 5.0, 5.0),
-                        Text(
-                          "RESERVE TABLE",
-                          style: myStyle(14.0, pinkColor, true),
-                        )
-                      ],
+                          style: BorderStyle.solid,
+                          width: 2.0)),
+                  child: Center(
+                    child: Text(
+                      "Done",
+                      style: myStyle(18.0, pinkColor, true),
                     ),
                   )),
             ),
           ),
 
           SizedBox(
-            height: h*.18,
+            height: h * .18,
           ),
         ],
       ),

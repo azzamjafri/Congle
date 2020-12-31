@@ -1,17 +1,17 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:congle/Auxiliary/colors.dart';
 import 'package:congle/Auxiliary/custom_size.dart';
-import 'package:congle/BookCafe/select_time.dart';
+import 'package:congle/BookCafe/confirm_booking.dart';
 import 'package:congle/BottomAppBar/bottom_app_bar.dart';
 
 import 'package:flutter/material.dart';
 
-class BookCafe extends StatefulWidget {
+class SelectTime extends StatefulWidget {
   @override
-  _BookCafeState createState() => _BookCafeState();
+  _SelectTimeState createState() => _SelectTimeState();
 }
 
-class _BookCafeState extends State<BookCafe> {
+class _SelectTimeState extends State<SelectTime> {
   bool isFavourite = false;
 
   int steps;
@@ -34,7 +34,6 @@ class _BookCafeState extends State<BookCafe> {
   @override
   Widget build(BuildContext context) {
     double height = displayHeight(context);
-    
 
     return new Scaffold(
       key: key,
@@ -100,7 +99,7 @@ class _BookCafeState extends State<BookCafe> {
 
   columnContents() {
     double h = displayHeight(context);
-    
+
     return SingleChildScrollView(
       child: new Column(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -114,8 +113,7 @@ class _BookCafeState extends State<BookCafe> {
               color: Colors.grey,
             ),
           ),
-
-          padding(h*.008, h*.008),
+          padding(h * .005, h * .005),
           Container(
             height: 6.0,
             width: 70.0,
@@ -124,177 +122,79 @@ class _BookCafeState extends State<BookCafe> {
               borderRadius: BorderRadius.all(Radius.circular(30.0)),
             ),
           ),
-
-          padding(h*.008, h*.008),
-
+          padding(h * .006, h * .005),
           Text("The Brunch", style: myStyle(25.0, Colors.black, true)),
-          padding(h*.002, 0.0),
+          padding(h * .002, 0.0),
           Text("18 Chiltern St, London",
               style: myStyle(17.0, Colors.black, false)),
-
-              padding(h*.003, h*.003),
-
-          Row(
+          padding(h * .0098, h * .0098),
+          new Text(
+            'Date 01/01/2021',
+            style: new TextStyle(
+              fontSize: 12.0,
+              fontWeight: FontWeight.bold,
+              color: Colors.grey,
+            ),
+          ),
+          padding(h * .01, h * .01),
+          Align(
+            alignment: Alignment.centerLeft,
+            child: new Text(
+              'Mayank is free today from',
+              style: new TextStyle(
+                fontSize: 15.4,
+                color: Colors.black,
+              ),
+            ),
+          ),
+          padding(h * .005, h * .005),
+          Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(
-                Icons.star,
-                color: Colors.orange,
-              ),
-              Icon(
-                Icons.star,
-                color: Colors.orange,
-              ),
-              Icon(
-                Icons.star,
-                color: Colors.orange,
-              ),
-              Icon(
-                Icons.star,
-                color: Colors.orange,
-              ),
-              Icon(
-                Icons.star,
-                color: Colors.grey,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  slots('03:00', Colors.grey),
+                  slots('08:00', Colors.grey),
+                  slots('09:30', Colors.grey),
+                ],
               ),
             ],
           ),
-
-          padding(h*.005, h*.003),
-
-          Row(
+          padding(h * .007, h * .007),
+          Align(
+            alignment: Alignment.centerLeft,
+            child: new Text(
+              'Select your time of booking',
+              style: new TextStyle(
+                fontSize: 15.4,
+                color: Colors.black,
+              ),
+            ),
+          ),
+          padding(h * .005, h * .005),
+          Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 6.0, right: 6.0),
-                child: Icon(
-                  Icons.local_drink,
-                ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  slots('03:00', pinkColor),
+                  slots('08:00', pinkColor),
+                  slots('09:30', pinkColor),
+                ],
               ),
-              Padding(
-                padding: const EdgeInsets.only(left: 6.0, right: 6.0),
-                child: Icon(Icons.wifi),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 6.0, right: 6.0),
-                child: Icon(Icons.cake),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 6.0, right: 6.0),
-                child: Icon(Icons.attach_money),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  slots('10:00', pinkColor),
+                  slots('11:00', pinkColor),
+                  slots('11:30', pinkColor),
+                ],
               ),
             ],
           ),
-
-          padding(h*.005, h*.005),
-
-          // BUTTONS
-
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                width: displayWidth(context) / 2.4,
-                child: FlatButton(
-                    onPressed: () {},
-                    color: pinkColor,
-                    shape: StadiumBorder(),
-                    child: Center(
-                      child: Row(
-                        children: [
-                          Icon(
-                            Icons.map,
-                            color: Colors.white,
-                          ),
-                          padding(0.0, 0.0, 5.0, 5.0),
-                          Text(
-                            "VIEW MAP",
-                            style: myStyle(15.0, Colors.white, true),
-                          )
-                        ],
-                      ),
-                    )),
-              ),
-              Spacer(),
-              Container(
-                width: displayWidth(context) / 2.2,
-                child: FlatButton(
-                    onPressed: () {},
-                    color: Colors.white,
-                    shape: StadiumBorder(side: BorderSide(color: pinkColor, width: 2.0)),
-                    child: Center(
-                      child: Row(
-                        children: [
-                          Icon(
-                            Icons.call,
-                            color: pinkColor,
-                          ),
-                          padding(0.0, 0.0, 5.0, 5.0),
-                          Text(
-                            "CALL RESTRAUNT",
-                            style: myStyle(11.0, pinkColor, true),
-                          )
-                        ],
-                      ),
-                    )),
-              ),
-            ],
-          ),
-
-
-          padding(h*.007, h*.007),
-
-          Table(
-            defaultVerticalAlignment: TableCellVerticalAlignment.middle,
-            textDirection: TextDirection.ltr,
-            children: [
-              TableRow(children: [
-                Center(
-                    child: Text("Open Hour",
-                        style: myStyle(17.5, Colors.black, true))),
-                Center(
-                    child: Text("Cuisine",
-                        style: myStyle(17.5, Colors.black, true))),
-              ]),
-              
-              TableRow(children: [
-                Center(
-                    child: Text("09:00 - 00:00",
-                        style: myStyle(
-                          14.5,
-                          Colors.black,
-                        ))),
-                Center(
-                    child: Text("Pizza",
-                        style: myStyle(
-                          14.5,
-                          Colors.black,
-                        )))
-              ]),
-            ],
-          ),
-          padding(h*.005, h*.005),
-
-          Row(
-            children: [
-              Text("Price", style: myStyle(16.5, Colors.black, true)),
-              Spacer(),
-              Text("Rs. 500-600 for two people",
-                  style: myStyle(15.0, Colors.grey, false)),
-            ],
-          ),
-          padding(h*.002, h*.002),
-
-          Row(
-            children: [
-              Text("Payment", style: myStyle(16.5, Colors.black, true)),
-              Spacer(),
-              Text("Card, Cash, Online",
-                  style: myStyle(15.0, Colors.grey, false)),
-            ],
-          ),
-          padding(h*.003, h*.0035),
-
+          padding(h * .02, h * .02),
           Hero(
             tag: 'reserve table',
             child: Container(
@@ -302,15 +202,19 @@ class _BookCafeState extends State<BookCafe> {
               width: displayWidth(context) / 2.0,
               child: FlatButton(
                   onPressed: () {
-                    Navigator.push(context, new MaterialPageRoute(builder: (context) => SelectTime()));
+                    Navigator.push(context, new MaterialPageRoute(builder: (context) => ConfirmBooking()));
                   },
                   color: Colors.white,
-                  shape: StadiumBorder(side: BorderSide(color: pinkColor, style: BorderStyle.solid, width: 2.0  )),
+                  shape: StadiumBorder(
+                      side: BorderSide(
+                          color: pinkColor,
+                          style: BorderStyle.solid,
+                          width: 2.0)),
                   child: Center(
                     child: Row(
                       children: [
                         Icon(
-                          Icons.event_seat  ,
+                          Icons.event_seat,
                           color: pinkColor,
                         ),
                         padding(0.0, 0.0, 5.0, 5.0),
@@ -323,11 +227,48 @@ class _BookCafeState extends State<BookCafe> {
                   )),
             ),
           ),
-
           SizedBox(
-            height: h*.18,
+            height: h * .18,
           ),
         ],
+      ),
+    );
+  }
+
+  slots(String tag, Color color, [double size = 12.0]) {
+    bool temp = false;
+    return Padding(
+      padding: EdgeInsets.fromLTRB(2.0, 4.0, 4.0, 1.0),
+      child: GestureDetector(
+        onTap: () {
+          setState(() {
+            // temp = !temp;
+            if (temp)
+              temp = false;
+            else
+              temp = true;
+            print(temp.toString());
+          });
+        },
+        child: Container(
+          width: displayWidth(context) / 4.0,
+          height: 34.0,
+          decoration: BoxDecoration(
+              color: temp ? pinkColor : Colors.transparent,
+              // color: Colors.transparent,
+              border: Border.all(color: color),
+              borderRadius: BorderRadius.all(Radius.circular(30.0))),
+          child: Center(
+            child: Text(
+              "$tag AM",
+              style: TextStyle(
+                  fontWeight: FontWeight.w500,
+                  color: temp ? Colors.white : color,
+                  // color: pinkColor,
+                  fontSize: size),
+            ),
+          ),
+        ),
       ),
     );
   }
