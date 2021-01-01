@@ -1,6 +1,5 @@
 import 'dart:ui';
 import 'package:congle/Auxiliary/custom_size.dart';
-import 'package:congle/Dates/chat_box.dart';
 import 'package:congle/Dates/user_details.dart';
 import 'package:flutter/material.dart';
 

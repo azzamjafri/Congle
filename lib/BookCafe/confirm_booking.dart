@@ -3,6 +3,7 @@ import 'package:congle/Auxiliary/colors.dart';
 import 'package:congle/Auxiliary/custom_size.dart';
 import 'package:congle/BookCafe/select_time.dart';
 import 'package:congle/BottomAppBar/bottom_app_bar.dart';
+import 'package:congle/Dates/upcoming_dates.dart';
 
 import 'package:flutter/material.dart';
 
@@ -260,7 +261,7 @@ class _ConfirmBookingState extends State<ConfirmBooking> {
                     Navigator.push(
                         context,
                         new MaterialPageRoute(
-                            builder: (context) => SelectTime()));
+                            builder: (context) => UpcomingDates()));
                   },
                   color: Colors.white,
                   shape: StadiumBorder(

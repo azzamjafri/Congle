@@ -10,11 +10,10 @@ class MyAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     double height = displayHeight(context);
     return AppBar(
-      toolbarHeight: height * .140,
+      toolbarHeight: height * .115,
       backgroundColor: pinkColor,
       automaticallyImplyLeading: false,
-      shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.vertical(bottom: Radius.circular(30.0))),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.vertical(bottom: Radius.circular(30.0))),
       // centerTitle: false,
       title: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -87,7 +86,7 @@ class MyAppBar extends StatelessWidget {
                 size: height / 32 + 6,
               ), 
               onPressed: () {
-                Navigator.pushReplacement(context, new MaterialPageRoute(builder: (context) => Settings()));
+                Navigator.push(context, new MaterialPageRoute(builder: (context) => Settings()));
               }),
               
               Text(

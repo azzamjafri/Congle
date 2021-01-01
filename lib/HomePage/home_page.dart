@@ -26,12 +26,24 @@ class _HomePageState extends State<HomePage> {
     double width = displayWidth(context);
 
     return new Scaffold(
+      // floatingActionButtonLocation: FloatingActionButtonLocation.centerTop  ,
+      // floatingActionButton: Container(
+      //   height: height / 12 + 6,
+      //       width: height / 12 + 6,
+            
+      //   child: FittedBox(
+      //     child: FloatingActionButton(
+      //       onPressed: () {},
+      //       child: Image.asset('assets/icons/logo.png'),
+      //     ),
+      //   ),
+      // ),
       appBar: PreferredSize(
-          preferredSize: Size.fromHeight(height * .150), child: MyAppBar()),
+          preferredSize: Size.fromHeight(height * .118), child: MyAppBar()),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          // padding(5.0, 5.0),
+          padding(2.0, 2.0),
           Container(
             width: width / 1.2,
             child: Card(
@@ -44,7 +56,7 @@ class _HomePageState extends State<HomePage> {
                 child: Column(
                   children: [
                     Container(
-                      height: 18.0,
+                      height: height * .027,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -88,12 +100,12 @@ class _HomePageState extends State<HomePage> {
                         ],
                       ),
                     ),
-                    padding(2.0, 2.0),
+                    padding(height * .0035, height * .004),
                     Text(
                       "Emma, 22",
                       style: myStyle(30.0, Colors.black, true),
                     ),
-                    padding(2.0, 1.0),
+                    padding(height * .003, height * .003),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -102,9 +114,9 @@ class _HomePageState extends State<HomePage> {
                         Text("1.2 km away", style: myStyle(16.6, Colors.black))
                       ],
                     ),
-                    padding(2.0, 2.0),
+                    padding(height * .005, height * .005),
                     getPhoto(),
-                    padding(4.0, 3.0),
+                    padding(height * .0085, height * .0048),
                     Align(
                       alignment: Alignment.centerLeft,
                       child: Padding(
@@ -115,7 +127,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                     ),
-                    padding(2.0, 1.0),
+                    padding(height * .0048, height * .0045),
                     Align(
                       alignment: Alignment.centerLeft,
                       child: Padding(
@@ -126,7 +138,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                     ),
-                    padding(3.0, 3.0),
+                    padding(height * .0048, height * .0048),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
@@ -142,9 +154,9 @@ class _HomePageState extends State<HomePage> {
                         tags("Laundry", 11.0),
                       ],
                     ),
-                    // SizedBox(
-                    //   height: 20.0,
-                    // ),
+                    SizedBox(
+                      height: 3.0,
+                    ),
                   ],
                 ),
               ),
@@ -153,7 +165,9 @@ class _HomePageState extends State<HomePage> {
           Spacer(),
 
           getButtons(),
-
+          SizedBox(
+            height: 4.0,
+          ),
           // Padding(padding: EdgeInsets.only(bottom: 20.0), child: getButtons()),
         ],
       ),

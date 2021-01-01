@@ -19,7 +19,11 @@ MaterialColor pinkColor = MaterialColor(0xfffa4473, colors);
 MaterialColor orangeColor = MaterialColor(0xffe98a15, colors);
 MaterialColor greyColor = MaterialColor(0xffc5bbbb, colors);
 
+// MaterialColor pinkColor = MaterialColor(0xffa9a9a9, colors);
+//808080, 696969, a9a9a9, c0c0c0-silver
 
+// sea green - 2e8b57
+// yellowish orange - ffae42
 
 // Additional Colors
 MaterialColor blueColor = MaterialColor(0xff002c40, colors);

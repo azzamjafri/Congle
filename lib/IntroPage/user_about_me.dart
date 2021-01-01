@@ -33,7 +33,7 @@ class _UserAboutMeState extends State<UserAboutMe> {
 
     return new Scaffold(
         appBar: PreferredSize(
-            preferredSize: Size.fromHeight(height * .150), child: MyAppBar()),
+            preferredSize: Size.fromHeight(height * .118), child: MyAppBar()),
         body: choose ? interestsMainPage() : aboutme());
   }
 
@@ -291,7 +291,7 @@ class _UserAboutMeState extends State<UserAboutMe> {
                 borderRadius: BorderRadius.all(Radius.circular(100))),
             child: ClipRRect(
                 borderRadius: BorderRadius.circular(120.0),
-                child: Image.asset('assets/icons/facebook_icon.png'))),
+                child: Image.asset('assets/profilepic.jpg', fit: BoxFit.fill  ,))),
         Positioned(
           top: 85.0,
           left: 85.0,

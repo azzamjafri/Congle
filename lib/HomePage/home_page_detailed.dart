@@ -31,7 +31,7 @@ class _HomePageDetailedState extends State<HomePageDetailed> {
 
     return new Scaffold(
       appBar: PreferredSize(
-          preferredSize: Size.fromHeight(height * .150), child: MyAppBar()),
+          preferredSize: Size.fromHeight(height * .118), child: MyAppBar()),
       body: SingleChildScrollView(
         child: Container(
           child: Column(
