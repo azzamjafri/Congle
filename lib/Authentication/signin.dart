@@ -255,7 +255,7 @@ class _SignInState extends State<SignIn> {
                               children: [
                                 GestureDetector(
                                     onTap: () {
-                                      showDialog(context);
+                                        
                                     },
                                     child: Text("Forget Password ?", style: TextStyle(color: pinkColor))),
                               ],

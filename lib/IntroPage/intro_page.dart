@@ -155,12 +155,14 @@ class _IntroPageState extends State<IntroPage> {
           child: Text(
             "Request Them For Date",
             style: style(27.5),
+            
           ),
         ),
         Align(
-          alignment: Alignment(0, .62),
+          alignment: Alignment(0, .65),
           child: Text(
-            "Find online singles near your location",
+            "Request the one you like for a real date at the cafes near you. ",
+            textAlign: TextAlign.center,
             style: TextStyle(
               color: Colors.grey,
               fontSize: 14.5,
@@ -169,9 +171,9 @@ class _IntroPageState extends State<IntroPage> {
           ),
         ),
         Align(
-          alignment: Alignment(0, .67),
+          alignment: Alignment(0, .72),
           child: Text(
-            " in just a single click",
+            " Your date has only 24 hrs to accept or reject the offer.",
             style: TextStyle(
               color: Colors.grey,
               fontSize: 14.5,

@@ -1,4 +1,3 @@
-
 import 'package:congle/AppBar/app_bar.dart';
 import 'package:congle/Auxiliary/colors.dart';
 import 'package:congle/Auxiliary/custom_size.dart';
@@ -15,6 +14,8 @@ class UserAboutMe extends StatefulWidget {
 
 class _UserAboutMeState extends State<UserAboutMe> {
   TextEditingController aboutMeController = new TextEditingController();
+  TextEditingController hereforController = new TextEditingController();
+  TextEditingController bioController = new TextEditingController();
   bool sports, books, travelling, dogs;
 
   @override
@@ -49,15 +50,15 @@ class _UserAboutMeState extends State<UserAboutMe> {
             });
             return null;
           },
-                  child: Container(
-              height: MediaQuery.of(context).size.height,
+          child: Container(
+              height: MediaQuery.of(context).size.height * .882,
               // height: 200.0,
               child: Material(
                   child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(left: 5.0, right: 35),
+                    padding: const EdgeInsets.only(left: 5.0, right: 35, top: 30.0),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -89,6 +90,7 @@ class _UserAboutMeState extends State<UserAboutMe> {
                     ),
                   ),
                   Padding(padding: EdgeInsets.only(top: 20.0, bottom: 20.0)),
+                  Spacer(),
                   Column(
                     children: [
                       SafeArea(
@@ -160,31 +162,30 @@ class _UserAboutMeState extends State<UserAboutMe> {
                     ],
                   ),
                   // Padding(padding: const EdgeInsets.only(top: 15.0, bottom: 35),),
-                  
-                  Align(
-                    alignment: AlignmentDirectional.centerEnd,
-                    child: Transform.translate(
-                      offset: Offset(-(MediaQuery.of(context).size.width) / 10, 50),
-                      child: Container(
-                          decoration: BoxDecoration(
-                              color: pinkColor,
-                              borderRadius: BorderRadius.all(Radius.circular(12))),
-                          height: 45.0,
-                          width: MediaQuery.of(context).size.width * .8,
-                          child: FlatButton(
-                              onPressed: () {
-                                Navigator.push(context, new MaterialPageRoute(builder: (context) => HomePage()));
-                              },
-                              child: Text("Continue",
-                                  style: new TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 24.0,
-                                    fontWeight: FontWeight.bold,
-                                    letterSpacing: 0.6,
-                                    fontFamily: 'ttnorms',
-                                  )))),
-                    ),
-                  ),
+                  Spacer(),
+                  Container(
+                    margin: EdgeInsets.only(bottom: 15.0),
+                      decoration: BoxDecoration(
+                          color: pinkColor,
+                          borderRadius:
+                              BorderRadius.all(Radius.circular(12))),
+                      height: 45.0,
+                      width: MediaQuery.of(context).size.width * .8,
+                      child: FlatButton(
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                new MaterialPageRoute(
+                                    builder: (context) => HomePage()));
+                          },
+                          child: Text("Continue",
+                              style: new TextStyle(
+                                color: Colors.white,
+                                fontSize: 24.0,
+                                fontWeight: FontWeight.bold,
+                                letterSpacing: 0.6,
+                                fontFamily: 'ttnorms',
+                              )))),
                 ],
               ))),
         ));
@@ -197,8 +198,8 @@ class _UserAboutMeState extends State<UserAboutMe> {
       child: GestureDetector(
         onTap: () {
           setState(() {
-            // temp = !temp;
-            if(temp)
+            // temp = !temp;  
+            if (temp)
               temp = false;
             else
               temp = true;
@@ -232,39 +233,33 @@ class _UserAboutMeState extends State<UserAboutMe> {
 
   // ABOUT ME MAIN PAGE *************************************
   aboutme() {
-    return Center(
-      child: SingleChildScrollView(
+    return SingleChildScrollView(
+      child: Container(
+        height: MediaQuery.of(context).size.height * .95,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           // crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: EdgeInsets.only(top: 1.0, bottom: 1.0),
+              padding: EdgeInsets.only(top: 15.0, bottom: 5.0),
               child: profilePic(),
             ),
+            Spacer(),
             Padding(
-              padding: EdgeInsets.only(top: 1.0, bottom: 10.0),
+              padding: EdgeInsets.only(top: 5.0, bottom: 10.0),
               child: aboutMe(),
             ),
             Padding(
-              padding: EdgeInsets.only(top: 5.0, bottom: 5.0),
+              padding: EdgeInsets.only(top: 10.0, bottom: 5.0),
               child: interests(),
             ),
             Padding(
-              padding: EdgeInsets.only(top: 5.0, bottom: 5.0),
+              padding: EdgeInsets.only(top: 10.0, bottom: 5.0),
               child: hereFor(),
             ),
-            Align(
-              alignment: AlignmentDirectional.centerEnd,
-                          child: Transform.translate(
-                            offset: Offset(-(MediaQuery.of(context).size.width) / 10, 5),
-                                                      child: Padding(
-                padding: EdgeInsets.only(top: 15.0, bottom: 10.0),
-                child: continueButton(),
-              ),
-                          ),
-            ),
-            Padding(padding: EdgeInsets.all(10.0)),
+            Spacer(),
+            saveButton(),
+            Padding(padding: EdgeInsets.all(5.0)),
           ],
         ),
       ),
@@ -279,19 +274,22 @@ class _UserAboutMeState extends State<UserAboutMe> {
             height: 120.0,
             width: 120.0,
             decoration: BoxDecoration(
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.pink.withOpacity(0.5),
-                    spreadRadius: 5,
-                    blurRadius: 7,
-                    offset: Offset(0, 3), // changes position of shadow
-                  ),
-                ],
+                // boxShadow: [
+                //   BoxShadow(
+                //     color: Colors.pink.withOpacity(0.5),
+                //     spreadRadius: 5,
+                //     blurRadius: 7,
+                //     offset: Offset(0, 3), // changes position of shadow
+                //   ),
+                // ],
                 // color: pinkColor,
                 borderRadius: BorderRadius.all(Radius.circular(100))),
             child: ClipRRect(
                 borderRadius: BorderRadius.circular(120.0),
-                child: Image.asset('assets/profilepic.jpg', fit: BoxFit.fill  ,))),
+                child: Image.asset(
+                  'assets/profilepic.jpg',
+                  fit: BoxFit.fill,
+                ))),
         Positioned(
           top: 85.0,
           left: 85.0,
@@ -316,7 +314,7 @@ class _UserAboutMeState extends State<UserAboutMe> {
     );
   }
 
-  continueButton() {
+  saveButton() {
     return Container(
         decoration: BoxDecoration(
             color: pinkColor,
@@ -325,7 +323,8 @@ class _UserAboutMeState extends State<UserAboutMe> {
         width: MediaQuery.of(context).size.width * .8,
         child: FlatButton(
             onPressed: () {
-              Navigator.push(context, new MaterialPageRoute(builder: (context) => HomePage()));
+              Navigator.push(context,
+                  new MaterialPageRoute(builder: (context) => HomePage()));
             },
             child: Text("Save",
                 style: new TextStyle(
@@ -506,10 +505,10 @@ class _UserAboutMeState extends State<UserAboutMe> {
         Padding(padding: EdgeInsets.fromLTRB(0.0, 5.0, 0.0, 5.0)),
         Container(
           width: MediaQuery.of(context).size.width * .8,
-          height: 70.0,
+          height: 60.0,
           child: TextFormField(
             // maxLines: 1,
-            controller: aboutMeController,
+            controller: hereforController,
 
             enableInteractiveSelection: true,
             decoration: InputDecoration(
@@ -521,6 +520,34 @@ class _UserAboutMeState extends State<UserAboutMe> {
                     borderSide: BorderSide(width: 4),
                     borderRadius: BorderRadius.all(Radius.circular(15))),
                 hintText: "Serious relationship",
+                hintStyle: TextStyle(
+                  fontSize: 15.0,
+                  color: pinkColor,
+                  fontFamily: 'ttnorms',
+                )),
+
+            validator: (value) =>
+                value.isEmpty ? 'Please write your purpose' : null,
+          ),
+        ),
+        Padding(padding: EdgeInsets.fromLTRB(0.0, 5.0, 0.0, 5.0)),
+        Container(
+          width: MediaQuery.of(context).size.width * .8,
+          height: 60.0,
+          child: TextFormField(
+            // maxLines: 1,
+            controller: bioController,
+
+            enableInteractiveSelection: true,
+            decoration: InputDecoration(
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(width: 2.0, color: pinkColor),
+                  borderRadius: BorderRadius.circular(15.0),
+                ),
+                border: OutlineInputBorder(
+                    borderSide: BorderSide(width: 4),
+                    borderRadius: BorderRadius.all(Radius.circular(15))),
+                hintText: "Write your bio",
                 hintStyle: TextStyle(
                   fontSize: 15.0,
                   color: pinkColor,

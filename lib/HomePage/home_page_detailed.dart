@@ -33,151 +33,132 @@ class _HomePageDetailedState extends State<HomePageDetailed> {
       appBar: PreferredSize(
           preferredSize: Size.fromHeight(height * .118), child: MyAppBar()),
       body: SingleChildScrollView(
-        child: Container(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              padding(5.0, 5.0),
-              Hero(
-                tag: 'homepage',
-                child: Container(
-                  width: width / 1.2,
-                  child: Card(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(45.0),
-                    ),
-                    elevation: 5.0,
-                    child: Padding(
-                      padding: const EdgeInsets.all(12.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+        child: Center(
+          child: Hero(
+            tag: 'homepage',
+            child: Container(
+              width: width / 1.2,
+              child: Card(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(45.0),
+                ),
+                elevation: 5.0,
+                child: Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      padding(6.0, 6.0),
+                      getPhotoCarousel(),
+                      padding(10.0, 5.0),
+                      Text(
+                        "Emma, 22",
+                        style: myStyle(25.0, Colors.black, true),
+                      ),
+                      padding(2.0, 2.0),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          padding(6.0, 6.0),
-                          getPhotoCarousel(),
-                          padding(10.0, 5.0),
-                          Text(
-                            "Emma, 22",
-                            style: myStyle(25.0, Colors.black, true),
+                          Icon(
+                            Icons.pin_drop,
+                            size: 18.0,
                           ),
-                          padding(2.0, 2.0),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Icon(
-                                Icons.pin_drop,
-                                size: 18.0,
-                              ),
-                              padding(0.0, 0.0, 4.0, 4.0),
-                              Text("1.2 km away",
-                                  style: myStyle(16.0, Colors.black))
-                            ],
-                          ),
-                          padding(2.0, 5.0),
-                          Text(
-                            "Usually I'm so late, but now I-so-late",
-                            style: myStyle(14.4, pinkColor),
-                          ),
-                          padding(5.0, 5.0),
-                          Text(
-                            "About me",
-                            style: TextStyle(
-                              fontSize: 18.0,
-                              color: pinkColor,
-                              fontWeight: FontWeight.bold,
-                              fontFamily: 'ttnorms',
-                              letterSpacing: 0.6
-                            ),
-                          ),
-                          
-                          padding(2.0, 1.5),
-                          Text(
-                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-                            style: TextStyle(
-                              fontSize: 14.2,
-                              color: Colors.black,
-                              height: 1.4,
-                              fontFamily: 'ttnorms',
-                            ),
-                            
-                          ),
-
-                          padding(5.0, 5.0),
-                          Text(
-                            "Interests",
-                            style: TextStyle(
-                              fontSize: 16.5,
-                              color: pinkColor,
-                              fontWeight: FontWeight.bold,
-                              fontFamily: 'ttnorms',
-                              letterSpacing: 0.6
-                            ),
-                          ),
-                          
-                          padding(3.0, 3.0),
-                          
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              tags("Fitness", 11.0),
-                              tags("Beauty", 11.0),
-                              tags("Dogs", 11.0),
-                            ],
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              tags("Cats", 11.0),
-                              tags("Laundry", 11.0),
-                            ],
-                          ),
-
-                          padding(5.0, 5.0),
-
-                          Text(
-                            "Here for",
-                            style: TextStyle(
-                              fontSize: 16.5,
-                              color: pinkColor,
-                              fontWeight: FontWeight.bold,
-                              fontFamily: 'ttnorms',
-                              letterSpacing: 0.6
-                            ),
-                          ),
-                          
-                          padding(1.5, 1.5),
-                          Text(
-                            "Serious relationships",
-                            style: TextStyle(
-                              fontSize: 14.2,
-                              color: Colors.black,
-                              height: 1.4,
-                              fontFamily: 'ttnorms',
-                            ),
-                            
-                          ),
-                          SizedBox(
-                            height: 15.0,
-                          ),
+                          padding(0.0, 0.0, 4.0, 4.0),
+                          Text("1.2 km away",
+                              style: myStyle(16.0, Colors.black))
                         ],
                       ),
-                    ),
+                      padding(2.0, 5.0),
+                      Text(
+                        "Usually I'm so late, but now I-so-late",
+                        style: myStyle(14.4, pinkColor),
+                      ),
+                      padding(5.0, 5.0),
+                      Text(
+                        "About me",
+                        style: TextStyle(
+                          fontSize: 18.0,
+                          color: pinkColor,
+                          fontWeight: FontWeight.bold,
+                          fontFamily: 'ttnorms',
+                          letterSpacing: 0.6
+                        ),
+                      ),
+                      
+                      padding(2.0, 1.5),
+                      Text(
+                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                        style: TextStyle(
+                          fontSize: 14.2,
+                          color: Colors.black,
+                          height: 1.4,
+                          fontFamily: 'ttnorms',
+                        ),
+                        
+                      ),
+
+                      padding(5.0, 5.0),
+                      Text(
+                        "Interests",
+                        style: TextStyle(
+                          fontSize: 16.5,
+                          color: pinkColor,
+                          fontWeight: FontWeight.bold,
+                          fontFamily: 'ttnorms',
+                          letterSpacing: 0.6
+                        ),
+                      ),
+                      
+                      padding(3.0, 3.0),
+                      
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          tags("Fitness", 11.0),
+                          tags("Beauty", 11.0),
+                          tags("Dogs", 11.0),
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          tags("Cats", 11.0),
+                          tags("Laundry", 11.0),
+                        ],
+                      ),
+
+                      padding(5.0, 5.0),
+
+                      Text(
+                        "Here for",
+                        style: TextStyle(
+                          fontSize: 16.5,
+                          color: pinkColor,
+                          fontWeight: FontWeight.bold,
+                          fontFamily: 'ttnorms',
+                          letterSpacing: 0.6
+                        ),
+                      ),
+                      
+                      padding(1.5, 1.5),
+                      Text(
+                        "Serious relationships",
+                        style: TextStyle(
+                          fontSize: 14.2,
+                          color: Colors.black,
+                          height: 1.4,
+                          fontFamily: 'ttnorms',
+                        ),
+                        
+                      ),
+                      SizedBox(
+                        height: 15.0,
+                      ),
+                    ],
                   ),
                 ),
               ),
-
-              Align(
-                alignment: AlignmentDirectional.centerEnd,
-                child: Transform.translate(
-                  offset: Offset(0, 0),
-                  child: Padding(
-                    padding: EdgeInsets.only(top: 15.0, bottom: 10.0),
-                    child: getButtons(),
-                  ),
-                ),
-              ),
-
-              // Padding(padding: EdgeInsets.only(bottom: 20.0), child: getButtons()),
-            ],
+            ),
           ),
         ),
       ),
@@ -286,9 +267,6 @@ class _HomePageDetailedState extends State<HomePageDetailed> {
     );
   }
 
-  getButtons() {
-    return BottomNavBar();
-  }
 
   myStyle([size = 15.0, color = Colors.grey, bold = false]) {
     return TextStyle(

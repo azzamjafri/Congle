@@ -42,7 +42,7 @@ class _UserDetailsState extends State<UserDetails> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              padding(6.0, 6.0),
+              // padding(6.0, 6.0),
               Center(
                 child: profilePic(),
               ),
@@ -104,21 +104,15 @@ class _UserDetailsState extends State<UserDetails> {
                   tags("Laundry", 11.0),
                 ],
               ),
-              padding(5.0, 5.0),
+              // padding(5.0, 5.0),
               Spacer(),
               accept(),
-              // Align(
-              //   alignment: AlignmentDirectional.centerEnd,
-
-              //   child: Transform.translate(
-              //     offset: Offset(-3, 30),
-              //     child: accept(),
-
-              //   ),
+              padding(2.0, 2.0),
+              reject(),
+              
+              // SizedBox(
+              //   height: 10.0,
               // ),
-              SizedBox(
-                height: 10.0,
-              ),
             ],
           ),
         ),
@@ -140,6 +134,27 @@ class _UserDetailsState extends State<UserDetails> {
             child: Text("Accept",
                 style: new TextStyle(
                   color: Colors.white,
+                  fontSize: 20.0,
+                  letterSpacing: 2.0,
+                ))));
+  }
+
+  reject() {
+    return Container(
+        decoration: BoxDecoration(
+            color: Colors.white,
+            border: Border.all(color: pinkColor),
+            borderRadius: BorderRadius.all(Radius.circular(15.0))),
+        height: 40.0,
+        width: MediaQuery.of(context).size.width * 0.9,
+        child: FlatButton(
+            onPressed: () {
+              Navigator.pop(context);
+              // Navigator.push(context, new MaterialPageRoute(builder: (context) => Congratulations()));
+            },
+            child: Text("Reject",
+                style: new TextStyle(
+                  color: pinkColor,
                   fontSize: 20.0,
                   letterSpacing: 2.0,
                 ))));

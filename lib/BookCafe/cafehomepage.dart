@@ -2,7 +2,8 @@
 import 'package:congle/Auxiliary/custom_size.dart';
 import 'package:congle/Bookings/main_page.dart';
 import 'package:congle/BottomAppBar/bottom_app_bar.dart';
-import 'package:congle/BottomAppBar/simple_bottom_app_bar.dart';
+
+import 'package:congle/Dates/dates.dart';
 import 'package:flutter/material.dart';
 
 
@@ -30,7 +31,9 @@ PageController _myPage = PageController(initialPage: 0);
             
         child: FittedBox(
           child: FloatingActionButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushReplacement(context, new MaterialPageRoute(builder: (context) => Dates()));
+            },
             child: Image.asset('assets/icons/logo.png'),
           ),
         ),

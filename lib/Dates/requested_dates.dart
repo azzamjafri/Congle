@@ -47,45 +47,38 @@ class _RequestedDatesState extends State<RequestedDates> {
       itemBuilder: (BuildContext context, int position) {
         return Column(
           children: [
-            GestureDetector(
-              onTap: () {
-                // Navigator.push(context, new MaterialPageRoute(builder: (context) => ChatBox('1', 'Azzam')));
-                Navigator.push(context,
-                    new MaterialPageRoute(builder: (context) => UserDetails()));
-              },
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Container(
-                    height: 65.0,
-                    width: 65.0,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.all(Radius.circular(50.0)),
-                        image: DecorationImage(
-                            image: AssetImage('assets/profilepic.jpg'),
-                            fit: BoxFit.fill)),
-                  ),
-                  padding(0.0, 0.0, 15.0, 10.0),
-                  Column(
-                    children: [
-                      new Text(
-                        "Adrianne",
-                        style: myStyle(16.0, Colors.black, true),
-                      ),
-                      padding(5.0, 0.0, 10.0, 10.0),
-                      new Text(
-                        "  22, Lawyer",
-                        style: new TextStyle(
-                            fontSize: 13.0,
-                            color: Colors.grey[500],
-                            fontStyle: FontStyle.italic),
-                      ),
-                    ],
-                  ),
-                  Spacer(),
-                  Text("3 hours", style: myStyle(10.0, Colors.grey, true)),
-                ],
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Container(
+                  height: 65.0,
+                  width: 65.0,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(50.0)),
+                      image: DecorationImage(
+                          image: AssetImage('assets/profilepic.jpg'),
+                          fit: BoxFit.fill)),
+                ),
+                padding(0.0, 0.0, 15.0, 10.0),
+                Column(
+                  children: [
+                    new Text(
+                      "Adrianne",
+                      style: myStyle(16.0, Colors.black, true),
+                    ),
+                    padding(5.0, 0.0, 10.0, 10.0),
+                    new Text(
+                      "  22, Lawyer",
+                      style: new TextStyle(
+                          fontSize: 13.0,
+                          color: Colors.grey[500],
+                          fontStyle: FontStyle.italic),
+                    ),
+                  ],
+                ),
+                Spacer(),
+                Text("3 hours", style: myStyle(10.0, Colors.grey, true)),
+              ],
             ),
             Align(
               alignment: Alignment.centerRight,
@@ -175,33 +168,33 @@ class _RequestedDatesState extends State<RequestedDates> {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                slots('03:00'),
-                                slots('08:00'),
-                                slots('09:30'),
+                                slots('03:00 PM'),
+                                slots('08:00 PM'),
+                                slots('09:30 PM'),
                               ],
                             ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                slots('10:00'),
-                                slots('11:00'),
-                                slots('11:30'),
+                                slots('10:00 AM'),
+                                slots('11:00 AM'),
+                                slots('11:30 AM'),
                               ],
                             ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                slots('03:00'),
-                                slots('08:00'),
-                                slots('09:30'),
+                                slots('03:00 PM'),
+                                slots('08:00 PM'),
+                                slots('09:30 PM'),
                               ],
                             ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                slots('10:00'),
-                                slots('11:00'),
-                                slots('11:30'),
+                                slots('10:00 AM'),
+                                slots('11:00 AM'),
+                                slots('11:30 AM'),
                               ],
                             ),
                           ],
@@ -268,7 +261,7 @@ class _RequestedDatesState extends State<RequestedDates> {
               borderRadius: BorderRadius.all(Radius.circular(30.0))),
           child: Center(
             child: Text(
-              "$tag AM",
+              "$tag",
               style: TextStyle(
                   fontWeight: FontWeight.w500,
                   color: temp ? Colors.white : pinkColor,

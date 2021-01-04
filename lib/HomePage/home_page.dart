@@ -13,6 +13,8 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   List<bool> isSelected;
 
+  int searchOnline = 1;
+
   @override
   void initState() {
     isSelected = [true, false];
@@ -26,18 +28,6 @@ class _HomePageState extends State<HomePage> {
     double width = displayWidth(context);
 
     return new Scaffold(
-      // floatingActionButtonLocation: FloatingActionButtonLocation.centerTop  ,
-      // floatingActionButton: Container(
-      //   height: height / 12 + 6,
-      //       width: height / 12 + 6,
-            
-      //   child: FittedBox(
-      //     child: FloatingActionButton(
-      //       onPressed: () {},
-      //       child: Image.asset('assets/icons/logo.png'),
-      //     ),
-      //   ),
-      // ),
       appBar: PreferredSize(
           preferredSize: Size.fromHeight(height * .118), child: MyAppBar()),
       body: Column(
@@ -46,6 +36,7 @@ class _HomePageState extends State<HomePage> {
           padding(2.0, 2.0),
           Container(
             width: width / 1.2,
+            height: height * .700,
             child: Card(
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(45.0),
@@ -64,38 +55,21 @@ class _HomePageState extends State<HomePage> {
                             'search online',
                             style: myStyle(16.0),
                           ),
-                          ToggleButtons(
-                            fillColor: Colors.transparent,
-                            selectedColor: Colors.grey,
-                            borderRadius: BorderRadius.circular(12.0),
-                            children: <Widget>[
-                              Container(
-                                height: 18.0,
-                                width: 15.0,
-                                decoration: BoxDecoration(
-                                    color: isSelected[0]
-                                        ? Colors.grey
-                                        : Colors.transparent,
-                                    shape: BoxShape.circle),
-                              ),
-                              Container(
-                                height: 18.0,
-                                width: 15.0,
-                                decoration: BoxDecoration(
-                                    color: isSelected[1]
-                                        ? Colors.greenAccent
-                                        : Colors.transparent,
-                                    shape: BoxShape.circle),
-                              ),
-                            ],
-                            onPressed: (int index) {
-                              setState(() {
-                                for (int i = 0; i < isSelected.length; i++) {
-                                  isSelected[i] = i == index;
-                                }
-                              });
-                            },
-                            isSelected: isSelected,
+                          Container(
+                            width: 80.0,
+                            child: Slider(
+                              value: searchOnline.toDouble(),
+                              min: 0,
+                              max: 1,
+                              activeColor: searchOnline == 1
+                                  ? Colors.green
+                                  : Colors.grey,
+                              onChanged: (double value) {
+                                setState(() {
+                                  searchOnline = value.round();
+                                });
+                              },
+                            ),
                           ),
                         ],
                       ),
@@ -115,60 +89,23 @@ class _HomePageState extends State<HomePage> {
                       ],
                     ),
                     padding(height * .005, height * .005),
+
+                    // STACK START
+
                     getPhoto(),
-                    padding(height * .0085, height * .0048),
-                    Align(
-                      alignment: Alignment.centerLeft,
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 15.0),
-                        child: Text(
-                          "Designer @grafix studios",
-                          style: myStyle(14.5, Colors.black),
-                        ),
-                      ),
-                    ),
-                    padding(height * .0048, height * .0045),
-                    Align(
-                      alignment: Alignment.centerLeft,
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 15.0),
-                        child: Text(
-                          "Usually I'm so late, but now I-so-late",
-                          style: myStyle(13.7, Colors.orangeAccent.shade100),
-                        ),
-                      ),
-                    ),
-                    padding(height * .0048, height * .0048),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        tags("Fitness", 11.0),
-                        tags("Beauty", 11.0),
-                        tags("Dogs", 11.0),
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        tags("Cats", 11.0),
-                        tags("Laundry", 11.0),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 3.0,
-                    ),
+                    // padding(height * .0085, height * .0048),
+
+                    
                   ],
                 ),
               ),
             ),
           ),
           Spacer(),
-
           getButtons(),
           SizedBox(
             height: 4.0,
           ),
-          // Padding(padding: EdgeInsets.only(bottom: 20.0), child: getButtons()),
         ],
       ),
     );
@@ -205,29 +142,79 @@ class _HomePageState extends State<HomePage> {
   }
 
   getPhoto() {
+    double height = displayHeight(context) / 3.0;
+
+    // starting of widgets - 3.5
     return Stack(
       children: [
-        Container(
-            height: MediaQuery.of(context).size.height / 3.0,
-            width: MediaQuery.of(context).size.width / 1.4,
-            decoration: BoxDecoration(
-                //   boxShadow: [
-                //   BoxShadow(
-                //     color: Colors.grey.withOpacity(0.4),
-                //     spreadRadius: 2,
-                //     blurRadius: 5,
-                //     offset: Offset(1, 10), // changes position of shadow
-                //   ),
-                // ],
-                borderRadius: BorderRadius.all(Radius.circular(20.0))),
-            child: ClipRRect(
-                borderRadius: BorderRadius.circular(20.0),
-                child: Image.asset(
-                  'assets/girl.jpg',
-                  fit: BoxFit.fill,
-                ))),
+        Center(
+          child: Container(
+              height: MediaQuery.of(context).size.height / 1.90,
+              width: MediaQuery.of(context).size.width / 1.2,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(45.0))),
+              child: ClipRRect(
+                
+                  borderRadius: BorderRadius.circular(45.0),
+                  child: Image.asset(
+                    'assets/girl.jpg',
+                    fit: BoxFit.fill,
+                  ))),
+        ),
         Positioned(
-          bottom: 15.0,
+          top: height,
+          left: 10.0,
+          child: Align(
+            alignment: Alignment.bottomCenter,
+            child: Padding(
+              padding: const EdgeInsets.only(left: 15.0),
+              child: Text(
+                "Designer @grafix studios",
+                style: myStyle(15.5, Colors.white, true),
+              ),
+            ),
+          ),
+        ),
+        Positioned(
+          top: (height) + 20.0,
+          left: 10.0,
+          child: Align(
+            alignment: Alignment.centerLeft,
+            child: Padding(
+              padding: const EdgeInsets.only(left: 15.0),
+              child: Text(
+                "Usually I'm so late, but now I-so-late",
+                style: myStyle(14.3, Colors.orangeAccent.shade100, true),
+              ),
+            ),
+          ),
+        ),
+        Positioned(
+          top: (height) + 40.0,
+          left: 10.0,
+          child: Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  tags("Fitness", 11.0),
+                  tags("Beauty", 11.0),
+                  tags("Dogs", 11.0),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  tags("Cats", 11.0),
+                  tags("Laundry", 11.0),
+                  // tags("Dogs", 11.0),
+                ],
+              ),
+            ],
+          ),
+        ),
+        Positioned(
+          top: height - 50.0,
           right: 15.0,
           child: Container(
               height: 35.0,

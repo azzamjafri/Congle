@@ -1,6 +1,7 @@
 import 'package:congle/Authentication/signin.dart';
 import 'package:congle/Authentication/signup.dart';
 import 'package:congle/Auxiliary/colors.dart';
+import 'package:congle/Auxiliary/custom_size.dart';
 
 import 'package:flutter/material.dart';
 
@@ -10,8 +11,13 @@ class StartUpPage extends StatefulWidget {
 }
 
 class _StartUpPageState extends State<StartUpPage> {
+  
   @override
   Widget build(BuildContext context) {
+
+    double w = displayWidth(context);
+    
+
     return new Scaffold(
       body: new Container(
         decoration: BoxDecoration(
@@ -45,9 +51,10 @@ class _StartUpPageState extends State<StartUpPage> {
             Padding(padding: EdgeInsets.all(45.0)),
             Container(
               height: 45.0,
-              width: 270.0,
+              width: w * .77,
               decoration: BoxDecoration(
-                color: Colors.pink[50],
+                // color: Colors.pink[50],
+                color: Colors.white,
                 border: Border.all(
                   color: Colors.transparent,
                 ),
@@ -79,9 +86,10 @@ class _StartUpPageState extends State<StartUpPage> {
             Padding(padding: EdgeInsets.all(6.0)),
             Container(
               height: 45.0,
-              width: 270.0,
+              width: w * .77,
               decoration: BoxDecoration(
-                color: Colors.red,
+                // color: Colors.red,
+                color: Colors.white,
                 border: Border.all(
                   color: Colors.transparent,
                 ),
@@ -113,7 +121,8 @@ class _StartUpPageState extends State<StartUpPage> {
                   Text(
                     "Sign Up With Google",
                     style: TextStyle(
-                        color: Colors.white,
+                        // color: Colors.white,
+                        color: pinkColor,
                         fontFamily: 'ttnorms',
                         fontSize: 15.5),
                   ),
@@ -123,7 +132,7 @@ class _StartUpPageState extends State<StartUpPage> {
             Padding(padding: EdgeInsets.all(6.0)),
             Container(
               height: 45.0,
-              width: 270.0,
+              width: w * .77,
               decoration: BoxDecoration(
                 color: Colors.blueAccent[700],
                 border: Border.all(

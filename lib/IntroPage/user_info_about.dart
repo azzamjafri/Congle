@@ -50,26 +50,34 @@ class _UserInfoAboutState extends State<UserInfoAbout> {
                   // height: 240.0,
                   height: MediaQuery.of(context).size.height * (3 / 8) ,
                   width: MediaQuery.of(context).size.width,
-                  child: Image.asset('assets/user_info_about.jpg', fit: BoxFit.fill,)
+                  child: Image.asset('assets/background.jpg', fit: BoxFit.fitWidth,)
                 ),
               ),
               Positioned(
                   top: MediaQuery.of(context).size.height / 6,
-                  left: MediaQuery.of(context).size.width / 2 - 31,
-                  child: Container(
-                    // margin: EdgeInsets.all(100.0),
-                    height: 62.0,
-                    width: 62.0,
-                    child: Center(
-                        child: Icon(
-                      Icons.camera_enhance,
-                      size: 30.0,
-                      color: pinkColor,
-                    )
-                    // child: Image.asset('assets/camera_icon.jpg', scale: 0.7,)
+                  left: MediaQuery.of(context).size.width / 2 - 62.0,
+                  
+                  child: Center(
+                    child: Column(
+                      children: [
+                        Container(
+                          // margin: EdgeInsets.all(100.0),
+                          height: 62.0,
+                          width: 62.0,
+                          child: Center(
+                              child: Icon(
+                            Icons.camera_enhance,
+                            size: 30.0,
+                            color: pinkColor,
+                          )
+                          // child: Image.asset('assets/camera_icon.jpg', scale: 0.7,)
+                          ),
+                          decoration: BoxDecoration(
+                              color: Colors.white, shape: BoxShape.circle),
+                        ),
+                        Text("Add your photos", style: myStyle(17.0, Colors.white, true),)
+                      ],
                     ),
-                    decoration: BoxDecoration(
-                        color: Colors.white, shape: BoxShape.circle),
                   )),
               Positioned(
                 top: MediaQuery.of(context).size.height / 3.1,

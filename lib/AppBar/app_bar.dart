@@ -1,6 +1,8 @@
+import 'package:congle/AppBar/profile.dart';
 import 'package:congle/AppBar/settings.dart';
 import 'package:congle/Auxiliary/colors.dart';
 import 'package:congle/Auxiliary/custom_size.dart';
+import 'package:congle/Dates/dates.dart';
 import 'package:flutter/material.dart';
 
 
@@ -33,20 +35,27 @@ class MyAppBar extends StatelessWidget {
                     borderRadius: BorderRadius.all(Radius.circular(100.0)),
                     border: Border.all(color: Colors.white, width: 1.2)),
                 child: IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushReplacement(context, new MaterialPageRoute(builder: (context) => Profile()));
+                    },
                     icon: Icon(Icons.person_outline, size: height / 32))),
           ),
-          new Column(
-            children: [
-              Icon(
-                Icons.calendar_today,
-                size: height / 32 + 6,
-              ),
-              Text(
-                "Dates",
-                style: style(),
-              )
-            ],
+          GestureDetector(
+            onTap: () {
+              Navigator.pushReplacement(context, new MaterialPageRoute(builder: (context) => Dates()));
+            },
+            child: new Column(
+              children: [
+                Icon(
+                  Icons.calendar_today,
+                  size: height / 32 + 6,
+                ),
+                Text(
+                  "Dates",
+                  style: style(),
+                )
+              ],
+            ),
           ),
           Container(
               height: height / 12 + 6,
@@ -86,7 +95,7 @@ class MyAppBar extends StatelessWidget {
                 size: height / 32 + 6,
               ), 
               onPressed: () {
-                Navigator.push(context, new MaterialPageRoute(builder: (context) => Settings()));
+                Navigator.pushReplacement(context, new MaterialPageRoute(builder: (context) => Settings()));
               }),
               
               Text(

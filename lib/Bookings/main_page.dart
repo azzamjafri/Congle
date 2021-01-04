@@ -21,7 +21,7 @@ class _CafeMainPageState extends State<CafeMainPage> {
         child: getAppBar(),
         preferredSize: Size.fromHeight(75.0),
       ),
-      // body: SingleChildScrollView(child: getBody(),)
+      
       body: getBody(),
     );
   }

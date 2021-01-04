@@ -19,12 +19,13 @@ class _AddPhotoState extends State<AddPhoto> {
 
     return new Scaffold(
       backgroundColor: Colors.white,
+      
       body: new Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Padding(
-            padding: const EdgeInsets.only(left: 30.0, top: 20.0),
+            padding: const EdgeInsets.only(left: 25.0, top: 18.0),
             child: Align(
               alignment: Alignment.bottomLeft,
               child: IconButton(
@@ -40,6 +41,7 @@ class _AddPhotoState extends State<AddPhoto> {
             child: Image.asset(
               'assets/add_photo.jpg',
               fit: BoxFit.fill  ,
+              // color: Colors.black,
             ),
           ),
           padding(height / 28, 0.0),
@@ -105,8 +107,8 @@ class _AddPhotoState extends State<AddPhoto> {
               decoration: BoxDecoration(
                   color: pinkColor,
                   borderRadius: BorderRadius.all(Radius.circular(15.0))),
-              height: 44.0,
-              width: MediaQuery.of(context).size.width * .6,
+              height: 45.0,
+              width: MediaQuery.of(context).size.width * .75,
               child: FlatButton(
                   onPressed: () => Navigator.push(
                       context,
@@ -115,8 +117,9 @@ class _AddPhotoState extends State<AddPhoto> {
                   child: Text("Continue",
                       style: new TextStyle(
                         color: Colors.white,
-                        fontSize: 20.0,
+                        fontSize: 22.0,
                         letterSpacing: 2.0,
+                        fontWeight: FontWeight.bold
                       )))),
 
           // padding(15.0, 25.0),

@@ -15,13 +15,15 @@ class _BottomNavBarState extends State<BottomNavBar> {
         Column(
           children: [
             Container(
+              margin: EdgeInsets.only(right: 3.0,),
               height: MediaQuery.of(context).size.height / 10 ,
               width: 65.0,
               child: IconButton(
-                icon: Icon(Icons.close, size: MediaQuery.of(context).size.height / 10 , ),
+                icon: Icon(Icons.close, size: MediaQuery.of(context).size.height /11 , ),
                   // icon: Image.asset('assets/icons/remove.jpg'), 
                   onPressed: () {}),
             ),
+            
             Center(child: Text(' Remove', style: myStyle(16.0))),
           ],
         ),
@@ -39,19 +41,19 @@ class _BottomNavBarState extends State<BottomNavBar> {
             Center(child: Text(' Date ', style: myStyle(16.0))),
           ],
         ),
-        Padding(padding: EdgeInsets.only(left: 3.0, right: 3.0)),
-        Column(
-          children: [
-            Container(
-              height: MediaQuery.of(context).size.height / 10 ,
-              width: 65.0,
-              child: IconButton(
-                  icon: Image.asset('assets/icons/superdate.png',),
-                  onPressed: () {}),
-            ),
-            Center(child: Text('Super Date', style: myStyle(16.0))),
-          ],
-        ),
+        // Padding(padding: EdgeInsets.only(left: 3.0, right: 3.0)),
+        // Column(
+        //   children: [
+        //     Container(
+        //       height: MediaQuery.of(context).size.height / 10 ,
+        //       width: 65.0,
+        //       child: IconButton(
+        //           icon: Image.asset('assets/icons/superdate.png',),
+        //           onPressed: () {}),
+        //     ),
+        //     Center(child: Text('Super Date', style: myStyle(16.0))),
+        //   ],
+        // ),
       ],
     );
   }
