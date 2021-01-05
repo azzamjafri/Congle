@@ -22,91 +22,194 @@ class _UpcomingDatesState extends State<UpcomingDates> {
     );
   }
 
-  divider(c, w, t) {
-    return Container(
-        alignment: Alignment.centerRight,
-        width: MediaQuery.of(context).size.width - w,
-        child: Align(
-          alignment: Alignment.centerRight,
-          child: Divider(
-            thickness: t,
-            color: c,
-          ),
-        ));
-  }
-
   listOfPosts() {
+    double height = displayHeight(context);
+    double width = displayWidth(context);
+
     return ListView.builder(
       physics: ClampingScrollPhysics(),
       shrinkWrap: true,
-      itemCount: 4,
+      itemCount: 3,
       scrollDirection: Axis.vertical,
-      padding: const EdgeInsets.all(20.0),
+      padding: const EdgeInsets.fromLTRB(5.0, 15.0, 5.0, 20.0),
       itemBuilder: (BuildContext context, int position) {
         return Column(
           children: [
             GestureDetector(
               onTap: () {
-                // Navigator.push(context, new MaterialPageRoute(builder: (context) => ChatBox('1', 'Azzam')));
-                Navigator.push(context, new MaterialPageRoute(builder: (context) => UserDetails()));
+                Navigator.push(context,
+                    new MaterialPageRoute(builder: (context) => UserDetails()));
               },
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Container(
-                    height: 65.0,
-                    width: 65.0,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.all(Radius.circular(50.0)),
-                        image: DecorationImage(
-                            image: AssetImage('assets/profilepic.jpg'),
-                            fit: BoxFit.fill)),
-                  ),
-                  padding(0.0, 0.0, 15.0, 10.0),
-                  Column(
+              child: Card(
+                elevation: 10.0,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(15.0)),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(5.0, 10.0, 5.0, 10.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      new Text(
-                        "Adrianne",
-                        style: myStyle(16.0, Colors.black, true),
+                      Container(
+                        height: height * .125,
+                        width: height * .12,
+                        decoration: BoxDecoration(
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(50.0)),
+                            image: DecorationImage(
+                                image: AssetImage('assets/profilepic.jpg'),
+                                fit: BoxFit.fill)),
                       ),
-                      padding(5.0, 0.0, 10.0, 10.0),
-                      new Text(
-                        "  22, Lawyer",
-                        style: new TextStyle(
-                            fontSize: 13.0,
-                            color: Colors.grey[500],
-                            fontStyle: FontStyle.italic),
+                      padding(0.0, 0.0, 1.0, 1.0),
+                      Container(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Emma, 22",
+                              style: myStyle(height * .034, Colors.black, true),
+                            ),
+                            padding(height * .0023, height * .0023),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Icon(
+                                  Icons.pin_drop,
+                                  size: height * .029,
+                                ),
+                                padding(0.0, 0.0, 4.0, 4.0),
+                                Text("The Brunch",
+                                    style: myStyle(height * .022, Colors.black))
+                              ],
+                            ),
+                            padding(height * .0032, height * .0032),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Row(
+                                  children: [
+                                    Icon(
+                                      Icons.calendar_today,
+                                      size: height * .025,
+                                    ),
+                                    padding(0.0, 0.0, 1.0, 0.0),
+                                    Text(
+                                      '01/02/2020',
+                                      style: myStyle(height * .015),
+                                    )
+                                  ],
+                                ),
+                                padding(0.0, 0.0, 3.0, 3.0),
+                                Row(
+                                  children: [
+                                    Icon(
+                                      Icons.timer,
+                                      size: height * .025,
+                                    ),
+                                    padding(0.0, 0.0, 1.0, 0.0),
+                                    Text(
+                                      '11:00 AM',
+                                      style: myStyle(height * .015),
+                                    )
+                                  ],
+                                )
+                              ],
+                            ),
+                            padding(height * .0045, height * .0045),
+                            Center(
+                              child: Text("18 Chiltern St, London",
+                                  style: myStyle(
+                                      height * .019, Colors.black, false)),
+                            ),
+                            padding(height * .012, height * .012),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Container(
+                                    width: displayWidth(context) / 5.3,
+                                    height: height * .035,
+                                    decoration: BoxDecoration(
+                                      color: Colors.black,
+                                      // shape: StadiumBorder(),
+                                      borderRadius: BorderRadius.all(
+                                          Radius.circular(20.0)),
+                                    ),
+                                    child: Center(
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Icon(
+                                            Icons.location_on,
+                                            color: Colors.white,
+                                            size: height * .025,
+                                          ),
+                                          padding(0.0, 0.0, 0.7, 0.0),
+                                          Text(
+                                            "Get Directions",
+                                            style: myStyle(height * .012,
+                                                Colors.white, true),
+                                          )
+                                        ],
+                                      ),
+                                    )),
+                                // padding(0.0, 0.0, 2.0, 2.0),
+
+                                Container(
+                                    width: displayWidth(context) / 5.2,
+                                    height: height * .035,
+                                    decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      border: Border.all(
+                                          color: Colors.black, width: 1.5),
+                                      borderRadius: BorderRadius.all(
+                                          Radius.circular(20.0)),
+                                    ),
+                                    child: Center(
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Icon(
+                                            Icons.call,
+                                            color: Colors.black,
+                                            size: height * .022,
+                                          ),
+                                          padding(0.0, 0.0, 1.0, 1.0),
+                                          Text(
+                                            "CALL HOTEL",
+                                            style: myStyle(height * .013,
+                                                Colors.black, true),
+                                          )
+                                        ],
+                                      ),
+                                    )),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                      Container(
+                        height: height * .14,
+                        width: height * .18,
+                        decoration: BoxDecoration(
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(10.0)),
+                            image: DecorationImage(
+                                image: AssetImage('assets/bookings/r2.jpg'),
+                                fit: BoxFit.fill)),
                       ),
                     ],
                   ),
-                  Spacer(),
-                  Text("3 hours", style: myStyle(10.0, Colors.grey, true)),
-                ],
+                ),
               ),
             ),
-            Align(
-              alignment: Alignment.centerRight,
-              child: divider(Colors.grey[300], 120.0, 0.80),
-            ),
+
             // divider(Colors.grey[400], 120.0, 0.85),
           ],
         );
       },
     );
-  }
-
-  void _showOnTapMessage(BuildContext context, String message) {
-    var alert = new AlertDialog(
-      title: new Text("App"),
-      content: new Text(message),
-      actions: <Widget>[
-        new FlatButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            child: new Text("OK"))
-      ],
-    );
-    showDialog(context: context, builder: (context) => alert);
   }
 }

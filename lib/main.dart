@@ -1,9 +1,9 @@
-
-
 import 'package:congle/Auxiliary/colors.dart';
+import 'package:congle/Startup/splash_screen.dart';
 import 'package:flutter/material.dart';
 
-import 'Startup/startup_page.dart';
+
+
 
 void main() {
   runApp(MyApp());
@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
         
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: StartUpPage(),
+      home: SplashScreen(),
     );
   }
 }

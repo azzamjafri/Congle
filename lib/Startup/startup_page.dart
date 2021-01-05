@@ -27,27 +27,27 @@ class _StartUpPageState extends State<StartUpPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            Center(
-              child: Container(
-                  height: 90.0,
-                  width: 90.0,
-                  decoration: BoxDecoration(
-                    color: pinkColor,
-                    border: Border.all(
-                      color: Colors.transparent,
-                    ),
-                    borderRadius: BorderRadius.all(Radius.circular(25.0)),
-                  ),
-                  child: Image.asset('assets/icons/logo.png')),
-            ),
-            Text("CONGLE",
-                style: TextStyle(
-                    fontSize: 50.0,
-                    fontFamily: 'ttnorms',
-                    color: Colors.white,
-                    // color: Colors.grey[200],
-                    fontWeight: FontWeight.bold,
-                    letterSpacing: 1.5)),
+            // Center(
+            //   child: Container(
+            //       height: 90.0,
+            //       width: 90.0,
+            //       decoration: BoxDecoration(
+            //         color: pinkColor,
+            //         border: Border.all(
+            //           color: Colors.transparent,
+            //         ),
+            //         borderRadius: BorderRadius.all(Radius.circular(25.0)),
+            //       ),
+            //       child: Image.asset('assets/icons/logo.png')),
+            // ),
+            // Text("CONGLE",
+            //     style: TextStyle(
+            //         fontSize: 50.0,
+            //         fontFamily: 'ttnorms',
+            //         color: Colors.white,
+            //         // color: Colors.grey[200],
+            //         fontWeight: FontWeight.bold,
+            //         letterSpacing: 1.5)),
             Padding(padding: EdgeInsets.all(45.0)),
             Container(
               height: 45.0,

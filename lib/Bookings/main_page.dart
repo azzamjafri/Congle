@@ -153,7 +153,7 @@ class _CafeMainPageState extends State<CafeMainPage> {
                               borderRadius:
                                   BorderRadius.all(Radius.circular(100.0)),
                             ),
-                            child: Image.asset('assets/icons/heart.png'),
+                            child: Image.asset('assets/icons/black_heart.png'),
                           ),
                         ),
                       ],
@@ -248,7 +248,7 @@ class _CafeMainPageState extends State<CafeMainPage> {
                               borderRadius:
                                   BorderRadius.all(Radius.circular(100.0)),
                             ),
-                            child: Image.asset('assets/icons/heart.png'),
+                            child: Image.asset('assets/icons/black_heart.png'),
                           ),
                         ),
                       ],
@@ -341,7 +341,7 @@ class _CafeMainPageState extends State<CafeMainPage> {
                               borderRadius:
                                   BorderRadius.all(Radius.circular(100.0)),
                             ),
-                            child: Image.asset('assets/icons/heart.png'),
+                            child: Image.asset('assets/icons/black_heart.png'),
                           ),
                         ),
                       ],
@@ -450,7 +450,7 @@ class _CafeMainPageState extends State<CafeMainPage> {
                         fit: BoxFit.contain)),
               ),
               Text(
-                'Nearby',
+                'Bars',
                 style: myStyle(16.5, Colors.black, true),
               ),
             ],
@@ -469,7 +469,27 @@ class _CafeMainPageState extends State<CafeMainPage> {
                         fit: BoxFit.contain)),
               ),
               Text(
-                'Rooftop',
+                'Cafe',
+                style: myStyle(16.5, Colors.black, true),
+              ),
+            ],
+          ),
+
+          Column(
+            children: [
+              Container(
+                height: 115.0,
+                margin: EdgeInsets.only(left: 10.0, right: 10.0),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                ),
+                child: ClipRRect(
+                    borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                    child: Image.asset('assets/bookings/r2.jpg',
+                        fit: BoxFit.contain)),
+              ),
+              Text(
+                'Under 500',
                 style: myStyle(16.5, Colors.black, true),
               ),
             ],
@@ -554,7 +574,7 @@ class _CafeMainPageState extends State<CafeMainPage> {
           Spacer(),
           IconButton(
               icon: Image.asset(
-                'assets/icons/heart.png',
+                'assets/icons/black_heart.png',
               ),
               onPressed: () {}),
         ],
