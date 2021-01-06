@@ -2,8 +2,6 @@ import 'dart:async';
 
 import 'package:congle/Auxiliary/colors.dart';
 import 'package:congle/BookCafe/cafehomepage.dart';
-import 'package:congle/IntroPage/user_info_about.dart';
-
 import 'package:flutter/material.dart';
 import 'package:page_indicator/page_indicator.dart';
 
@@ -41,9 +39,9 @@ class _CafeBookingOnboardState extends State<CafeBookingOnboard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(),
-      body: getBody(),
       // backgroundColor: Colors.pink[50],
+      body: getBody(),
+      
     );
   }
 
@@ -73,14 +71,7 @@ class _CafeBookingOnboardState extends State<CafeBookingOnboard> {
   getPage1() {
     return Stack(
       children: [
-        // Positioned(
-        //     top: 30.0,
-        //     left: 30.0,
-        //     child: IconButton(
-        //         icon: Icon(Icons.arrow_back),
-        //         onPressed: () {
-        //           Navigator.pop(context);
-        //         })),
+        
         Align(
           alignment: Alignment(0.0, -0.6),
           child: Container(
@@ -94,20 +85,23 @@ class _CafeBookingOnboardState extends State<CafeBookingOnboard> {
           ),
         ),
                 Align(
-          alignment: Alignment(0, .55),
+          alignment: Alignment(0, .60),
           child: Text(
             "Enjoy your date",
             style: style(27.5),
           ),
         ),
         Align(
-          alignment: Alignment(0, .62),
-          child: Text(
-            "After successful booking, visit the restraunt and enjoy your date",
-            style: TextStyle(
-              color: Colors.black,
-              fontSize: 16.0,
-              fontFamily: 'ttnorms',
+          alignment: Alignment(0, .725),
+          child: Padding(
+            padding: const EdgeInsets.only(left: 25.0, right: 25.0),
+            child: Text(
+              "After successful booking, visit the restraunt and enjoy your date",
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 16.0,
+                fontFamily: 'ttnorms',
+              ),
             ),
           ),
         ),
@@ -150,14 +144,14 @@ class _CafeBookingOnboardState extends State<CafeBookingOnboard> {
         ),
         
         Align(
-          alignment: Alignment(0, .55),
+          alignment: Alignment(0, .60),
           child: Text(
             "Find restaurants near you",
             style: style(27.5),
           ),
         ),
         Align(
-          alignment: Alignment(0, .62),
+          alignment: Alignment(0, .68),
           child: Text(
             "Find best restraunts near your location",
             style: TextStyle(
@@ -192,12 +186,7 @@ class _CafeBookingOnboardState extends State<CafeBookingOnboard> {
   getPage3() {
     return Stack(
       children: [
-        // Positioned(
-        //     top: 30.0,
-        //     left: 30.0,
-        //     child: IconButton(
-        //         icon: Icon(Icons.arrow_back),
-        //         onPressed: () => Navigator.pop(context))),
+        
         Align(
           alignment: Alignment(0.0, -0.6),
           child: Container(
@@ -213,14 +202,14 @@ class _CafeBookingOnboardState extends State<CafeBookingOnboard> {
           ),
         ),
                 Align(
-          alignment: Alignment(0, .55),
+          alignment: Alignment(0, .60),
           child: Text(
             "Book the time to meet",
             style: style(27.5),
           ),
         ),
         Align(
-          alignment: Alignment(0, .62),
+          alignment: Alignment(0, .68),
           child: Text(
             "Book the time when you want to meet",
             style: TextStyle(

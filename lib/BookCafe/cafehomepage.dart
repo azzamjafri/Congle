@@ -2,8 +2,7 @@
 import 'package:congle/Auxiliary/custom_size.dart';
 import 'package:congle/Bookings/main_page.dart';
 import 'package:congle/BottomAppBar/bottom_app_bar.dart';
-
-import 'package:congle/Dates/dates.dart';
+import 'package:congle/HomePage/home_page.dart';
 import 'package:flutter/material.dart';
 
 
@@ -23,7 +22,7 @@ PageController _myPage = PageController(initialPage: 0);
     double height = displayHeight(context);
     
     return new Scaffold(
-      // appBar: PreferredSize(child: getAppBar(), preferredSize: Size.fromHeight(80.0)),
+      
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: Container(
         height: height / 12 + 6,
@@ -32,14 +31,14 @@ PageController _myPage = PageController(initialPage: 0);
         child: FittedBox(
           child: FloatingActionButton(
             onPressed: () {
-              Navigator.pushReplacement(context, new MaterialPageRoute(builder: (context) => Dates()));
+              // backgroundColor: Colors.pink[50],
             },
             child: Image.asset('assets/icons/logo.png'),
           ),
         ),
       ),
       bottomNavigationBar: MyBottomAppBar(),
-      // bottomNavigationBar: SimpleBottomAppBar(),
+      
 
       body: getBody(),
     );

@@ -1,6 +1,7 @@
 import 'dart:ui';
 import 'package:congle/Auxiliary/custom_size.dart';
-import 'package:congle/Dates/user_details.dart';
+import 'package:congle/BookCafe/confirm_booking.dart';
+
 import 'package:flutter/material.dart';
 
 class UpcomingDates extends StatefulWidget {
@@ -24,7 +25,7 @@ class _UpcomingDatesState extends State<UpcomingDates> {
 
   listOfPosts() {
     double height = displayHeight(context);
-    double width = displayWidth(context);
+    // double width = displayWidth(context);
 
     return ListView.builder(
       physics: ClampingScrollPhysics(),
@@ -38,7 +39,7 @@ class _UpcomingDatesState extends State<UpcomingDates> {
             GestureDetector(
               onTap: () {
                 Navigator.push(context,
-                    new MaterialPageRoute(builder: (context) => UserDetails()));
+                    new MaterialPageRoute(builder: (context) => ConfirmBooking()));
               },
               child: Card(
                 elevation: 10.0,
@@ -96,7 +97,7 @@ class _UpcomingDatesState extends State<UpcomingDates> {
                                     padding(0.0, 0.0, 1.0, 0.0),
                                     Text(
                                       '01/02/2020',
-                                      style: myStyle(height * .015),
+                                      style: myStyle(height * .0127),
                                     )
                                   ],
                                 ),
@@ -110,7 +111,7 @@ class _UpcomingDatesState extends State<UpcomingDates> {
                                     padding(0.0, 0.0, 1.0, 0.0),
                                     Text(
                                       '11:00 AM',
-                                      style: myStyle(height * .015),
+                                      style: myStyle(height * .0127),
                                     )
                                   ],
                                 )
@@ -127,7 +128,7 @@ class _UpcomingDatesState extends State<UpcomingDates> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Container(
-                                    width: displayWidth(context) / 5.3,
+                                    width: displayWidth(context) / 6.8,
                                     height: height * .035,
                                     decoration: BoxDecoration(
                                       color: Colors.black,
@@ -143,21 +144,21 @@ class _UpcomingDatesState extends State<UpcomingDates> {
                                           Icon(
                                             Icons.location_on,
                                             color: Colors.white,
-                                            size: height * .025,
+                                            size: height * .020,
                                           ),
                                           padding(0.0, 0.0, 0.7, 0.0),
                                           Text(
-                                            "Get Directions",
+                                            "Directions",
                                             style: myStyle(height * .012,
                                                 Colors.white, true),
                                           )
                                         ],
                                       ),
                                     )),
-                                // padding(0.0, 0.0, 2.0, 2.0),
+                                padding(0.0, 0.0, 3.0, 3.0),
 
                                 Container(
-                                    width: displayWidth(context) / 5.2,
+                                    width: displayWidth(context) / 6.2,
                                     height: height * .035,
                                     decoration: BoxDecoration(
                                       color: Colors.white,
@@ -174,12 +175,12 @@ class _UpcomingDatesState extends State<UpcomingDates> {
                                           Icon(
                                             Icons.call,
                                             color: Colors.black,
-                                            size: height * .022,
+                                            size: height * .020,
                                           ),
-                                          padding(0.0, 0.0, 1.0, 1.0),
+                                          padding(0.0, 0.0, 1.0, 0.0),
                                           Text(
                                             "CALL HOTEL",
-                                            style: myStyle(height * .013,
+                                            style: myStyle(height * .011,
                                                 Colors.black, true),
                                           )
                                         ],
@@ -190,6 +191,7 @@ class _UpcomingDatesState extends State<UpcomingDates> {
                           ],
                         ),
                       ),
+                      padding(0.0, 0.0, 1.0, 1.0),
                       Container(
                         height: height * .14,
                         width: height * .18,

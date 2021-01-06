@@ -31,9 +31,9 @@ class _HomePageState extends State<HomePage> {
       appBar: PreferredSize(
           preferredSize: Size.fromHeight(height * .118), child: MyAppBar()),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          padding(2.0, 2.0),
+          Spacer(),
           Container(
             width: width / 1.2,
             height: height * .700,
@@ -43,7 +43,7 @@ class _HomePageState extends State<HomePage> {
               ),
               elevation: 5.0,
               child: Padding(
-                padding: const EdgeInsets.all(4.0),
+                padding: const EdgeInsets.fromLTRB(4.0, 4.0, 4.0, 0.0),
                 child: Column(
                   children: [
                     Container(
@@ -91,9 +91,9 @@ class _HomePageState extends State<HomePage> {
                     padding(height * .005, height * .005),
 
                     // STACK START
-
+                    Spacer(),
                     getPhoto(),
-                    // padding(height * .0085, height * .0048),
+                    
 
                     
                   ],
@@ -150,7 +150,7 @@ class _HomePageState extends State<HomePage> {
         Center(
           child: Container(
               height: MediaQuery.of(context).size.height / 1.90,
-              width: MediaQuery.of(context).size.width / 1.2,
+              width: MediaQuery.of(context).size.width / 1.15,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.all(Radius.circular(45.0))),
               child: ClipRRect(

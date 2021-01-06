@@ -266,7 +266,7 @@ class _UserAboutMeState extends State<UserAboutMe> {
     );
   }
 
-  // ABOUT ME DUNCTINOS ***********************************
+  // ABOUT ME FUNCTIONS ***********************************
   profilePic() {
     return Stack(
       children: [

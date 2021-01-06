@@ -3,6 +3,7 @@ import 'package:congle/Auxiliary/colors.dart';
 import 'package:congle/Auxiliary/custom_size.dart';
 import 'package:congle/BookCafe/select_time.dart';
 import 'package:congle/BottomAppBar/bottom_app_bar.dart';
+import 'package:congle/HomePage/home_page.dart';
 
 import 'package:flutter/material.dart';
 
@@ -45,7 +46,7 @@ class _BookCafeState extends State<BookCafe> {
         width: height / 12 + 6,
         child: FittedBox(
           child: FloatingActionButton(
-            onPressed: () {},
+            onPressed: () => Navigator.pushReplacement(context, new MaterialPageRoute(builder: (context) => HomePage())),
             child: Image.asset('assets/icons/logo.png'),
           ),
         ),
