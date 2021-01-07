@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "600615436432",
+    "project_id": "congle-36deb",
+    "storage_bucket": "congle-36deb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:600615436432:android:70c990cdc7149ee1301815",
+        "android_client_info": {
+          "package_name": "com.example.congle"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "600615436432-0kft3nhcvap8bjpq0mjl3nkbhg7bgvj3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.congle",
+            "certificate_hash": "50bd05c2f4e6aafc72448c6a034a9cd346177064"
+          }
+        },
+        {
+          "client_id": "600615436432-jd0tah2q276c81v2kkmq1i32d7tj306c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBi2B8g3P1ds85SgbsjhnboeqBK9lwI9wc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "600615436432-jd0tah2q276c81v2kkmq1i32d7tj306c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

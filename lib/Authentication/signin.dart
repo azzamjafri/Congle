@@ -2,8 +2,13 @@ import 'package:congle/Authentication/signup.dart';
 import 'package:congle/Authentication/verification_page.dart';
 import 'package:congle/Auxiliary/colors.dart';
 import 'package:congle/Auxiliary/custom_size.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
+
+import 'authentication.dart';
 
 class SignIn extends StatefulWidget {
   @override
@@ -18,77 +23,77 @@ class _SignInState extends State<SignIn> {
   final key = new GlobalKey<ScaffoldState>();
   final formkey = GlobalKey<FormState>();
 
-  // AuthResult authresult;
+  UserCredential userCredential;
   bool loading = false;
 
-  // final auth = FirebaseAuth.instance;
-  // bool valid;
+  final auth = FirebaseAuth.instance;
+  bool valid;
 
-  // void submit(String email, String password, BuildContext ctx) async {
-  //   try {
-  //     setState(() {
-  //       loading = true;
-  //     });
+  void submit(String email, String password, BuildContext ctx) async {
+    try {
+      setState(() {
+        loading = true;
+      });
 
-  //     authresult = await auth.signInWithEmailAndPassword(
-  //         email: email, password: password);
-  //     setState(() {
-  //       loading = false;
-  //     });
-  //     user = authresult.user;
-  //     // Navigator.of(context).push(MaterialPageRoute(builder: (context) => HomePage()));
-  //     Navigator.pushAndRemoveUntil(
-  //         context,
-  //         MaterialPageRoute(builder: (context) => HomePage()),
-  //         (route) => false);
-  //   } on PlatformException catch (error) {
-  //     var message = ' An error occured, please check credentials';
-  //     if (error.message != null) {
-  //       message = error.message;
-  //     }
+      userCredential = await auth.signInWithEmailAndPassword(
+          email: email, password: password);
+      setState(() {
+        loading = false;
+      });
+      user = userCredential.user;
+      // Navigator.of(context).push(MaterialPageRoute(builder: (context) => HomePage()));
+      Navigator.pushAndRemoveUntil(
+          context,
+          MaterialPageRoute(builder: (context) => VerificationPage()),
+          (route) => false);
+    } on PlatformException catch (error) {
+      var message = ' An error occured, please check credentials';
+      if (error.message != null) {
+        message = error.message;
+      }
 
-  //     Alert(
-  //       context: context,
-  //       type: AlertType.error,
-  //       title: "Error",
-  //       buttons: [
-  //         DialogButton(
-  //           child: Text(
-  //             message,
-  //             style: TextStyle(color: Colors.black, fontSize: 10),
-  //           ),
-  //           color: Colors.white,
-  //           onPressed: () async {
-  //             Navigator.pop(context);
-  //           },
-  //         )
-  //       ],
-  //     ).show();
-  //     setState(() {
-  //       loading = false;
-  //     });
-  //   } catch (err) {
-  //     print(err);
-  //     setState(() {
-  //       loading = false;
-  //     });
-  //   }
-  // }
+      Alert(
+        context: context,
+        type: AlertType.error,
+        title: "Error",
+        buttons: [
+          DialogButton(
+            child: Text(
+              message,
+              style: TextStyle(color: Colors.black, fontSize: 10),
+            ),
+            color: Colors.white,
+            onPressed: () async {
+              Navigator.pop(context);
+            },
+          )
+        ],
+      ).show();
+      setState(() {
+        loading = false;
+      });
+    } catch (err) {
+      print(err);
+      setState(() {
+        loading = false;
+      });
+    }
+  }
 
-  // void reset() async {
-  //   auth.sendPasswordResetEmail(email: emailController.text.trim());
-  // }
+  void reset() async {
+    auth.sendPasswordResetEmail(email: emailController.text.trim());
+  }
 
-  // void trysubmit(BuildContext context) async {
-  //   valid = formkey.currentState.validate();
-  //   FocusScope.of(context).unfocus();
+  void trysubmit(BuildContext context) async {
+    valid = formkey.currentState.validate();
+    FocusScope.of(context).unfocus();
 
-  //   if (valid) {
-  //     formkey.currentState.save();
-  //     submit(
-  //         emailController.text.trim(), passwordController.text.trim(), context);
-  //   }
-  // }
+    if (valid) {
+      formkey.currentState.save();
+      submit(
+          emailController.text.trim(), passwordController.text.trim(), context);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -273,8 +278,8 @@ class _SignInState extends State<SignIn> {
                               width: MediaQuery.of(context).size.width * .8,
                               child: FlatButton(
                                   onPressed: () {
-                                    // trysubmit(context);
-                                    Navigator.push(context, new MaterialPageRoute(builder: (context) => VerificationPage()));
+                                    trysubmit(context);
+                                    
                                   },
                                   child: (loading)
                                       ? CircularProgressIndicator()
